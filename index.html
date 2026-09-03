@@ -1,11 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>C.E.C. Irmã Ambrósia Sabatovich</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <!-- Barra de Acessibilidade -->
+    <div class="accessibility-bar" aria-label="Controles de Acessibilidade">
+        <button onclick="toggleContrast()" aria-label="Alto Contraste">Alto Contraste</button>
+        <button onclick="changeFontSize(1)" aria-label="Aumentar Fonte">A+</button>
+        <button onclick="changeFontSize(-1)" aria-label="Diminuir Fonte">A-</button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-placeholder">LOGOTIPO</div>
+            <div>
+                <h1>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</h1>
+                <p>Ensino Fundamental e Médio <span class="badge-publico">Escola Pública Estadual</span></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#cursos">Ensino</a></li>
+            <li><a href="#infraestrutura">Infraestrutura</a></li>
+            <li><a href="#equipe">Equipe</a></li>
+            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="#galeria">Fotos</a></li>
+            <li><a href="#indicadores">Rendimento</a></li>
+            <li><a href="#depoimentos">Depoimentos</a></li>
+            <li><a href="#matricula">Matrícula</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <h2>História do Colégio</h2>
+        <p>O <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</strong> possui suas raízes ligadas a uma tradição de origem católica, iniciada com o empenho da comunidade local e da congregação religiosa que deu nome à instituição. Fundado para atender aos jovens e crianças da área rural, o colégio iniciou suas atividades com o objetivo de oferecer educação de qualidade aliada a valores humanos e comunitários.</p>
+        <p>Ao longo dos anos, para expandir o acesso à educação, a instituição foi estadualizada, tornando-se uma <strong>escola pública</strong> mantida pelo Estado, atendendo gratuitamente toda a comunidade do campo com turmas de Ensino Fundamental II e Ensino Médio.</p>
+    </section>
+
+    <!-- Níveis de Ensino e Disciplinas -->
+    <section id="cursos">
+        <h2>Oferta de Ensino e Disciplinas</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Ensino Fundamental (6º ao 9º ano)</h3>
+                <p>Formação integral com foco no desenvolvimento cognitivo, social e do campo.</p>
+                <strong>Disciplinas:</strong>
+                <ul>
+                    <li>Língua Portuguesa | Matemática</li>
+                    <li>Ciências | História | Geografia</li>
+                    <li>Arte | Educação Física | Inglês</li>
+                    <li>Ensino Religioso</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Ensino Médio (1º ao 3º ano)</h3>
+                <p>Preparo para o ensino superior, mercado de trabalho e cidadania.</p>
+                <strong>Disciplinas:</strong>
+                <ul>
+                    <li>Língua Portuguesa | Literatura | Redação</li>
+                    <li>Matemática | Física | Química | Biologia</li>
+                    <li>História | Geografia | Filosofia | Sociologia</li>
+                    <li>Língua Inglesa | Educação Física | Arte</li>
+                    <li>Itinerários Formativos (Conforme a BNCC)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infraestrutura -->
+    <section id="infraestrutura">
+        <h2>Infraestrutura e Acessibilidade</h2>
+        <p>Estrutura preparada para acolher todos os estudantes com segurança, inclusão e conforto.</p>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Instalações Pedagógicas e Esportivas</h3>
+                <ul>
+                    <li>Biblioteca completa</li>
+                    <li>Laboratório de Informática</li>
+                    <li>Laboratório de Ciências</li>
+                    <li>Quadra de Esportes coberta</li>
+                    <li>Sala da Diretoria e Secretaria</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Serviços e Acessibilidade</h3>
+                <ul>
+                    <li>Escola e dependências com Acessibilidade</li>
+                    <li>Sanitários com Acessibilidade adaptados</li>
+                    <li>Sanitários internos na escola</li>
+                    <li>Alimentação escolar fornecida (Merenda)</li>
+                    <li>Água filtrada disponível</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipe Escolar -->
+    <section id="equipe">
+        <h2>Equipe Escolar</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Direção e Pedagógico</h3>
+                <p><strong>Diretora:</strong> Profª. Maria Oliveira</p>
+                <p><strong>Pedagogas:</strong> Ana Santos e Clara Luz</p>
+            </div>
+            <div class="card">
+                <h3>Secretaria e Apoio</h3>
+                <p><strong>Secretárias:</strong> Juliana Lima e Roberto Alves</p>
+                <p><strong>Equipe de Apoio:</strong> Agentes Educacionais I e II</p>
+            </div>
+            <div class="card">
+                <h3>Corpo Docente</h3>
+                <p>Professores licenciados e especializados para o Ensino Fundamental II e Ensino Médio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notícias e Certificados -->
+    <section id="noticias">
+        <h2>Notícias, Comunicados e Certificados</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Feira do Conhecimento do Campo</h3>
+                <p><em>02/09/2026:</em> Convidamos toda a comunidade para prestigiar os trabalhos dos alunos neste final de semana.</p>
+            </div>
+            <div class="card">
+                <h3>Reunião de Pais e Mestres</h3>
+                <p><em>15/09/2026:</em> Encontro para entrega de boletins do 2º trimestre a partir das 14h.</p>
+            </div>
+            <div class="card">
+                <h3>Certificados e Destaques</h3>
+                <p>Projeto de Leitura e Olimpíadas Científicas: confira os alunos premiados e certificados emitidos no último mês.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Fotos -->
+    <section id="galeria">
+        <h2>Banco de Fotos</h2>
+        <h3>Instalações (Internas e Externas)</h3>
+        <div class="gallery">
+            <div class="gallery-item">Entrada Principal</div>
+            <div class="gallery-item">Pátio Externo</div>
+            <div class="gallery-item">Biblioteca</div>
+            <div class="gallery-item">Lab. Informática</div>
+        </div>
+        <h3 style="margin-top: 20px;">Eventos e Projetos</h3>
+        <div class="gallery">
+            <div class="gallery-item">Festa Junina</div>
+            <div class="gallery-item">Jogos Escolares</div>
+            <div class="gallery-item">Feira de Ciências</div>
+            <div class="gallery-item">Formatura</div>
+        </div>
+    </section>
+
+    <!-- Rendimento Escolar -->
+    <section id="indicadores">
+        <h2>Indicadores Acadêmicos (Aprovação, Reprovação e Abandono)</h2>
+        <p>Acompanhamento do rendimento por nível de ensino (Dados referência do último ano letivo):</p>
+        
+        <h3>Ensino Fundamental (6º ao 9º ano)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ano Escolar</th>
+                    <th>Aprovação (%)</th>
+                    <th>Reprovação (%)</th>
+                    <th>Abandono (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>6º Ano</td><td>92%</td><td>6%</td><td>2%</td></tr>
+                <tr><td>7º Ano</td><td>90%</td><td>8%</td><td>2%</td></tr>
+                <tr><td>8º Ano</td><td>94%</td><td>5%</td><td>1%</td></tr>
+                <tr><td>9º Ano</td><td>96%</td><td>4%</td><td>0%</td></tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top: 20px;">Ensino Médio (1º ao 3º ano)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ano Escolar</th>
+                    <th>Aprovação (%)</th>
+                    <th>Reprovação (%)</th>
+                    <th>Abandono (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1º Ano</td><td>88%</td><td>9%</td><td>3%</td></tr>
+                <tr><td>2º Ano</td><td>91%</td><td>7%</td><td>2%</td></tr>
+                <tr><td>3º Ano</td><td>97%</td><td>2%</td><td>1%</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos">
+        <h2>Depoimentos</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Depoimento de Ex-aluno</h3>
+                <p>"Estudar no Irmã Ambrósia me deu a base necessária para entrar na faculdade. O carinho dos professores e a estrutura do campo marcaram minha vida."</p>
+                <small>- João Pedro, Ex-Aluno (Turma de 2022)</small>
+            </div>
+            <div class="card">
+                <h3>Depoimento de Professor</h3>
+                <p>"Lecionar aqui é um aprendizado constante. Temos uma comunidade participativa e estudantes comprometidos com o futuro."</p>
+                <small>- Profª. Helena, Docente de Matemática</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aba Especial para Matrícula -->
+    <section id="matricula" class="section-matricula">
+        <h2>Aba Especial: Pré-Matrícula e Transferências</h2>
+        <p>Seja bem-vindo! Faça a pré-inscrição para o próximo ano letivo ou solicite transferência enviando o formulário abaixo. Nossa secretaria entrará em contato.</p>
+        
+        <form onsubmit="enviarMatricula(event)">
+            <label for="nome">Nome do Aluno:</label>
+            <input type="text" id="nome" required placeholder="Digite o nome completo">
+
+            <label for="responsavel">Nome do Responsável:</label>
+            <input type="text" id="responsavel" required placeholder="Nome do pai, mãe ou responsável">
+
+            <label for="ano">Etapa Pretendida:</label>
+            <select id="ano" required>
+                <option value="">Selecione...</option>
+                <optgroup label="Ensino Fundamental">
+                    <option value="6ef">6º Ano</option>
+                    <option value="7ef">7º Ano</option>
+                    <option value="8ef">8º Ano</option>
+                    <option value="9ef">9º Ano</option>
+                </optgroup>
+                <optgroup label="Ensino Médio">
+                    <option value="1em">1º Ano</option>
+                    <option value="2em">2º Ano</option>
+                    <option value="3em">3º Ano</option>
+                </optgroup>
+            </select>
+
+            <label for="telefone">Telefone / WhatsApp para contato:</label>
+            <input type="tel" id="telefone" required placeholder="(00) 00000-0000">
+
+            <button type="submit" class="btn-submit">Enviar Pré-Matrícula</button>
+        </form>
+    </section>
+
+    <!-- Contato e Localização -->
+    <footer id="contato">
+        <h2>C.E.C. Irmã Ambrósia Sabatovich</h2>
+        <p>Entre em contato conosco ou faça-nos uma visita.</p>
+        
+        <div class="contact-info">
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5500000000000" target="_blank">(00) 90000-0000</a></p>
+            <p><strong>E-mail:</strong> <a href="mailto:escola.ambrosia@escola.pr.gov.br">escola.ambrosia@escola.pr.gov.br</a></p>
+            <p><strong>Localização:</strong> Zona Rural / Comunidade do Campo, Paraná, Brasil</p>
+        </div>
+
+        <p class="copyright">&copy; 2026 Colégio Estadual do Campo Irmã Ambrósia Sabatovich - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
