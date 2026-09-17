@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,74 +7,109 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <!-- Acessibilidade -->
     <div class="accessibility-bar">
-        <button onclick="toggleContrast()">Contrast</button>
-        <button onclick="changeFontSize(1)">A+</button>
-        <button onclick="changeFontSize(-1)">A-</button>
+        <div class="container accessibility-content">
+            <span class="accessibility-text">Acessibilidade:</span>
+            <button onclick="toggleContrast()" class="btn-ghost-sm">Alto Contraste</button>
+            <button onclick="changeFontSize(1)" class="btn-ghost-sm">A+</button>
+            <button onclick="changeFontSize(-1)" class="btn-ghost-sm">A-</button>
+        </div>
     </div>
 
-    <!-- Header Estilo Lovable -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo-container">
-                <div class="logo-box">CEC</div>
-                <div>
-                    <span class="badge">Escola Pública Estadual</span>
-                    <h1>C.E.C. Irmã Ambrósia Sabatovich</h1>
+    <!-- Navegação / Header Lovable Style -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand">
+                <div class="logo-icon">CEC</div>
+                <div class="brand-text">
+                    <span class="brand-title">Irmã Ambrósia</span>
+                    <span class="badge-public">Escola Pública</span>
                 </div>
-            </div>
-            <a href="#matricula" class="btn-primary">Fazer Matrícula</a>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#cursos">Ensino</a>
+                <a href="#infraestrutura">Infraestrutura</a>
+                <a href="#equipe">Equipe</a>
+                <a href="#indicadores">Rendimento</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#galeria">Fotos</a>
+            </nav>
+
+            <a href="#matricula" class="btn-primary">Matrícula</a>
         </div>
     </header>
 
-    <!-- Navegação -->
-    <nav class="nav">
-        <div class="container nav-container">
-            <a href="#sobre">Sobre</a>
-            <a href="#cursos">Ensino</a>
-            <a href="#infraestrutura">Infraestrutura</a>
-            <a href="#equipe">Equipe</a>
-            <a href="#noticias">Notícias</a>
-            <a href="#galeria">Galeria</a>
-            <a href="#indicadores">Rendimento</a>
-            <a href="#depoimentos">Depoimentos</a>
-            <a href="#contato">Contato</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <span class="chip">Ensino Fundamental II e Ensino Médio</span>
+            <h1 class="hero-title">Colégio Estadual do Campo <br><span class="gradient-text">Irmã Ambrósia Sabatovich</span></h1>
+            <p class="hero-subtitle">Educação pública de qualidade e inclusiva no coração da comunidade do campo. Tradição, valores e foco no futuro dos nossos estudantes.</p>
+            <div class="hero-actions">
+                <a href="#matricula" class="btn-primary btn-lg">Solicitar Pré-Matrícula</a>
+                <a href="#sobre" class="btn-outline btn-lg">Conhecer História</a>
+            </div>
         </div>
-    </nav>
+    </section>
 
-    <main class="container">
-        <!-- Sobre -->
-        <section id="sobre" class="card hero-section">
-            <h2>História do Colégio</h2>
-            <p>O <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</strong> possui suas raízes ligadas a uma tradição de origem católica, iniciada com o empenho da comunidade local e da congregação religiosa que deu nome à instituição. Fundado para atender aos jovens e crianças da área rural, o colégio iniciou suas atividades oferecendo educação de qualidade aliada a valores humanos.</p>
-            <p>Com a estadualização, tornou-se uma <strong>escola pública</strong> mantida pelo Estado, garantindo ensino gratuito de qualidade para o Ensino Fundamental II e Ensino Médio na comunidade do campo.</p>
+    <main class="container main-content">
+
+        <!-- História / Sobre -->
+        <section id="sobre" class="section">
+            <div class="section-header">
+                <span class="section-tag">Nossa Trajetória</span>
+                <h2>História do Colégio</h2>
+            </div>
+            <div class="card card-gradient">
+                <p>O <strong>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</strong> possui suas raízes profundamente conectadas a uma tradição de <strong>origem católica</strong>, iniciada através do empenho e fé da comunidade local e da congregação religiosa que deu nome à instituição.</p>
+                <p>Com o objetivo de expansão e garantia de acesso à educação para todos, a instituição foi estadualizada e consolidou-se como uma <strong>escola pública mantida pelo Estado</strong>. Hoje, oferecemos ensino gratuito e de excelência para os jovens do campo no Ensino Fundamental II (6º ao 9º ano) e Ensino Médio (1º ao 3º ano).</p>
+            </div>
         </section>
 
-        <!-- Ensino -->
+        <!-- Oferta de Ensino -->
         <section id="cursos" class="section">
-            <h2>Oferta de Ensino</h2>
-            <div class="grid">
+            <div class="section-header">
+                <span class="section-tag">Pedagógico</span>
+                <h2>Níveis de Ensino e Disciplinas</h2>
+            </div>
+            <div class="grid grid-2">
                 <div class="card">
-                    <h3>Ensino Fundamental (6º ao 9º)</h3>
-                    <p>Formação integral com foco no desenvolvimento cognitivo, social e valorização do campo.</p>
-                    <div class="tag-group">
-                        <span class="tag">Português</span><span class="tag">Matemática</span>
-                        <span class="tag">Ciências</span><span class="tag">História</span>
-                        <span class="tag">Geografia</span><span class="tag">Inglês</span>
+                    <div class="card-badge">6º ao 9º ano</div>
+                    <h3>Ensino Fundamental</h3>
+                    <p>Formação integral com foco no desenvolvimento cognitivo, cidadania e valorização da cultura do campo.</p>
+                    <div class="tag-cloud">
+                        <span class="tag">Língua Portuguesa</span>
+                        <span class="tag">Matemática</span>
+                        <span class="tag">Ciências</span>
+                        <span class="tag">História</span>
+                        <span class="tag">Geografia</span>
+                        <span class="tag">Arte</span>
+                        <span class="tag">Educação Física</span>
+                        <span class="tag">Inglês</span>
+                        <span class="tag">Ensino Religioso</span>
                     </div>
                 </div>
+
                 <div class="card">
-                    <h3>Ensino Médio (1º ao 3º)</h3>
-                    <p>Preparo para o ensino superior, mercado de trabalho e desenvolvimento cidadão.</p>
-                    <div class="tag-group">
-                        <span class="tag">Física</span><span class="tag">Química</span>
-                        <span class="tag">Biologia</span><span class="tag">Filosofia</span>
-                        <span class="tag">Sociologia</span><span class="tag">Itinerários BNCC</span>
+                    <div class="card-badge">1º ao 3º ano</div>
+                    <h3>Ensino Médio</h3>
+                    <p>Preparo acadêmico para vestibulares, ENEM, mercado de trabalho e protagonismo social.</p>
+                    <div class="tag-cloud">
+                        <span class="tag">Português e Literatura</span>
+                        <span class="tag">Matemática</span>
+                        <span class="tag">Física</span>
+                        <span class="tag">Química</span>
+                        <span class="tag">Biologia</span>
+                        <span class="tag">Filosofia</span>
+                        <span class="tag">Sociologia</span>
+                        <span class="tag">Itinerários Formativos BNCC</span>
                     </div>
                 </div>
             </div>
@@ -82,94 +117,211 @@
 
         <!-- Infraestrutura -->
         <section id="infraestrutura" class="section">
-            <h2>Infraestrutura e Acessibilidade</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Espaços Pedagógicos</h3>
-                    <ul>
-                        <li>Biblioteca completa</li>
-                        <li>Laboratório de Informática</li>
-                        <li>Laboratório de Ciências</li>
-                        <li>Quadra Poliesportiva</li>
-                    </ul>
+            <div class="section-header">
+                <span class="section-tag">Estrutura</span>
+                <h2>Infraestrutura e Acessibilidade</h2>
+            </div>
+            <div class="grid grid-3">
+                <div class="card card-sm">
+                    <h4>Dependências Adaptadas</h4>
+                    <p>Escola e dependências projetadas com acessibilidade total para PWD.</p>
                 </div>
-                <div class="card">
-                    <h3>Acessibilidade e Conforto</h3>
-                    <ul>
-                        <li>Escola com Acessibilidade total</li>
-                        <li>Sanitários adaptados</li>
-                        <li>Alimentação escolar diária</li>
-                        <li>Água filtrada</li>
-                    </ul>
+                <div class="card card-sm">
+                    <h4>Sanitários Adaptados</h4>
+                    <p>Banheiros internos e exclusivos com acessibilidade completa.</p>
+                </div>
+                <div class="card card-sm">
+                    <h4>Alimentação e Saúde</h4>
+                    <p>Alimentação escolar balanceada fornecida diariamente e água filtrada.</p>
+                </div>
+                <div class="card card-sm">
+                    <h4>Laboratórios</h4>
+                    <p>Laboratório de Informática equipado e Laboratório de Ciências completo.</p>
+                </div>
+                <div class="card card-sm">
+                    <h4>Biblioteca</h4>
+                    <p>Acervo diversificado para estudos, pesquisas e incentivo à leitura.</p>
+                </div>
+                <div class="card card-sm">
+                    <h4>Quadra e Diretoria</h4>
+                    <p>Quadra de esportes coberta e sala da diretoria/atendimento organizada.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Equipe -->
+        <!-- Equipe Escolar -->
         <section id="equipe" class="section">
-            <h2>Equipe Escolar</h2>
+            <div class="section-header">
+                <span class="section-tag">Profissionais</span>
+                <h2>Equipe Escolar</h2>
+            </div>
             <div class="grid grid-3">
-                <div class="card">
-                    <h3>Direção e Pedagogia</h3>
+                <div class="card text-center">
+                    <div class="avatar">DIR</div>
+                    <h3>Direção & Pedagogia</h3>
                     <p><strong>Diretora:</strong> Profª. Maria Oliveira</p>
                     <p><strong>Pedagogas:</strong> Ana Santos e Clara Luz</p>
                 </div>
-                <div class="card">
+                <div class="card text-center">
+                    <div class="avatar">SEC</div>
                     <h3>Secretaria</h3>
                     <p><strong>Secretários:</strong> Juliana Lima e Roberto Alves</p>
+                    <p>Atendimento e documentos escolares.</p>
                 </div>
-                <div class="card">
+                <div class="card text-center">
+                    <div class="avatar">DOC</div>
                     <h3>Corpo Docente</h3>
-                    <p>Professores qualificados e dedicados à educação do campo.</p>
+                    <p>Professores qualificados e engajados com a comunidade do campo.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Indicadores -->
-        <section id="indicadores" class="card section">
-            <h2>Rendimento Escolar</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nível / Ano</th>
-                            <th>Aprovação</th>
-                            <th>Reprovação</th>
-                            <th>Abandono</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Fundamental (6º - 9º)</td><td>93%</td><td>5.75%</td><td>1.25%</td></tr>
-                        <tr><td>Médio (1º - 3º)</td><td>92%</td><td>6%</td><td>2%</td></tr>
-                    </tbody>
-                </table>
+        <!-- Rendimento Escolar -->
+        <section id="indicadores" class="section">
+            <div class="section-header">
+                <span class="section-tag">Transparência</span>
+                <h2>Indicadores Acadêmicos</h2>
+            </div>
+            <div class="card">
+                <h3>Ensino Fundamental II (6º ao 9º)</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ano Escolar</th>
+                                <th>Aprovação</th>
+                                <th>Reprovação</th>
+                                <th>Abandono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>6º Ano</td><td><span class="status-success">92%</span></td><td>6%</td><td>2%</td></tr>
+                            <tr><td>7º Ano</td><td><span class="status-success">90%</span></td><td>8%</td><td>2%</td></tr>
+                            <tr><td>8º Ano</td><td><span class="status-success">94%</span></td><td>5%</td><td>1%</td></tr>
+                            <tr><td>9º Ano</td><td><span class="status-success">96%</span></td><td>4%</td><td>0%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="margin-top: 32px;">Ensino Médio (1º ao 3º)</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ano Escolar</th>
+                                <th>Aprovação</th>
+                                <th>Reprovação</th>
+                                <th>Abandono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1º Ano</td><td><span class="status-success">88%</span></td><td>9%</td><td>3%</td></tr>
+                            <tr><td>2º Ano</td><td><span class="status-success">91%</span></td><td>7%</td><td>2%</td></tr>
+                            <tr><td>3º Ano</td><td><span class="status-success">97%</span></td><td>2%</td><td>1%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
-        <!-- Matrícula -->
-        <section id="matricula" class="card section highlight-card">
-            <h2>Pré-Matrícula Online</h2>
-            <p>Preencha os dados abaixo para iniciar a inscrição no colégio:</p>
-            <form onsubmit="enviarMatricula(event)" class="form">
-                <input type="text" id="nome" placeholder="Nome Completo do Aluno" required>
-                <input type="text" id="responsavel" placeholder="Nome do Responsável" required>
-                <select id="ano" required>
-                    <option value="">Selecione a Etapa...</option>
-                    <option value="fundamental">Ensino Fundamental</option>
-                    <option value="medio">Ensino Médio</option>
-                </select>
-                <input type="tel" id="telefone" placeholder="WhatsApp / Telefone" required>
-                <button type="submit" class="btn-primary">Enviar Pré-Matrícula</button>
-            </form>
+        <!-- Depoimentos -->
+        <section id="depoimentos" class="section">
+            <div class="section-header">
+                <span class="section-tag">Comunidade</span>
+                <h2>Depoimentos</h2>
+            </div>
+            <div class="grid grid-2">
+                <div class="card quote-card">
+                    <p class="quote">"Estudar no Irmã Ambrósia me deu a base sólida que eu precisava para ingressar no ensino superior. Os professores são incríveis!"</p>
+                    <div class="quote-author">
+                        <strong>João Pedro</strong>
+                        <span>Ex-Aluno (Turma 2022)</span>
+                    </div>
+                </div>
+                <div class="card quote-card">
+                    <p class="quote">"Lecionar nesta escola é um privilégio. A união entre a comunidade rural e o ambiente acadêmico faz toda a diferença."</p>
+                    <div class="quote-author">
+                        <strong>Profª. Helena</strong>
+                        <span>Docente de Matemática</span>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- Galeria / Banco de Fotos -->
+        <section id="galeria" class="section">
+            <div class="section-header">
+                <span class="section-tag">Galeria</span>
+                <h2>Banco de Fotos</h2>
+            </div>
+            <div class="grid grid-4">
+                <div class="photo-card"><span>Fachada Externa</span></div>
+                <div class="photo-card"><span>Biblioteca</span></div>
+                <div class="photo-card"><span>Lab. Informática</span></div>
+                <div class="photo-card"><span>Quadra Coberta</span></div>
+                <div class="photo-card"><span>Feira de Ciências</span></div>
+                <div class="photo-card"><span>Festa Junina</span></div>
+                <div class="photo-card"><span>Jogos Escolares</span></div>
+                <div class="photo-card"><span>Formatura</span></div>
+            </div>
+        </section>
+
+        <!-- Form de Matrícula -->
+        <section id="matricula" class="section">
+            <div class="card card-primary-glow">
+                <div class="section-header text-center">
+                    <span class="section-tag tag-white">Inscrições Abertas</span>
+                    <h2 class="text-white">Pré-Matrícula e Transferências</h2>
+                    <p class="text-white-muted">Preencha os dados e a secretaria entrará em contato via WhatsApp.</p>
+                </div>
+                <form onsubmit="enviarMatricula(event)" class="form-grid">
+                    <div class="form-group">
+                        <label for="nome">Nome do Aluno</label>
+                        <input type="text" id="nome" placeholder="Nome completo do estudante" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="responsavel">Nome do Responsável</label>
+                        <input type="text" id="responsavel" placeholder="Nome do pai, mãe ou responsável" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ano">Ano / Etapa Pretendida</label>
+                        <select id="ano" required>
+                            <option value="">Selecione...</option>
+                            <option value="6ef">6º Ano - Fundamental</option>
+                            <option value="7ef">7º Ano - Fundamental</option>
+                            <option value="8ef">8º Ano - Fundamental</option>
+                            <option value="9ef">9º Ano - Fundamental</option>
+                            <option value="1em">1º Ano - Médio</option>
+                            <option value="2em">2º Ano - Médio</option>
+                            <option value="3em">3º Ano - Médio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">WhatsApp / Telefone</label>
+                        <input type="tel" id="telefone" placeholder="(00) 90000-0000" required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Confirmar Envio</button>
+                </form>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
     <footer id="contato" class="footer">
-        <div class="container">
-            <p><strong>WhatsApp:</strong> (00) 90000-0000 | <strong>Email:</strong> escola.ambrosia@escola.pr.gov.br</p>
-            <p>Zona Rural — Paraná, Brasil</p>
-            <small>&copy; 2026 C.E.C. Irmã Ambrósia Sabatovich</small>
+        <div class="container footer-container">
+            <div>
+                <h3>C.E.C. Irmã Ambrósia Sabatovich</h3>
+                <p>Educação pública de qualidade para a comunidade do campo.</p>
+            </div>
+            <div class="footer-contacts">
+                <p><strong>WhatsApp:</strong> (00) 90000-0000</p>
+                <p><strong>Gmail:</strong> escola.ambrosia@escola.pr.gov.br</p>
+                <p><strong>Localização:</strong> Zona Rural / Comunidade do Campo — PR</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Colégio Estadual do Campo Irmã Ambrósia Sabatovich. Todos os direitos reservados.</p>
         </div>
     </footer>
 

@@ -1,18 +1,21 @@
+// Controle de Alto Contraste
 function toggleContrast() {
     document.body.classList.toggle('high-contrast');
 }
 
-let fontStep = 16;
+// Ajuste dinâmico de Fonte
+let fontSize = 16;
 function changeFontSize(delta) {
-    fontStep += delta;
-    if (fontStep < 13) fontStep = 13;
-    if (fontStep > 22) fontStep = 22;
-    document.documentElement.style.setProperty('--font-size', fontStep + 'px');
+    fontSize += delta;
+    if (fontSize < 12) fontSize = 12;
+    if (fontSize > 22) fontSize = 22;
+    document.documentElement.style.setProperty('--font-size', fontSize + 'px');
 }
 
+// Feedback do Formulário de Matrícula
 function enviarMatricula(event) {
     event.preventDefault();
     const nome = document.getElementById('nome').value;
-    alert(`Pré-matrícula recebida para ${nome}! A equipe entrará em contato.`);
+    alert(`Obrigado, ${nome}! A pré-solicitação de matrícula foi recebida. A secretaria entrará em contato via WhatsApp/Telefone.`);
     event.target.reset();
 }
