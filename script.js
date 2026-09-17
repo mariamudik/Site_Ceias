@@ -1,22 +1,18 @@
-// Função para alternar o modo de alto contraste
 function toggleContrast() {
     document.body.classList.toggle('high-contrast');
 }
 
-// Função para ajustar o tamanho da fonte
-let currentFontSize = 16;
-
+let fontStep = 16;
 function changeFontSize(delta) {
-    currentFontSize += delta;
-    if (currentFontSize < 12) currentFontSize = 12;
-    if (currentFontSize > 22) currentFontSize = 22;
-    document.documentElement.style.setProperty('--font-size', currentFontSize + 'px');
+    fontStep += delta;
+    if (fontStep < 13) fontStep = 13;
+    if (fontStep > 22) fontStep = 22;
+    document.documentElement.style.setProperty('--font-size', fontStep + 'px');
 }
 
-// Função para gerenciar o envio do formulário de matrícula
 function enviarMatricula(event) {
     event.preventDefault();
     const nome = document.getElementById('nome').value;
-    alert(`Obrigado, ${nome}! A pré-solicitação de matrícula foi recebida. A secretaria entrará em contato em breve pelo WhatsApp/Telefone informado.`);
+    alert(`Pré-matrícula recebida para ${nome}! A equipe entrará em contato.`);
     event.target.reset();
 }
