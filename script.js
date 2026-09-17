@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu Hambúrguer
+    // Menu Hambúrguer Toggle
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navMenu = document.getElementById('nav-menu');
 
@@ -7,7 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.toggle('active');
     });
 
-    // Chat Simulado e Integração WhatsApp
+    // Fechar o menu ao clicar em qualquer link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Chat Simulado e Encaminhamento para WhatsApp
     const btnEnviar = document.getElementById('btnEnviar');
     const btnZap = document.getElementById('btnZap');
     const chatBox = document.getElementById('chatBox');
@@ -17,15 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const texto = userInput.value.trim();
         if(texto !== "") {
             chatBox.innerHTML += `<p><strong>Você:</strong> ${texto}</p>`;
-            chatBox.innerHTML += `<p><strong>Assistente:</strong> Recebi sua mensagem! Clique no botão ao lado para encaminhá-la diretamente ao nosso WhatsApp.</p>`;
+            chatBox.innerHTML += `<p><strong>Assistente:</strong> Sua mensagem foi registrada! Para falar direto com a secretaria no celular da escola, clique no botão do WhatsApp.</p>`;
             chatBox.scrollTop = chatBox.scrollHeight;
+            userInput.value = '';
         }
     });
 
     btnZap.addEventListener('click', () => {
         const texto = userInput.value.trim();
-        const fone = "5500000000000"; // Substitua pelo número do WhatsApp da escola
-        const url = `https://wa.me/${fone}?text=${encodeURIComponent(texto || "Olá! Gostaria de obter informações sobre o colégio.")}`;
+        const fone = "5500000000000"; // Substitua pelo número real da escola com DDD
+        const url = `https://wa.me/${fone}?text=${encodeURIComponent(texto || "Olá! Gostaria de tirar dúvidas sobre o Colégio Estadual Irmã Ambrosia.")}`;
         window.open(url, '_blank');
     });
 
@@ -34,11 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Fundamental II', 'Ensino Médio'],
+            labels: ['Ensino Fundamental II', 'Ensino Médio'],
             datasets: [
-                { label: 'Aprovação (%)', data: [90, 85], backgroundColor: '#4bacf7' },
-                { label: 'Reprovação (%)', data: [7, 10], backgroundColor: '#ff6b6b' },
-                { label: 'Abandono (%)', data: [3, 5], backgroundColor: '#fca311' }
+                { label: 'Aprovação (%)', data: [91, 86], backgroundColor: '#7cc0ef' },
+                { label: 'Reprovação (%)', data: [6, 9], backgroundColor: '#ff7b7b' },
+                { label: 'Abandono (%)', data: [3, 5], backgroundColor: '#ffc107' }
             ]
         },
         options: {
