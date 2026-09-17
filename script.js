@@ -1,21 +1,51 @@
-// Controle de Alto Contraste
-function toggleContrast() {
-    document.body.classList.toggle('high-contrast');
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Menu Hambúrguer
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const navMenu = document.getElementById('nav-menu');
 
-// Ajuste dinâmico de Fonte
-let fontSize = 16;
-function changeFontSize(delta) {
-    fontSize += delta;
-    if (fontSize < 12) fontSize = 12;
-    if (fontSize > 22) fontSize = 22;
-    document.documentElement.style.setProperty('--font-size', fontSize + 'px');
-}
+    hamburgerBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
 
-// Feedback do Formulário de Matrícula
-function enviarMatricula(event) {
-    event.preventDefault();
-    const nome = document.getElementById('nome').value;
-    alert(`Obrigado, ${nome}! A pré-solicitação de matrícula foi recebida. A secretaria entrará em contato via WhatsApp/Telefone.`);
-    event.target.reset();
-}
+    // Chat Simulado e Integração WhatsApp
+    const btnEnviar = document.getElementById('btnEnviar');
+    const btnZap = document.getElementById('btnZap');
+    const chatBox = document.getElementById('chatBox');
+    const userInput = document.getElementById('userInput');
+
+    btnEnviar.addEventListener('click', () => {
+        const texto = userInput.value.trim();
+        if(texto !== "") {
+            chatBox.innerHTML += `<p><strong>Você:</strong> ${texto}</p>`;
+            chatBox.innerHTML += `<p><strong>Assistente:</strong> Recebi sua mensagem! Clique no botão ao lado para encaminhá-la diretamente ao nosso WhatsApp.</p>`;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    });
+
+    btnZap.addEventListener('click', () => {
+        const texto = userInput.value.trim();
+        const fone = "5500000000000"; // Substitua pelo número do WhatsApp da escola
+        const url = `https://wa.me/${fone}?text=${encodeURIComponent(texto || "Olá! Gostaria de obter informações sobre o colégio.")}`;
+        window.open(url, '_blank');
+    });
+
+    // Gráfico de Rendimento Escolar (Chart.js)
+    const ctx = document.getElementById('rendimentoChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Fundamental II', 'Ensino Médio'],
+            datasets: [
+                { label: 'Aprovação (%)', data: [90, 85], backgroundColor: '#4bacf7' },
+                { label: 'Reprovação (%)', data: [7, 10], backgroundColor: '#ff6b6b' },
+                { label: 'Abandono (%)', data: [3, 5], backgroundColor: '#fca311' }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true, max: 100 }
+            }
+        }
+    });
+});
