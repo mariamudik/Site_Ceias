@@ -4,413 +4,473 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich</title>
-  <!-- CSS Principal -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- Fonte e Ícones -->
+  
+  <!-- Fontes Google & Ícones FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Chart.js para os gráficos de desempenho -->
+  
+  <!-- Chart.js para gráficos interativos -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Estilos customizados -->
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="theme-light">
 
-  <!-- Barra de Acessibilidade -->
-  <div class="accessibility-bar">
-    <div class="container accessibility-content">
-      <span><i class="fa-solid fa-universal-access"></i> Acessibilidade:</span>
-      <button onclick="toggleContrast()" title="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Contraste</button>
-      <button onclick="changeFontSize(1)" title="Aumentar Fonte">A+</button>
-      <button onclick="changeFontSize(-1)" title="Diminuir Fonte">A-</button>
+  <!-- ================= BARRA DE ACESSIBILIDADE ================= -->
+  <aside class="accessibility-bar" aria-label="Acessibilidade">
+    <div class="container accessibility-flex">
+      <div class="access-info">
+        <i class="fa-solid fa-universal-access"></i>
+        <span>Acessibilidade & Inclusão</span>
+      </div>
+      <div class="access-actions">
+        <button onclick="toggleContrast()" title="Alto Contraste"><i class="fa-solid fa-circle-half-stroke"></i> Contraste</button>
+        <button onclick="changeFontSize(1)" title="Aumentar Texto">A+</button>
+        <button onclick="changeFontSize(-1)" title="Diminuir Texto">A-</button>
+      </div>
     </div>
-  </div>
+  </aside>
 
-  <!-- Cabeçalho Principal -->
-  <header class="main-header">
-    <div class="container header-container">
-      <div class="logo-area">
-        <div class="logo-placeholder">
+  <!-- ================= CABEÇALHO & NAVEGAÇÃO ================= -->
+  <header class="navbar-glass">
+    <div class="container header-flex">
+      
+      <!-- Logo e Identidade -->
+      <div class="brand-container">
+        <div class="brand-logo-glow">
           <i class="fa-solid fa-graduation-cap"></i>
         </div>
-        <div class="brand-titles">
-          <h1>C.E.I.A.S</h1>
+        <div class="brand-text">
+          <div class="title-row">
+            <h1>C.E.I.A.S</h1>
+            <span class="public-badge"><i class="fa-solid fa-building-columns"></i> Escola Pública</span>
+          </div>
           <p>Colégio Estadual do Campo Irmã Ambrósia Sabatovich</p>
-          <span class="badge-publico"><i class="fa-solid fa-school"></i> Escola Pública Estadual</span>
         </div>
       </div>
 
-      <!-- Botão Menu Hambúrguer (Mobile) -->
-      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir Menu">
-        <i class="fa-solid fa-bars"></i>
+      <!-- Botão Hambúrguer Mobile -->
+      <button class="hamburger-toggle" id="hamburgerBtn" aria-label="Abrir Menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <!-- Menu de Navegação por Abas -->
-      <nav class="nav-menu" id="navMenu">
-        <button class="tab-link active" onclick="openTab(event, 'inicio')"><i class="fa-solid fa-house"></i> Início</button>
-        <button class="tab-link" onclick="openTab(event, 'escola')"><i class="fa-solid fa-church"></i> A Escola</button>
-        <button class="tab-link" onclick="openTab(event, 'ensino')"><i class="fa-solid fa-book-open"></i> Ensino</button>
-        <button class="tab-link" onclick="openTab(event, 'estatisticas')"><i class="fa-solid fa-chart-column"></i> Estatísticas</button>
-        <button class="tab-link" onclick="openTab(event, 'galeria')"><i class="fa-solid fa-images"></i> Galeria</button>
-        <button class="tab-link" onclick="openTab(event, 'noticias')"><i class="fa-solid fa-newspaper"></i> Notícias</button>
-        <button class="tab-link" onclick="openTab(event, 'depoimentos')"><i class="fa-solid fa-comments"></i> Depoimentos</button>
-        <button class="tab-link highlight-tab" onclick="openTab(event, 'matricula')"><i class="fa-solid fa-user-plus"></i> Matrícula & IA</button>
-        <button class="tab-link" onclick="openTab(event, 'contato')"><i class="fa-solid fa-envelope"></i> Contato</button>
+      <!-- Navegação por Abas -->
+      <nav class="nav-tabs" id="navMenu">
+        <button class="tab-btn active" onclick="switchTab('inicio', this)"><i class="fa-solid fa-house"></i> Início</button>
+        <button class="tab-btn" onclick="switchTab('escola', this)"><i class="fa-solid fa-church"></i> A Escola</button>
+        <button class="tab-btn" onclick="switchTab('ensino', this)"><i class="fa-solid fa-book-open"></i> Ensino</button>
+        <button class="tab-btn" onclick="switchTab('estatisticas', this)"><i class="fa-solid fa-chart-line"></i> Estatísticas</button>
+        <button class="tab-btn" onclick="switchTab('galeria', this)"><i class="fa-solid fa-photo-film"></i> Galerias</button>
+        <button class="tab-btn" onclick="switchTab('noticias', this)"><i class="fa-solid fa-newspaper"></i> Notícias</button>
+        <button class="tab-btn" onclick="switchTab('depoimentos', this)"><i class="fa-solid fa-quote-left"></i> Depoimentos</button>
+        <button class="tab-btn cta-tab" onclick="switchTab('matricula', this)"><i class="fa-solid fa-robot"></i> Matrícula IA</button>
+        <button class="tab-btn" onclick="switchTab('contato', this)"><i class="fa-solid fa-location-dot"></i> Contato</button>
       </nav>
+
     </div>
   </header>
 
-  <main class="container content-area">
+  <!-- ================= CONTEÚDO PRINCIPAL (ABAS) ================= -->
+  <main class="container main-content">
 
     <!-- ABA 1: INÍCIO -->
-    <section id="inicio" class="tab-content active">
-      <div class="hero-banner">
-        <div class="hero-text">
-          <h2>Bem-vindos ao C.E.I.A.S</h2>
-          <p>Educação do campo pública, gratuita, inclusiva e humanizada com raizes de sabedoria e tradição católica.</p>
-          <div class="hero-buttons">
-            <button class="btn btn-primary" onclick="openTab(event, 'matricula')"><i class="fa-solid fa-robot"></i> Fazer Matrícula com IA</button>
-            <button class="btn btn-secondary" onclick="openTab(event, 'escola')"><i class="fa-solid fa-circle-info"></i> Conhecer Nossa História</button>
+    <section id="inicio" class="tab-pane active">
+      <div class="hero-bento">
+        <div class="hero-main-card">
+          <span class="hero-tag"><i class="fa-solid fa-seedling"></i> Educação do Campo de Excelência</span>
+          <h2>Acolhimento, Inovação e Tradição na Educação Rural</h2>
+          <p>Um espaço público dedicado ao fortalecimento dos jovens do campo, unindo tecnologia, acessibilidade e valores humanos de origem comunitária católica.</p>
+          <div class="hero-actions">
+            <button class="btn btn-glow" onclick="switchTab('matricula', document.querySelectorAll('.tab-btn')[7])"><i class="fa-solid fa-wand-magic-sparkles"></i> Fazer Pré-Matrícula com IA</button>
+            <button class="btn btn-outline" onclick="switchTab('escola', document.querySelectorAll('.tab-btn')[1])"><i class="fa-solid fa-book-bookmark"></i> Conhecer Nossa História</button>
           </div>
+        </div>
+
+        <div class="hero-side-card">
+          <div class="stat-pill"><i class="fa-solid fa-check-circle"></i> 100% Gratuito & Público</div>
+          <div class="stat-pill"><i class="fa-solid fa-wheelchair"></i> Estrutura Acessível</div>
+          <div class="stat-pill"><i class="fa-solid fa-bus"></i> Transporte Escolar Garantido</div>
+          <div class="stat-pill"><i class="fa-solid fa-utensils"></i> Merenda Escolar de Qualidade</div>
         </div>
       </div>
 
-      <div class="quick-cards-grid">
-        <div class="card card-feature">
-          <i class="fa-solid fa-children icon-feature"></i>
-          <h3>Ensino Fundamental & Médio</h3>
-          <p>Turmas do 6º ao 9º ano e do 1º ao 3º ano com quadro docente especializado.</p>
+      <!-- Highlights Bento Grid -->
+      <div class="bento-grid">
+        <div class="bento-card">
+          <i class="fa-solid fa-children bento-icon"></i>
+          <h3>Fundamental & Médio</h3>
+          <p>Do 6º ao 9º ano e do 1º ao 3º ano do Ensino Médio com matriz curricular alinhada à realidade rural.</p>
         </div>
-        <div class="card card-feature">
-          <i class="fa-solid fa-wheelchair icon-feature"></i>
-          <h3>Acessibilidade Completa</h3>
-          <p>Infraestrutura acessível para acolher com carinho e dignidade todos os alunos.</p>
+        <div class="bento-card">
+          <i class="fa-solid fa-laptop-code bento-icon"></i>
+          <h3>Laboratórios & Tecnologia</h3>
+          <p>Inclusão digital com laboratório de informática e projetos de agroecologia sustentável.</p>
         </div>
-        <div class="card card-feature">
-          <i class="fa-solid fa-utensils icon-feature"></i>
-          <h3>Alimentação e Estrutura</h3>
-          <p>Merenda saudável, laboratórios modernos, biblioteca e quadra de esportes.</p>
+        <div class="bento-card">
+          <i class="fa-solid fa-award bento-icon"></i>
+          <h3>Qualidade Comprovada</h3>
+          <p>Excelentes taxas de aprovação e baixíssimo índice de evasão graças ao acompanhamento pedagógico humano.</p>
         </div>
       </div>
     </section>
 
     <!-- ABA 2: A ESCOLA & HISTÓRIA -->
-    <section id="escola" class="tab-content">
-      <h2><i class="fa-solid fa-school-flag"></i> Sobre o C.E.I.A.S</h2>
+    <section id="escola" class="tab-pane">
       
-      <!-- Homenagem a Irmã Ambrósia -->
-      <div class="card highlight-box profile-card">
-        <div class="profile-img-container">
-          <img src="https://via.placeholder.com/200x200/0284c7/ffffff?text=Irm%C3%A3+Ambr%C3%B3sia" alt="Foto da Irmã Ambrósia Sabatovich">
-          <span class="img-caption">Irmã Ambrósia Sabatovich</span>
+      <!-- Homenagem à Irmã Ambrósia -->
+      <div class="history-hero-card">
+        <div class="legacy-avatar-frame">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=400&q=80" alt="Irmã Ambrósia Sabatovich">
+          <span class="legacy-name">Irmã Ambrósia Sabatovich</span>
         </div>
-        <div class="profile-text">
-          <h3>História e Origem Católica</h3>
-          <p>Fundado sobre valores éticos e solidários, o colégio teve sua origem fortemente ligada à comunidade católica local. A instituição homenageia a <strong>Irmã Ambrósia Sabatovich</strong>, religiosa comunitária que dedicou sua vida à educação rural, ao amparo dos jovens do campo e ao fortalecimento da cultura e espiritualidade da região.</p>
-          <p>Com o passar dos anos, a instituição tornou-se uma <strong>Escola Pública Estadual</strong>, mantendo sua essência de acolhimento e compromisso com o desenvolvimento sustentável da comunidade do campo.</p>
+        <div class="legacy-content">
+          <span class="sub-tag"><i class="fa-solid fa-church"></i> Raízes e Origem Católica</span>
+          <h2>História da Irmã Ambrósia e o Legado do Colégio</h2>
+          <p>A história do <strong>C.E.I.A.S</strong> entrelaça-se com a vocação e caridade da <strong>Irmã Ambrósia Sabatovich</strong>, religiosa que dedicou sua vida a levar instrução, fé e amparo às famílias do campo. Inicialmente com apoio comunitário e católico, a escola nasceu para garantir que as crianças da zona rural não precisassem se deslocar longas distâncias para estudar.</p>
+          <p>Com o crescimento da comunidade, a instituição integrou-se à <strong>Rede Pública Estadual de Ensino</strong>, transformando-se em um colégio público gratuito, mantendo viva a missão de inclusão, fraternidade e respeito à cultura rural.</p>
         </div>
       </div>
 
-      <!-- Infraestrutura -->
-      <div class="section-block">
-        <h3><i class="fa-solid fa-building-columns"></i> Infraestrutura Acessível e Completa</h3>
-        <div class="infra-grid">
-          <div class="infra-item"><i class="fa-solid fa-check-double"></i> Escolas com Acessibilidade</div>
-          <div class="infra-item"><i class="fa-solid fa-restroom"></i> Sanitários com Acessibilidade</div>
-          <div class="infra-item"><i class="fa-solid fa-apple-whole"></i> Alimentação Escolar Fornecida</div>
-          <div class="infra-item"><i class="fa-solid fa-faucet-drip"></i> Água Filtrada em todos os pontos</div>
-          <div class="infra-item"><i class="fa-solid fa-book"></i> Biblioteca Comunitária</div>
-          <div class="infra-item"><i class="fa-solid fa-laptop-code"></i> Laboratório de Informática</div>
-          <div class="infra-item"><i class="fa-solid fa-vial"></i> Laboratório de Ciências</div>
-          <div class="infra-item"><i class="fa-solid fa-volleyball"></i> Quadra de Esportes Coberta</div>
-          <div class="infra-item"><i class="fa-solid fa-kitchen-set"></i> Cozinha Industrial Equipada</div>
-          <div class="infra-item"><i class="fa-solid fa-user-tie"></i> Sala de Diretoria e Pedagógica</div>
-        </div>
+      <!-- Infraestrutura Detalhada -->
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-building-circle-check"></i> Infraestrutura Escolar Integrada</h2>
+        <p>Espaços projetados com acessibilidade arquitetônica total e conforto pedagógico.</p>
+      </div>
+
+      <div class="infra-pills-grid">
+        <div class="infra-pill"><i class="fa-solid fa-wheelchair"></i> Escolas com Acessibilidade</div>
+        <div class="infra-pill"><i class="fa-solid fa-universal-access"></i> Dependências com Acessibilidade</div>
+        <div class="infra-pill"><i class="fa-solid fa-restroom"></i> Sanitário com Acessibilidade</div>
+        <div class="infra-pill"><i class="fa-solid fa-utensils"></i> Alimentação Fornecida (Merenda)</div>
+        <div class="infra-pill"><i class="fa-solid fa-glass-water"></i> Água Filtrada em todos os pontos</div>
+        <div class="infra-pill"><i class="fa-solid fa-toilet"></i> Sanitário dentro da Escola</div>
+        <div class="infra-pill"><i class="fa-solid fa-book"></i> Biblioteca e Sala de Leitura</div>
+        <div class="infra-pill"><i class="fa-solid fa-kitchen-set"></i> Cozinha Industrial Equipada</div>
+        <div class="infra-pill"><i class="fa-solid fa-desktop"></i> Laboratório de Informática</div>
+        <div class="infra-pill"><i class="fa-solid fa-flask"></i> Laboratório de Ciências</div>
+        <div class="infra-pill"><i class="fa-solid fa-volleyball"></i> Quadra de Esportes Coberta</div>
+        <div class="infra-pill"><i class="fa-solid fa-user-tie"></i> Sala da Diretoria e Pedagogos</div>
       </div>
 
       <!-- Equipe Escolar -->
-      <div class="section-block">
-        <h3><i class="fa-solid fa-users"></i> Equipe Escolar</h3>
-        <div class="team-grid">
-          <div class="card team-card">
-            <h4>Direção Geral</h4>
-            <p>Profa. Maria Helena Ramos</p>
-          </div>
-          <div class="card team-card">
-            <h4>Equipe Pedagógica</h4>
-            <p>Prof. João Carlos & Profa. Ana Souza</p>
-          </div>
-          <div class="card team-card">
-            <h4>Secretaria Escolar</h4>
-            <p>Clara Luz & Roberto Mendes</p>
-          </div>
-          <div class="card team-card">
-            <h4>Corpo Docente</h4>
-            <p>Professores Licenciados em Diversas Áreas</p>
-          </div>
+      <div class="section-title-box" style="margin-top: 40px;">
+        <h2><i class="fa-solid fa-users-gear"></i> Equipe Escolar</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-role"><i class="fa-solid fa-user-shield"></i> Diretora Geral</div>
+          <h4>Profa. Helena Marcovicz</h4>
+          <p>Gestão Escolar e Liderança Comunitária</p>
+        </div>
+        <div class="team-card">
+          <div class="team-role"><i class="fa-solid fa-person-chalkboard"></i> Pedagoga</div>
+          <h4>Profa. Ana Paula Santos</h4>
+          <p>Orientação e Acompanhamento Educacional</p>
+        </div>
+        <div class="team-card">
+          <div class="team-role"><i class="fa-solid fa-file-signature"></i> Secretaria</div>
+          <h4>Roberto Mendes & equipe</h4>
+          <p>Atendimento, Documentação e Matrículas</p>
+        </div>
+        <div class="team-card">
+          <div class="team-role"><i class="fa-solid fa-chalkboard-user"></i> Corpo Docente</div>
+          <h4>Professores Licenciados</h4>
+          <p>Especialistas em Educação do Campo e Áreas Específicas</p>
         </div>
       </div>
 
       <!-- Certificados -->
-      <div class="section-block">
-        <h3><i class="fa-solid fa-award"></i> Certificados e Reconhecimento</h3>
-        <div class="cert-box">
-          <i class="fa-solid fa-certificate cert-icon"></i>
-          <div>
-            <h4>Escola de Referência em Educação do Campo</h4>
-            <p>Reconhecida pelo Núcleo Regional de Educação pela excelência pedagógica e projetos de sustentabilidade rural.</p>
-          </div>
+      <div class="certificate-banner">
+        <i class="fa-solid fa-award cert-badge-icon"></i>
+        <div>
+          <h3>Certificados de Reconhecimento Institucional</h3>
+          <p>Certificação pelo Núcleo Regional de Educação como Escola Destaque na Gestão Inclusiva e Sustentabilidade no Meio Rural.</p>
         </div>
       </div>
     </section>
 
     <!-- ABA 3: ENSINO E DISCIPLINAS -->
-    <section id="ensino" class="tab-content">
-      <h2><i class="fa-solid fa-graduation-cap"></i> Modalidades de Ensino & Disciplinas</h2>
-      
-      <div class="levels-container">
+    <section id="ensino" class="tab-pane">
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-graduation-cap"></i> Modalidades e Disciplinas Ofertadas</h2>
+        <p>Garantindo formação técnica, cidadã e humana para o Ensino Fundamental e Médio.</p>
+      </div>
+
+      <div class="academic-grid">
         <!-- Ensino Fundamental -->
-        <div class="card level-card">
-          <h3>Ensino Fundamental II (6º ao 9º Ano)</h3>
-          <p>Foco no desenvolvimento integral do estudante, raciocínio crítico e integração com o meio do campo.</p>
-          <ul class="subject-list">
-            <li><i class="fa-solid fa-angle-right"></i> Língua Portuguesa</li>
-            <li><i class="fa-solid fa-angle-right"></i> Matemática</li>
-            <li><i class="fa-solid fa-angle-right"></i> Ciências Natural e Agroecologia</li>
-            <li><i class="fa-solid fa-angle-right"></i> História</li>
-            <li><i class="fa-solid fa-angle-right"></i> Geografia</li>
-            <li><i class="fa-solid fa-angle-right"></i> Língua Inglesa</li>
-            <li><i class="fa-solid fa-angle-right"></i> Educação Física</li>
-            <li><i class="fa-solid fa-angle-right"></i> Arte</li>
-            <li><i class="fa-solid fa-angle-right"></i> Ensino Religioso e Ética</li>
+        <div class="academic-card">
+          <div class="academic-header">
+            <h3>Ensino Fundamental II</h3>
+            <span class="level-tag">6º ao 9º Ano</span>
+          </div>
+          <ul class="subject-tags">
+            <li><i class="fa-solid fa-check"></i> Língua Portuguesa</li>
+            <li><i class="fa-solid fa-check"></i> Matemática</li>
+            <li><i class="fa-solid fa-check"></i> Ciências da Natureza</li>
+            <li><i class="fa-solid fa-check"></i> História</li>
+            <li><i class="fa-solid fa-check"></i> Geografia e Meio do Campo</li>
+            <li><i class="fa-solid fa-check"></i> Língua Inglesa</li>
+            <li><i class="fa-solid fa-check"></i> Educação Física</li>
+            <li><i class="fa-solid fa-check"></i> Arte</li>
+            <li><i class="fa-solid fa-check"></i> Ensino Religioso (Ética e Valores)</li>
           </ul>
         </div>
 
         <!-- Ensino Médio -->
-        <div class="card level-card">
-          <h3>Ensino Médio (1º ao 3º Ano)</h3>
-          <p>Preparação para o ENEM, vestibulares, mercado de trabalho e fortalecimento do protagonismo juvenil.</p>
-          <ul class="subject-list">
-            <li><i class="fa-solid fa-angle-right"></i> Português e Literatura</li>
-            <li><i class="fa-solid fa-angle-right"></i> Matemática Aplicada</li>
-            <li><i class="fa-solid fa-angle-right"></i> Biologia e Práticas Sustentáveis</li>
-            <li><i class="fa-solid fa-angle-right"></i> Física</li>
-            <li><i class="fa-solid fa-angle-right"></i> Química</li>
-            <li><i class="fa-solid fa-angle-right"></i> Filosofia e Sociologia</li>
-            <li><i class="fa-solid fa-angle-right"></i> História e Geografia</li>
-            <li><i class="fa-solid fa-angle-right"></i> Projeto de Vida e Tecnologia</li>
+        <div class="academic-card">
+          <div class="academic-header">
+            <h3>Ensino Médio</h3>
+            <span class="level-tag highlight">1º ao 3º Ano</span>
+          </div>
+          <ul class="subject-tags">
+            <li><i class="fa-solid fa-check"></i> Língua Portuguesa & Literatura</li>
+            <li><i class="fa-solid fa-check"></i> Matemática e Suas Tecnologias</li>
+            <li><i class="fa-solid fa-check"></i> Biologia & Agroecologia</li>
+            <li><i class="fa-solid fa-check"></i> Física</li>
+            <li><i class="fa-solid fa-check"></i> Química</li>
+            <li><i class="fa-solid fa-check"></i> Filosofia & Sociologia</li>
+            <li><i class="fa-solid fa-check"></i> História & Geografia</li>
+            <li><i class="fa-solid fa-check"></i> Projeto de Vida e Empreendedorismo Rural</li>
           </ul>
         </div>
       </div>
     </section>
 
     <!-- ABA 4: ESTATÍSTICAS -->
-    <section id="estatisticas" class="tab-content">
-      <h2><i class="fa-solid fa-chart-pie"></i> Rendimento Escolar e Estatísticas</h2>
-      <p>Acompanhe o detalhamento de aprovação, reprovação e evasão/abandono escolar por ano letivo.</p>
+    <section id="estatisticas" class="tab-pane">
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-chart-line"></i> Indicadores de Desempenho Escolar</h2>
+        <p>Transparência total nos índices de Aprovação, Reprovação e Abandono Por Ano Escolar.</p>
+      </div>
 
-      <div class="charts-wrapper">
-        <div class="card chart-card">
-          <h3>Ensino Fundamental (6º ao 9º Ano)</h3>
-          <canvas id="chartFundamental"></canvas>
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3><i class="fa-solid fa-chart-column"></i> Ensino Fundamental (6º ao 9º Ano)</h3>
+          <div class="chart-container">
+            <canvas id="chartFundCanvas"></canvas>
+          </div>
         </div>
-        <div class="card chart-card">
-          <h3>Ensino Médio (1º ao 3º Ano)</h3>
-          <canvas id="chartMedio"></canvas>
+        <div class="chart-card">
+          <h3><i class="fa-solid fa-chart-column"></i> Ensino Médio (1º ao 3º Ano)</h3>
+          <div class="chart-container">
+            <canvas id="chartMedioCanvas"></canvas>
+          </div>
         </div>
       </div>
 
-      <div class="table-container card">
-        <h3>Tabela Detalhada por Ano Escolar</h3>
-        <table class="data-table">
+      <!-- Tabela Detalhada -->
+      <div class="table-wrapper">
+        <h3>Detalhamento Numérico Por Ano Letivo</h3>
+        <table class="custom-table">
           <thead>
             <tr>
-              <th>Nível</th>
-              <th>Ano Escolar</th>
-              <th>Aprovação (%)</th>
-              <th>Reprovação (%)</th>
-              <th>Abandono (%)</th>
+              <th>Etapa</th>
+              <th>Ano / Série</th>
+              <th>Aprovação</th>
+              <th>Reprovação</th>
+              <th>Abandono</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>Fundamental</td><td>6º Ano</td><td>92%</td><td>5%</td><td>3%</td></tr>
-            <tr><td>Fundamental</td><td>7º Ano</td><td>94%</td><td>4%</td><td>2%</td></tr>
-            <tr><td>Fundamental</td><td>8º Ano</td><td>91%</td><td>6%</td><td>3%</td></tr>
-            <tr><td>Fundamental</td><td>9º Ano</td><td>96%</td><td>3%</td><td>1%</td></tr>
-            <tr><td>Médio</td><td>1º Ano</td><td>88%</td><td>8%</td><td>4%</td></tr>
-            <tr><td>Médio</td><td>2º Ano</td><td>92%</td><td>6%</td><td>2%</td></tr>
-            <tr><td>Médio</td><td>3º Ano</td><td>97%</td><td>2%</td><td>1%</td></tr>
+            <tr><td>Fundamental II</td><td>6º Ano</td><td><span class="rate-good">92%</span></td><td><span class="rate-warn">5%</span></td><td><span class="rate-danger">3%</span></td></tr>
+            <tr><td>Fundamental II</td><td>7º Ano</td><td><span class="rate-good">94%</span></td><td><span class="rate-warn">4%</span></td><td><span class="rate-danger">2%</span></td></tr>
+            <tr><td>Fundamental II</td><td>8º Ano</td><td><span class="rate-good">91%</span></td><td><span class="rate-warn">6%</span></td><td><span class="rate-danger">3%</span></td></tr>
+            <tr><td>Fundamental II</td><td>9º Ano</td><td><span class="rate-good">96%</span></td><td><span class="rate-warn">3%</span></td><td><span class="rate-danger">1%</span></td></tr>
+            <tr><td>Ensino Médio</td><td>1º Ano</td><td><span class="rate-good">89%</span></td><td><span class="rate-warn">7%</span></td><td><span class="rate-danger">4%</span></td></tr>
+            <tr><td>Ensino Médio</td><td>2º Ano</td><td><span class="rate-good">93%</span></td><td><span class="rate-warn">5%</span></td><td><span class="rate-danger">2%</span></td></tr>
+            <tr><td>Ensino Médio</td><td>3º Ano</td><td><span class="rate-good">98%</span></td><td><span class="rate-warn">1%</span></td><td><span class="rate-danger">1%</span></td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- ABA 5: GALERIA -->
-    <section id="galeria" class="tab-content">
-      <h2><i class="fa-solid fa-camera"></i> Banco de Fotos</h2>
+    <!-- ABA 5: GALERIAS -->
+    <section id="galeria" class="tab-pane">
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-images"></i> Galeria de Fotos Organizada</h2>
+        <p>Conheça nossa estrutura interna, externa e eventos marcantes.</p>
+      </div>
 
-      <h3>Ambientes Internos e Externos</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x300/e0f2fe/0284c7?text=Fachada+do+Col%C3%A9gio" alt="Fachada Externa">
-          <span>Fachada Externa</span>
-        </div>
-        <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x300/e0f2fe/0284c7?text=Laborat%C3%B3rio+de+Inform%C3%A1tica" alt="Laboratório de Informática">
-          <span>Lab. de Informática</span>
-        </div>
-        <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x300/e0f2fe/0284c7?text=Quadra+de+Esportes" alt="Quadra Coberta">
-          <span>Quadra Esportiva</span>
-        </div>
-        <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x300/e0f2fe/0284c7?text=Biblioteca" alt="Biblioteca Escolar">
-          <span>Biblioteca Integrada</span>
+      <div class="gallery-category">
+        <h3><i class="fa-solid fa-building"></i> Fotos Internas e Externas da Infraestrutura</h3>
+        <div class="media-grid">
+          <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=500&q=80" alt="Fachada Externa">
+            <div class="media-info">Fachada Externa do C.E.I.A.S</div>
+          </div>
+          <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=500&q=80" alt="Laboratório de Informática">
+            <div class="media-info">Laboratório de Informática</div>
+          </div>
+          <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=500&q=80" alt="Biblioteca">
+            <div class="media-info">Biblioteca Comunitária</div>
+          </div>
+          <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&w=500&q=80" alt="Quadra Poliesportiva">
+            <div class="media-info">Quadra Esportiva Coberta</div>
+          </div>
         </div>
       </div>
 
-      <h3 style="margin-top:20px;"><i class="fa-solid fa-calendar-days"></i> Eventos e Projetos</h3>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x300/bae6fd/0284c7?text=Feira+do+Campo" alt="Feira do Campo">
-          <span>Feira da Agricultura Familiar</span>
-        </div>
-        <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x300/bae6fd/0284c7?text=Gincana+Cultural" alt="Gincana Cultural">
-          <span>Gincana Cultural & Acessível</span>
-        </div>
-        <div class="gallery-item">
-          <img src="https://via.placeholder.com/400x300/bae6fd/0284c7?text=Formatura" alt="Formatura dos Alunos">
-          <span>Formatura 3º Ano</span>
+      <div class="gallery-category" style="margin-top: 30px;">
+        <h3><i class="fa-solid fa-masks-theater"></i> Eventos e Projetos Especiais</h3>
+        <div class="media-grid">
+          <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=500&q=80" alt="Feira Cultural">
+            <div class="media-info">Feira Cultural e Agroecológica</div>
+          </div>
+          <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80" alt="Encontro de Ex-Alunos">
+            <div class="media-info">Encontro das Famílias e Ex-Alunos</div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ABA 6: NOTÍCIAS -->
-    <section id="noticias" class="tab-content">
-      <h2><i class="fa-solid fa-bullhorn"></i> Notícias e Comunicados</h2>
-      <div class="news-list">
-        <div class="card news-card">
-          <span class="news-date"><i class="fa-solid fa-calendar"></i> Setembro, 2026</span>
-          <h3>Abertura das Pré-Matrículas para 2027</h3>
-          <p>Utilize a nova ferramenta de IA do nosso site para tirar dúvidas e encaminhar a documentação do seu filho de forma rápida.</p>
-        </div>
-        <div class="card news-card">
-          <span class="news-date"><i class="fa-solid fa-calendar"></i> Agosto, 2026</span>
-          <h3>Projeto Acessibilidade e Inclusão Escolar</h3>
-          <p>Instalação das novas rampas e sinalização tátil nas dependências e banheiros do colégio finalizada com sucesso.</p>
-        </div>
+    <section id="noticias" class="tab-pane">
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-bullhorn"></i> Notícias de Eventos e Comunicados</h2>
+      </div>
+
+      <div class="news-grid">
+        <article class="news-card">
+          <span class="news-badge"><i class="fa-solid fa-calendar"></i> Matrículas 2027</span>
+          <h3>Período de Pré-Matrículas Abertas para Novas Turmas</h3>
+          <p>Inicie o processo através da nossa aba interativa com IA e garanta a vaga do seu filho na escola pública do campo.</p>
+        </article>
+        <article class="news-card">
+          <span class="news-badge"><i class="fa-solid fa-wheelchair"></i> Acessibilidade</span>
+          <h3>Conclusão das Obras de Ampliação dos Banheiros Acessíveis</h3>
+          <p>O colégio finalizou mais uma etapa do plano de acessibilidade total em suas dependências internas.</p>
+        </article>
       </div>
     </section>
 
     <!-- ABA 7: DEPOIMENTOS -->
-    <section id="depoimentos" class="tab-content">
-      <h2><i class="fa-solid fa-quote-left"></i> Depoimentos</h2>
+    <section id="depoimentos" class="tab-pane">
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-comments"></i> Depoimentos de Ex-Alunos e Professores</h2>
+      </div>
+
       <div class="testimonials-grid">
-        <div class="card testimonial-card">
-          <p>"Estudar no C.E.I.A.S me abriu portas para a faculdade sem perder minhas raízes no campo. Professores dedicados e uma estrutura acolhedora!"</p>
-          <h4>- Lucas Silva (Ex-aluno, Medicina Veterinária)</h4>
+        <div class="testimonial-card">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <p>"Estudar no C.E.I.A.S me mostrou que o ensino no campo tem força e qualidade. Consegui entrar na universidade pública e hoje sou engenheira agronômica!"</p>
+          <div class="author-box">
+            <strong>Camila Oliveira</strong>
+            <span>Ex-Aluna (Formada em 2021)</span>
+          </div>
         </div>
-        <div class="card testimonial-card">
-          <p>"Trabalhar aqui é gratificante. Acompanhar a evolução dos estudantes do campo e ver a comunidade unida em prol da educação é transformador."</p>
-          <h4>- Profa. Carla Mendes (Professora de Matemática)</h4>
+
+        <div class="testimonial-card">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <p>"Ensinar nesta instituição é um privilégio. A união entre a equipe pedagógica, a direção e os pais faz com que cada aluno seja acolhido individualmente."</p>
+          <div class="author-box">
+            <strong>Prof. Fernando Souza</strong>
+            <span>Docente de Biologia e Agroecologia</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ABA 8: MATRÍCULA E IA -->
-    <section id="matricula" class="tab-content">
-      <h2><i class="fa-solid fa-robot"></i> Central de Matrículas com Assistente Virtual</h2>
-      <p>Abaixo você pode consultar o processo de matrícula e interagir com nossa IA treinada para auxiliar você e enviar tudo diretamente para o celular da escola.</p>
+    <section id="matricula" class="tab-pane">
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-robot"></i> Central de Matrículas com Assistente Virtual IA</h2>
+        <p>Converse com nossa IA para tirar dúvidas, organizar sua documentação e enviar tudo diretamente para o celular/WhatsApp do colégio.</p>
+      </div>
 
-      <div class="ai-enrollment-box card">
-        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Assistente Inteligente de Matrícula</h3>
-        <p>Selecione uma dúvida abaixo ou digite seu pedido de matrícula para enviar à secretária via WhatsApp:</p>
-
-        <div class="ai-chat-window" id="enrollmentChatWindow">
-          <div class="msg ai-msg">Olá! Sou o Assistente Virtual do C.E.I.A.S. Como posso ajudar com sua matrícula hoje?</div>
+      <div class="ai-hub-container">
+        <div class="ai-chat-header">
+          <div class="ai-bot-avatar">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <h3>Assistente de Matrícula C.E.I.A.S</h3>
+            <span class="online-indicator"><i class="fa-solid fa-circle"></i> Online para te atender</span>
+          </div>
         </div>
 
-        <div class="ai-controls">
-          <input type="text" id="aiInput" placeholder="Digite seu nome e dúvida ou série desejada...">
-          <button class="btn btn-primary" onclick="sendAiMessage()"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+        <div class="ai-chat-box" id="aiChatBox">
+          <div class="chat-bubble ai">
+            Olá! Sou a assistente virtual do <strong>C.E.I.A.S</strong>. Como posso te ajudar hoje com as informações de matrícula, documentos ou transporte escolar?
+          </div>
         </div>
 
-        <div class="quick-questions">
-          <span>Dúvidas rápidas:</span>
-          <button onclick="quickAsk('Quais são os documentos necessários para matrícula?')">Documentos necessários</button>
-          <button onclick="quickAsk('Quais séries estão disponíveis?')">Séries disponíveis</button>
-          <button onclick="quickAsk('Qual o horário das aulas?')">Horários das aulas</button>
+        <div class="ai-quick-pills">
+          <span>Perguntas Frequentes:</span>
+          <button onclick="sendQuickQuestion('Quais documentos preciso para matricular?')">📄 Documentos Necessários</button>
+          <button onclick="sendQuickQuestion('Como funciona o transporte escolar do campo?')">🚌 Transporte Escolar</button>
+          <button onclick="sendQuickQuestion('Quais as séries ofertadas?')">🎓 Séries e Vagas</button>
         </div>
 
-        <div class="whatsapp-direct-action">
-          <button class="btn btn-whatsapp btn-large" onclick="sendToSchoolWhatsApp()">
-            <i class="fa-brands fa-whatsapp"></i> Conversar e Enviar para o WhatsApp da Escola
+        <div class="ai-input-bar">
+          <input type="text" id="aiUserInput" placeholder="Digite sua dúvida ou pedido de matrícula...">
+          <button class="btn btn-primary" onclick="handleAiSend()"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+        </div>
+
+        <div class="whatsapp-direct-box">
+          <p>Concluiu seu atendimento ou deseja falar diretamente com a Secretaria?</p>
+          <button class="btn btn-whatsapp" onclick="exportChatToWhatsApp()">
+            <i class="fa-brands fa-whatsapp"></i> Enviar Conversa e Dúvidas para o Celular da Escola
           </button>
         </div>
       </div>
     </section>
 
     <!-- ABA 9: CONTATO E LOCALIZAÇÃO -->
-    <section id="contato" class="tab-content">
-      <h2><i class="fa-solid fa-location-dot"></i> Contato e Localização</h2>
-      <div class="contact-grid">
-        <div class="card contact-card">
-          <i class="fa-brands fa-whatsapp contact-icon"></i>
-          <h3>WhatsApp Oficial</h3>
-          <p>(41) 99999-8888</p>
-          <a href="https://wa.me/5541999998888" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Clique para MENSAGEM</a>
-        </div>
-
-        <div class="card contact-card">
-          <i class="fa-solid fa-envelope contact-icon"></i>
-          <h3>E-mail / Gmail</h3>
-          <p>colegio.irmambrosia@escola.pr.gov.br</p>
-          <a href="mailto:colegio.irmambrosia@escola.pr.gov.br" class="btn btn-secondary"><i class="fa-solid fa-paper-plane"></i> Enviar E-mail</a>
-        </div>
-
-        <div class="card contact-card">
-          <i class="fa-solid fa-map-location-dot contact-icon"></i>
-          <h3>Localização</h3>
-          <p>Zona Rural - Estrada Principal do Campo, S/N</p>
-          <p>Paraná, Brasil</p>
-        </div>
+    <section id="contato" class="tab-pane">
+      <div class="section-title-box">
+        <h2><i class="fa-solid fa-location-dot"></i> Canais de Contato & Localização</h2>
       </div>
 
-      <div class="map-placeholder card">
-        <i class="fa-solid fa-map-marked-alt" style="font-size:3rem; color:#0284c7;"></i>
-        <p><strong>Mapa da Escola:</strong> Localizada no coração do distrito rural, com transporte escolar garantido para todas as comunidades do entorno.</p>
+      <div class="contact-cards-grid">
+        <div class="contact-card">
+          <i class="fa-brands fa-whatsapp contact-card-icon"></i>
+          <h3>Atendimento WhatsApp</h3>
+          <p>Fale diretamente com nossa secretária escolar.</p>
+          <strong>(41) 99999-8888</strong>
+          <a href="https://wa.me/5541999998888" target="_blank" class="btn btn-whatsapp-subtle"><i class="fa-brands fa-whatsapp"></i> Abrir WhatsApp</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-envelope contact-card-icon"></i>
+          <h3>E-mail Oficial (Gmail)</h3>
+          <p>Para envio de relatórios e documentos oficiais.</p>
+          <strong>colegio.irmambrosia@escola.pr.gov.br</strong>
+          <a href="mailto:colegio.irmambrosia@escola.pr.gov.br" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Enviar E-mail</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-map-location-dot contact-card-icon"></i>
+          <h3>Endereço</h3>
+          <p>Zona Rural - Comunidade do Campo, Estrada Principal S/N</p>
+          <strong>Paraná - Brasil</strong>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Widget Flutuante de IA Chat em Todo o Site -->
-  <div class="floating-ai-widget">
-    <button class="ai-widget-btn" onclick="toggleFloatingChat()" title="Conversar com a IA">
-      <i class="fa-solid fa-robot"></i>
-    </button>
-    <div class="floating-chat-box" id="floatingChatBox">
-      <div class="chat-header">
-        <span><i class="fa-solid fa-robot"></i> IA C.E.I.A.S</span>
-        <button onclick="toggleFloatingChat()">&times;</button>
-      </div>
-      <div class="chat-body" id="floatingChatBody">
-        <div class="msg ai-msg">Olá! Precisa de informações sobre horários, vagas ou transporte escolar? Digite abaixo!</div>
-      </div>
-      <div class="chat-footer">
-        <input type="text" id="floatingChatInput" placeholder="Digite sua mensagem...">
-        <button onclick="sendFloatingMsg()"><i class="fa-solid fa-paper-plane"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Rodapé -->
-  <footer class="main-footer">
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="footer-modern">
     <div class="container footer-content">
-      <p>&copy; 2026 Colégio Estadual do Campo Irmã Ambrósia Sabatovich - C.E.I.A.S | Todos os direitos reservados.</p>
-      <p>Escola Pública Gratuita da Rede Estadual de Ensino do Paraná.</p>
+      <div class="footer-brand">
+        <h3>C.E.I.A.S</h3>
+        <p>Colégio Estadual do Campo Irmã Ambrósia Sabatovich - Ensino Público Gratuito e Acessível.</p>
+      </div>
+      <p class="copyright">&copy; 2026 - Todos os direitos reservados. Governo do Estado do Paraná.</p>
     </div>
   </footer>
 
-  <!-- Javascript -->
+  <!-- Script JS -->
   <script src="script.js"></script>
 </body>
 </html>
