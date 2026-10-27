@@ -25,12 +25,12 @@
 body.high-contrast {
   --bg-page: #000000;
   --bg-card: #0a0a0a;
-  --ceias-blue: #38bdf8;       /* Azul ciano vibrante de altíssima legibilidade */
+  --ceias-blue: #38bdf8;       /* Azul ciano vibrante */
   --ceias-dark-blue: #0284c7;
   --ceias-light-blue: #0f172a;
-  --dark-text: #ffffff;        /* Branco puro para leitura perfeita */
+  --dark-text: #ffffff;        /* Branco puro */
   --sub-text: #e2e8f0;
-  --border-subtle: #38bdf8;    /* Bordas azuis nítidas */
+  --border-subtle: #38bdf8;
   --shadow-soft: none;
   --shadow-hover: none;
 }
@@ -55,7 +55,9 @@ body.high-contrast .interactive-card,
 body.high-contrast .info-card,
 body.high-contrast .staff-card,
 body.high-contrast .form-box,
-body.high-contrast .contact-card {
+body.high-contrast .contact-card,
+body.high-contrast .photo-card,
+body.high-contrast .modal-photo-card {
   border: 2px solid #38bdf8 !important;
   background: #000000 !important;
 }
@@ -117,16 +119,7 @@ body {
   height: 52px;
   width: auto;
   object-fit: contain;
-}
-
-.logo-foto-placeholder {
-  padding: 6px 12px;
-  background: var(--ceias-light-blue);
-  border: 2px dashed var(--ceias-blue);
-  border-radius: var(--radius-sm);
-  font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--ceias-blue);
+  border-radius: 6px;
 }
 
 .logo-text {
@@ -312,6 +305,12 @@ body {
   flex-wrap: wrap;
 }
 
+.hero-logo-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
 .hero-badge {
   display: inline-block;
   font-size: 0.72rem;
@@ -332,7 +331,7 @@ body {
   font-weight: 800;
 }
 
-/* HISTÓRIA DA PATRONA E SIMBOLISMO DAS ESTRELAS */
+/* HISTÓRIA DA PATRONA */
 .history-wrapper {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -353,17 +352,14 @@ body {
 }
 
 .photo-placeholder {
-  height: 200px;
+  height: 220px;
   background: var(--ceias-light-blue);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ceias-blue);
-  font-weight: 700;
-  padding: 16px;
-  border: 2px dashed rgba(0, 78, 168, 0.2);
   overflow: hidden;
+  border: 1px solid var(--border-subtle);
 }
 
 .profile-img {
@@ -431,7 +427,7 @@ body {
 }
 
 /* ==========================================================================
-   NOTÍCIAS LADO A LADO (GRID)
+   NOTÍCIAS LADO A LADO (GRID) COM CAPA FOTOGRÁFICA
    ========================================================================== */
 .news-grid {
   display: grid;
@@ -439,10 +435,30 @@ body {
   gap: 20px;
 }
 
+.card-thumb-box {
+  width: 100%;
+  height: 160px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: var(--ceias-light-blue);
+}
+
+.card-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.interactive-card:hover .card-thumb-box img {
+  transform: scale(1.06);
+}
+
 .info-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  padding: 24px;
+  padding: 20px;
   border-radius: var(--radius-md);
   transition: var(--transition-fast);
   display: flex;
@@ -450,9 +466,7 @@ body {
   justify-content: space-between;
 }
 
-.interactive-card {
-  cursor: pointer;
-}
+.interactive-card { cursor: pointer; }
 
 .interactive-card:hover {
   border-color: var(--ceias-blue);
@@ -464,7 +478,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
   gap: 8px;
 }
@@ -494,19 +508,20 @@ body {
   color: var(--ceias-blue);
   font-weight: 800;
   background-color: var(--ceias-light-blue);
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 20px;
   text-align: center;
+  margin-top: 14px;
 }
 
 /* ==========================================================================
-   JANELA MODAL POP-UP PARA ÁLBUM DE FOTOS
+   JANELA MODAL POP-UP PARA ÁLBUM DE FOTOS DENTRO DAS NOTÍCIAS
    ========================================================================== */
 .modal-overlay {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.78);
   backdrop-filter: blur(6px);
   z-index: 2000;
   justify-content: center;
@@ -514,14 +529,12 @@ body {
   padding: 20px;
 }
 
-.modal-overlay.open {
-  display: flex;
-}
+.modal-overlay.open { display: flex; }
 
 .modal-content {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
-  max-width: 860px;
+  max-width: 880px;
   width: 100%;
   max-height: 88vh;
   overflow-y: auto;
@@ -548,47 +561,113 @@ body {
   transition: var(--transition-fast);
 }
 
-.modal-close-btn:hover {
-  transform: scale(1.1);
-}
+.modal-close-btn:hover { transform: scale(1.1); }
 
 .modal-news-title {
   font-size: 1.5rem;
   color: var(--ceias-blue);
   margin-bottom: 12px;
   font-weight: 800;
+  padding-right: 32px;
 }
 
 .modal-news-text {
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.6;
   margin-bottom: 24px;
 }
 
 .modal-album-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
   margin-top: 16px;
 }
 
 .modal-photo-card {
-  background: linear-gradient(135deg, var(--ceias-light-blue), #ffffff);
-  border: 1px dashed var(--ceias-blue);
+  position: relative;
   border-radius: var(--radius-sm);
-  padding: 28px 12px;
-  text-align: center;
-  color: var(--ceias-blue);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--ceias-light-blue);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+}
+
+.modal-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 0.75rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6px 8px;
+  text-align: center;
 }
 
 /* ==========================================================================
-   ENSINO & DEPOIMENTOS LADO A LADO
+   GALERIA DE INFRAESTRUTURA (EXTERNA E INTERNA)
+   ========================================================================== */
+.gallery-category-container h3 {
+  font-size: 1.15rem;
+  color: var(--ceias-blue);
+  margin: 28px 0 14px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.photo-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-subtle);
+  background: var(--ceias-light-blue);
+  aspect-ratio: 16 / 10;
+  transition: var(--transition-fast);
+}
+
+.photo-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+  color: #ffffff;
+  padding: 24px 12px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ==========================================================================
+   ENSINO & GRÁFICOS HORIZONTAIS
    ========================================================================== */
 .grid-cards {
   display: grid;
@@ -615,9 +694,6 @@ body {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   GRÁFICOS HORIZONTAIS (DEITADOS)
-   ========================================================================== */
 .chart-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -627,28 +703,12 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.chart-header {
-  margin-bottom: 16px;
-}
-
-.chart-header h4 {
-  font-size: 1.1rem;
-  color: var(--ceias-blue);
-}
-
-.chart-subtitle {
-  font-size: 0.8rem;
-  color: var(--sub-text);
-  font-weight: 600;
-}
+.chart-header { margin-bottom: 16px; }
+.chart-header h4 { font-size: 1.1rem; color: var(--ceias-blue); }
+.chart-subtitle { font-size: 0.8rem; color: var(--sub-text); font-weight: 600; }
 
 .year-stat { margin-bottom: 14px; }
-
-.year-label {
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--dark-text);
-}
+.year-label { font-size: 0.88rem; font-weight: 700; color: var(--dark-text); }
 
 .bar-container {
   display: flex;
@@ -661,7 +721,6 @@ body {
   font-weight: 800;
   text-align: center;
   line-height: 26px;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
 }
 
 .bar-aprob { background: #059669; }
@@ -694,9 +753,7 @@ body {
   margin-bottom: 24px;
 }
 
-.transport-icon {
-  font-size: 2.2rem;
-}
+.transport-icon { font-size: 2.2rem; }
 
 .infra-grid {
   display: grid;
@@ -715,33 +772,6 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  box-shadow: var(--shadow-soft);
-}
-
-.gallery-category-container h3 {
-  font-size: 1.15rem;
-  color: var(--ceias-blue);
-  margin: 28px 0 14px;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.photo-card {
-  background: linear-gradient(135deg, var(--ceias-light-blue), #ffffff);
-  border: 1px solid var(--border-subtle);
-  height: 130px;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  color: var(--ceias-blue);
-  text-align: center;
-  padding: 16px;
   box-shadow: var(--shadow-soft);
 }
 
@@ -775,9 +805,7 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.staff-card.border-blue {
-  border-left: 4px solid var(--ceias-blue);
-}
+.staff-card.border-blue { border-left: 4px solid var(--ceias-blue); }
 
 .subject-badge {
   display: flex;
@@ -804,17 +832,8 @@ body {
 .bg-religioso { background-color: #0891b2; }
 .bg-gestao { background-color: var(--ceias-blue); }
 
-.staff-card h4 {
-  font-size: 1rem;
-  color: var(--dark-text);
-  margin-top: 4px;
-}
-
-.staff-role {
-  font-size: 0.82rem;
-  color: var(--sub-text);
-  font-weight: 600;
-}
+.staff-card h4 { font-size: 1rem; color: var(--dark-text); margin-top: 4px; }
+.staff-role { font-size: 0.82rem; color: var(--sub-text); font-weight: 600; }
 
 .testimonial-card {
   background: var(--ceias-light-blue);
@@ -884,9 +903,7 @@ input, select {
   min-height: 48px;
 }
 
-.btn-email {
-  background: #0284c7;
-}
+.btn-email { background: #0284c7; }
 
 .ia-header {
   display: flex;

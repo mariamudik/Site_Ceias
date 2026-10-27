@@ -1,7 +1,7 @@
 /**
  * C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich
- * Script com Janela Modal Pop-up para Notícias (com dezenas de fotos),
- * Envio de Matrícula por E-mail e Alto Contraste em Azul Ciano Legível.
+ * Script com Galeria de Imagens na Janela Modal, Envio de Matrícula por E-mail
+ * e Acessibilidade.
  */
 
 let chatHistory = [];
@@ -63,55 +63,36 @@ const newsDatabase = {
   'festa-junina': {
     title: '🎉 Grande Festa Junina Tradicional do C.E.I.A.S (20 de Junho)',
     text: 'No dia 20 de junho realizamos a nossa inesquecível Festa Junina! O evento foi um sucesso maravilhoso, acolhendo centenas de pessoas, alunos, familiares e vizinhos de toda a Colônia Marcelino. Tivemos dança de quadrilha de todas as turmas, barracas de comidas típicas, brincadeiras tradicionais e um clima de união comunitária espetacular!',
-    photoCount: 18,
-    captions: [
-      'Dança de Quadrilha do 3º Ano Médio',
-      'Apresentação do 6º e 7º Ano Fundamental',
-      'Barraca de Comidas Típicas e Milho Verde',
-      'Pescaria e Brincadeiras das Crianças',
-      'Decoração de Bandeirinhas do Pátio',
-      'Mesa de Doces Típicos do Campo',
-      'Quadrilha do Corpo Docente e Funcionários',
-      'Premiação do Melhor Traje Junino',
-      'Reunião das Famílias no Pátio Central',
-      'Apresentação Musical dos Alunos',
-      'Equipe da Cozinha preparando a Canjica',
-      'Roda de Dança Comunitária ao Fim do Evento'
+    images: [
+      { url: 'festa-1.jpg', placeholder: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=500&q=80', caption: 'Quadrilha do 3º Ano Médio' },
+      { url: 'festa-2.jpg', placeholder: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80', caption: 'Apresentação do Fundamental' },
+      { url: 'festa-3.jpg', placeholder: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80', caption: 'Barracas Típicas' },
+      { url: 'festa-4.jpg', placeholder: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=500&q=80', caption: 'Comunidade Reunida' }
     ]
   },
   'feira-sustentavel': {
     title: '🌱 Feira do Conhecimento Sustentável do Campo (15 de Maio)',
     text: 'Apresentação dos trabalhos de agroecologia e ciências desenvolvidos pelos alunos do Ensino Fundamental II e Médio. Os estudantes apresentaram maquetes de irrigação sustentável, compostagem orgânica e amostragem do cultivo da horta do colégio.',
-    photoCount: 12,
-    captions: [
-      'Estande de Irrigação Automatizada',
-      'Exposição de Hortaliças Orgânicas da Escola',
-      'Demonstração do Sistema de Compostagem',
-      'Apresentação dos Alunos do Ensino Médio',
-      'Avaliação dos Trabalhos pela Equipe Pedagógica',
-      'Visita das Famílias à Feira de Ciências'
+    images: [
+      { url: 'feira-1.jpg', placeholder: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=500&q=80', caption: 'Horta Agroecológica' },
+      { url: 'feira-2.jpg', placeholder: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=500&q=80', caption: 'Projetos de Irrigação' },
+      { url: 'feira-3.jpg', placeholder: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80', caption: 'Exposição dos Estudantes' }
     ]
   },
   'reuniao-pais': {
     title: '📋 Reunião Geral de Pais e Entrega de Boletins (10 de Abril)',
     text: 'Encontro comunitário entre a equipe gestora, professores e os responsáveis pelos estudantes. Foram apresentadas as metas pedagógicas para o ano letivo, alinhamento sobre transporte escolar rural e entrega presencial dos boletins.',
-    photoCount: 8,
-    captions: [
-      'Auditório do Colégio com Pais e Responsáveis',
-      'Abertura com a Diretora Helena Maria',
-      'Atendimento Individualizado com Professores',
-      'Entrega e Assinatura dos Boletins Escolares'
+    images: [
+      { url: 'reuniao-1.jpg', placeholder: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=500&q=80', caption: 'Abertura no Auditório' },
+      { url: 'reuniao-2.jpg', placeholder: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80', caption: 'Atendimento aos Pais' }
     ]
   },
   'interclasses': {
     title: '⚽ Torneio Interclasses na Quadra Coberta (28 de Março)',
     text: 'Competição esportiva integrando turmas do 6º ano ao 3º ano do Ensino Médio. Modalidades de futsal, voleibol e atletismo promovendo respeito, saúde e trabalho em equipe.',
-    photoCount: 10,
-    captions: [
-      'Partida de Futsal Masculino na Quadra Coberta',
-      'Jogo de Voleibol Feminino do Ensino Médio',
-      'Torcida das Turmas Animando os Jogos',
-      'Entrega de Medalhas aos Campeões'
+    images: [
+      { url: 'interclasses-1.jpg', placeholder: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=500&q=80', caption: 'Partida na Quadra Coberta' },
+      { url: 'interclasses-2.jpg', placeholder: 'https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&w=500&q=80', caption: 'Entrega de Medalhas' }
     ]
   }
 };
@@ -124,20 +105,21 @@ window.openNewsModal = function(newsKey) {
   const modalBody = document.getElementById('modalNewsBody');
 
   let photosHTML = '';
-  for (let i = 0; i < data.photoCount; i++) {
-    const captionText = data.captions[i] || `Registro Fotográfico ${i + 1} do Evento`;
+  data.images.forEach((imgObj, index) => {
     photosHTML += `
       <div class="modal-photo-card">
-        🖼️ [Foto ${i + 1}]: ${captionText}
+        <!-- COLOQUE SUA FOTO EM src="${imgObj.url}" -->
+        <img src="${imgObj.url}" alt="${imgObj.caption}" onerror="this.onerror=null; this.src='${imgObj.placeholder}';">
+        <div class="modal-photo-caption">🖼️ Foto ${index + 1}: ${imgObj.caption}</div>
       </div>
     `;
-  }
+  });
 
   modalBody.innerHTML = `
     <h3 class="modal-news-title">${data.title}</h3>
     <p class="modal-news-text">${data.text}</p>
     <hr style="margin: 20px 0; border:0; border-top:1px solid var(--border-subtle);">
-    <h4 style="color:var(--ceias-blue); margin-bottom:12px;">📸 Álbum Completo do Dia (${data.photoCount} Fotos do Evento):</h4>
+    <h4 style="color:var(--ceias-blue); margin-bottom:12px;">📸 Galeria de Fotos do Dia:</h4>
     <div class="modal-album-grid">
       ${photosHTML}
     </div>
