@@ -1,7 +1,7 @@
 /**
  * C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich
  * Script com Janela Modal Pop-up para Notícias (com dezenas de fotos),
- * Envio de Matrícula por E-mail (com opção secundária de WhatsApp) e Alto Contraste legível.
+ * Envio de Matrícula por E-mail e Alto Contraste em Azul Ciano Legível.
  */
 
 let chatHistory = [];
@@ -72,7 +72,7 @@ const newsDatabase = {
       'Decoração de Bandeirinhas do Pátio',
       'Mesa de Doces Típicos do Campo',
       'Quadrilha do Corpo Docente e Funcionários',
-      'Premiação da Melhor Traje Junino',
+      'Premiação do Melhor Traje Junino',
       'Reunião das Famílias no Pátio Central',
       'Apresentação Musical dos Alunos',
       'Equipe da Cozinha preparando a Canjica',

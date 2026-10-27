@@ -21,7 +21,6 @@
       </div>
       <div class="logo-text">
         <span class="logo-title">C.E.I.A.S</span>
-        <span class="logo-subtitle">Col. Est. do Campo Ir. Ambrósia Sabatovich</span>
         <span class="logo-slogan">“Educando para a Comunidade”</span>
       </div>
     </div>
@@ -47,7 +46,7 @@
 
     <!-- BARRA DE ACESSIBILIDADE FIXA -->
     <div class="accessibility-banner">
-      <span>♿ <strong>Acessibilidade & Leitura Confortável</strong></span>
+      <span>♿ <strong>Acessibilidade</strong></span>
       <div class="acc-controls">
         <button onclick="toggleContrast()" id="btnContrast">🌗 Alto Contraste</button>
         <button onclick="adjustFont(1)">A+</button>
@@ -55,7 +54,7 @@
       </div>
     </div>
 
-    <!-- ABA 1: HISTÓRIA E PATRONA (HOME) -->
+    <!-- ABA 1: HISTÓRIA REAL DA PATRONA E DA COMUNIDADE -->
     <section id="historia" class="tab-pane active">
       <div class="hero-card">
         <div class="hero-header-brand">
@@ -78,15 +77,24 @@
             </div>
           </div>
           <h3 style="margin-top:14px; color:var(--ceias-blue);">Irmã Ambrósia Sabatovich</h3>
-          <p class="profile-subtitle">Patrona e Inspiração Comunitária</p>
+          <p class="profile-subtitle">Patrona e Heroína Comunitária</p>
         </div>
 
         <div class="history-content">
-          <p class="lead-text">O <strong>Colégio do Campo Irmã Ambrósia Sabatovich (C.E.I.A.S)</strong> nasceu do profundo engajamento comunitário e de uma marcante fundação de origem católica na Colônia Marcelino, vocacionada a levar ensino de excelência, princípios éticos e solidariedade às famílias do meio rural.</p>
+          <p class="lead-text">O <strong>Colégio do Campo Irmã Ambrósia Sabatovich (C.E.I.A.S)</strong> traz em sua essência a marcante trajetória da Colônia Marcelino, em São José dos Pinhais, e uma história de heroísmo e amor incondicional que marcou para sempre a comunidade rural.</p>
 
-          <p>A instituição foi batizada em homenagem à Irmã Ambrósia Sabatovich, cuja vida foi um exemplo de acolhimento, dedicação ao próximo, educação inclusiva e defesa incansável dos direitos e oportunidades para os jovens do campo.</p>
+          <p>A instituição foi batizada em homenagem à <strong>Irmã Ambrósia Sabatovich</strong>. Durante um trágico incêndio que atingiu o local, Irmã Ambrósia agiu com heroísmo para resgatar as crianças, dedicando sua própria vida na tentativa de salvá-las. Tragicamente, ela faleceu dentro do incêndio ao lado de <strong>seis crianças</strong>.</p>
 
-          <p>Como <strong>escola pública estadual</strong>, o C.E.I.A.S cumpre a missão expressa em seu lema oficial: <em>“Educando para a Comunidade”</em>, unindo valores humanos, sustentabilidade e preparação acadêmica.</p>
+          <div class="stars-symbolism-box">
+            <h4>⭐ O Significado das Estrelas na História do Colégio</h4>
+            <p>Em memória dessa entrega e ato de amor heroico, o símbolo e a história do colégio carregam estrelas repletas de significado:</p>
+            <ul>
+              <li><strong>★ A Estrela Maior:</strong> Representa a Irmã Ambrósia Sabatovich, sua liderança espiritual, proteção e luz guia para a comunidade.</li>
+              <li><strong>★ As Seis Estrelas:</strong> Representam cada uma das seis crianças que partiram junto com ela no incêndio, eternizadas na memória e no coração de nossa escola.</li>
+            </ul>
+          </div>
+
+          <p style="margin-top: 16px;">Como escola pública estadual do campo, o C.E.I.A.S honra essa memória cumprindo seu lema oficial: <em>“Educando para a Comunidade”</em>, promovendo valores de solidariedade, educação inclusiva e respeito à história rural.</p>
 
           <div class="certificates-box">
             <h4>🏆 Certificados e Reconhecimentos Oficiais</h4>
@@ -100,7 +108,7 @@
       </div>
     </section>
 
-    <!-- ABA 2: NOTÍCIAS E EVENTOS -->
+    <!-- ABA 2: NOTÍCIAS E EVENTOS (DISPOSTAS LADO A LADO EM GRID) -->
     <section id="noticias" class="tab-pane">
       <div class="section-header">
         <h2>Notícias, Comunicados e Eventos</h2>
@@ -108,60 +116,59 @@
         <div class="divider"></div>
       </div>
 
-      <div class="news-list">
+      <div class="news-grid">
         <article class="info-card interactive-card" onclick="openNewsModal('festa-junina')">
           <div class="card-header-row">
             <span class="card-tag tag-festivo">🎉 Evento Comunitário</span>
             <span class="news-date">📅 20 de Junho</span>
-            <span class="click-hint">Clique para abrir fotos e detalhes 📸</span>
           </div>
           <h3>Grande Festa Junina Tradicional do C.E.I.A.S</h3>
-          <p>No dia 20 de junho ocorreu a nossa inesquecível Festa Junina! O evento foi maravilhoso, acolheu diversas pessoas da comunidade da Colônia Marcelino, com danças, comidas típicas e brincadeiras...</p>
+          <p>No dia 20 de junho ocorreu a nossa inesquecível Festa Junina! O evento foi maravilhoso, acolheu diversas pessoas da comunidade da Colônia Marcelino...</p>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
 
         <article class="info-card interactive-card" onclick="openNewsModal('feira-sustentavel')">
           <div class="card-header-row">
             <span class="card-tag">🌱 Projeto Pedagógico</span>
             <span class="news-date">📅 15 de Maio</span>
-            <span class="click-hint">Clique para abrir fotos e detalhes 📸</span>
           </div>
           <h3>Feira do Conhecimento Sustentável do Campo</h3>
-          <p>Exposição de projetos científicos e agroecológicos desenvolvidos pelos estudantes nas áreas de Irrigação, Compostagem e Cultivo Orgânico na horta escolar...</p>
+          <p>Exposição de projetos científicos e agroecológicos desenvolvidos pelos estudantes nas áreas de Irrigação, Compostagem e Horta Escolar...</p>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
 
         <article class="info-card interactive-card" onclick="openNewsModal('reuniao-pais')">
           <div class="card-header-row">
             <span class="card-tag">📋 Aviso Escolar</span>
             <span class="news-date">📅 10 de Abril</span>
-            <span class="click-hint">Clique para abrir fotos e detalhes 📸</span>
           </div>
           <h3>Reunião Geral de Pais e Entrega de Boletins</h3>
-          <p>Encontro presencial no auditório para apresentação das metas pedagógicas, diálogo entre professores e famílias e acompanhamento de cada estudante...</p>
+          <p>Encontro presencial no auditório para apresentação das metas pedagógicas, diálogo entre professores e entrega de boletins...</p>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
 
         <article class="info-card interactive-card" onclick="openNewsModal('interclasses')">
           <div class="card-header-row">
             <span class="card-tag">⚽ Esporte & Saúde</span>
             <span class="news-date">📅 28 de Março</span>
-            <span class="click-hint">Clique para abrir fotos e detalhes 📸</span>
           </div>
           <h3>Torneio Interclasses na Quadra Coberta</h3>
-          <p>Competições esportivas de futsal e voleibol entre turmas do Fundamental II e Ensino Médio, promovendo trabalho em equipe e vida saudável...</p>
+          <p>Competições esportivas de futsal e voleibol entre turmas do Fundamental II e Ensino Médio, promovendo trabalho em equipe...</p>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
       </div>
     </section>
 
-    <!-- ABA 3: ENSINO E ESTATÍSTICAS (DISCIPLINAS LADO A LADO) -->
+    <!-- ABA 3: ENSINO E ESTATÍSTICAS (DISCIPLINAS LADO A LADO & GRÁFICOS HORIZONTAIS) -->
     <section id="ensino" class="tab-pane">
       <div class="section-header">
         <h2>Matriz Curricular & Indicadores de Desempenho</h2>
-        <p class="section-sub">Disciplinas organizadas por áreas de conhecimento e taxas de desempenho em gráficos verticais.</p>
+        <p class="section-sub">Disciplinas organizadas por áreas de conhecimento e indicadores estatísticos de desempenho.</p>
         <div class="divider"></div>
       </div>
 
-      <!-- DISCIPLINAS DISPOSTAS LADO A LADO (2 COLUNAS) -->
+      <!-- DISCIPLINAS LADO A LADO -->
       <div class="grid-cards">
-        <!-- COLUNA 1: FUNDAMENTAL II -->
         <div class="info-card">
           <h3>📘 Ensino Fundamental II (6º ao 9º Ano)</h3>
           <p class="area-title">Disciplinas Ofertadas:</p>
@@ -178,7 +185,6 @@
           </ul>
         </div>
 
-        <!-- COLUNA 2: ENSINO MÉDIO (EXATAS E HUMANAS) -->
         <div class="info-card">
           <h3>🎓 Ensino Médio (1º ao 3º Ano)</h3>
           
@@ -204,87 +210,85 @@
         </div>
       </div>
 
-      <!-- ESTATÍSTICAS -->
+      <!-- GRÁFICOS HORIZONTAIS (DEITADOS) -->
       <div class="stats-section" style="margin-top: 36px;">
         <h3>📊 Detalhamento de Rendimento Escolar (Aprovação, Reprovação e Abandono)</h3>
 
+        <!-- FUNDAMENTAL -->
         <div class="chart-card">
           <div class="chart-header">
-            <h4>Ensino Fundamental II — Gráfico de Colunas Verticais</h4>
-            <span class="chart-subtitle">Desempenho por Ano Letivo (%)</span>
+            <h4>Ensino Fundamental II</h4>
+            <span class="chart-subtitle">Taxas por Ano Escolar</span>
           </div>
 
-          <div class="vertical-chart-wrapper">
-            <div class="v-group">
-              <div class="v-bars-flex">
-                <div class="v-bar bar-aprob" style="height: 88%;" title="Aprovação: 88%">88%</div>
-                <div class="v-bar bar-reprob" style="height: 8%;" title="Reprovação: 8%">8%</div>
-                <div class="v-bar bar-abandon" style="height: 4%;" title="Abandono: 4%">4%</div>
-              </div>
-              <span class="v-label">6º Ano</span>
+          <div class="year-stat">
+            <span class="year-label">6º Ano</span>
+            <div class="bar-container">
+              <div class="bar bar-aprob" style="width: 88%;">88% Ap.</div>
+              <div class="bar bar-reprob" style="width: 8%;">8% Rep.</div>
+              <div class="bar bar-abandon" style="width: 4%;">4% Ab.</div>
             </div>
+          </div>
 
-            <div class="v-group">
-              <div class="v-bars-flex">
-                <div class="v-bar bar-aprob" style="height: 90%;" title="Aprovação: 90%">90%</div>
-                <div class="v-bar bar-reprob" style="height: 7%;" title="Reprovação: 7%">7%</div>
-                <div class="v-bar bar-abandon" style="height: 3%;" title="Abandono: 3%">3%</div>
-              </div>
-              <span class="v-label">7º Ano</span>
+          <div class="year-stat">
+            <span class="year-label">7º Ano</span>
+            <div class="bar-container">
+              <div class="bar bar-aprob" style="width: 90%;">90% Ap.</div>
+              <div class="bar bar-reprob" style="width: 7%;">7% Rep.</div>
+              <div class="bar bar-abandon" style="width: 3%;">3% Ab.</div>
             </div>
+          </div>
 
-            <div class="v-group">
-              <div class="v-bars-flex">
-                <div class="v-bar bar-aprob" style="height: 91%;" title="Aprovação: 91%">91%</div>
-                <div class="v-bar bar-reprob" style="height: 6%;" title="Reprovação: 6%">6%</div>
-                <div class="v-bar bar-abandon" style="height: 3%;" title="Abandono: 3%">3%</div>
-              </div>
-              <span class="v-label">8º Ano</span>
+          <div class="year-stat">
+            <span class="year-label">8º Ano</span>
+            <div class="bar-container">
+              <div class="bar bar-aprob" style="width: 91%;">91% Ap.</div>
+              <div class="bar bar-reprob" style="width: 6%;">6% Rep.</div>
+              <div class="bar bar-abandon" style="width: 3%;">3% Ab.</div>
             </div>
+          </div>
 
-            <div class="v-group">
-              <div class="v-bars-flex">
-                <div class="v-bar bar-aprob" style="height: 94%;" title="Aprovação: 94%">94%</div>
-                <div class="v-bar bar-reprob" style="height: 4%;" title="Reprovação: 4%">4%</div>
-                <div class="v-bar bar-abandon" style="height: 2%;" title="Abandono: 2%">2%</div>
-              </div>
-              <span class="v-label">9º Ano</span>
+          <div class="year-stat">
+            <span class="year-label">9º Ano</span>
+            <div class="bar-container">
+              <div class="bar bar-aprob" style="width: 94%;">94% Ap.</div>
+              <div class="bar bar-reprob" style="width: 4%;">4% Rep.</div>
+              <div class="bar bar-abandon" style="width: 2%;">2% Ab.</div>
             </div>
           </div>
         </div>
 
+        <!-- MÉDIO -->
         <div class="chart-card">
           <div class="chart-header">
-            <h4>Ensino Médio — Gráfico de Colunas Verticais</h4>
-            <span class="chart-subtitle">Desempenho por Ano Letivo (%)</span>
+            <h4>Ensino Médio</h4>
+            <span class="chart-subtitle">Taxas por Ano Escolar</span>
           </div>
 
-          <div class="vertical-chart-wrapper">
-            <div class="v-group">
-              <div class="v-bars-flex">
-                <div class="v-bar bar-aprob" style="height: 85%;" title="Aprovação: 85%">85%</div>
-                <div class="v-bar bar-reprob" style="height: 10%;" title="Reprovação: 10%">10%</div>
-                <div class="v-bar bar-abandon" style="height: 5%;" title="Abandono: 5%">5%</div>
-              </div>
-              <span class="v-label">1º Ano Médio</span>
+          <div class="year-stat">
+            <span class="year-label">1º Ano Médio</span>
+            <div class="bar-container">
+              <div class="bar bar-aprob" style="width: 85%;">85% Ap.</div>
+              <div class="bar bar-reprob" style="width: 10%;">10% Rep.</div>
+              <div class="bar bar-abandon" style="width: 5%;">5% Ab.</div>
             </div>
+          </div>
 
-            <div class="v-group">
-              <div class="v-bars-flex">
-                <div class="v-bar bar-aprob" style="height: 89%;" title="Aprovação: 89%">89%</div>
-                <div class="v-bar bar-reprob" style="height: 8%;" title="Reprovação: 8%">8%</div>
-                <div class="v-bar bar-abandon" style="height: 3%;" title="Abandono: 3%">3%</div>
-              </div>
-              <span class="v-label">2º Ano Médio</span>
+          <div class="year-stat">
+            <span class="year-label">2º Ano Médio</span>
+            <div class="bar-container">
+              <div class="bar bar-aprob" style="width: 89%;">89% Ap.</div>
+              <div class="bar bar-reprob" style="width: 8%;">8% Rep.</div>
+              <div class="bar bar-abandon" style="width: 3%;">3% Ab.</div>
             </div>
+          </div>
 
-            <div class="v-group">
-              <div class="v-bars-flex">
-                <div class="v-bar bar-aprob" style="height: 95%;" title="Aprovação: 95%">95%</div>
-                <div class="v-bar bar-reprob" style="height: 3%;" title="Reprovação: 3%">3%</div>
-                <div class="v-bar bar-abandon" style="height: 2%;" title="Abandono: 2%">2%</div>
-              </div>
-              <span class="v-label">3º Ano Médio</span>
+          <div class="year-stat">
+            <span class="year-label">3º Ano Médio</span>
+            <div class="bar-container">
+              <div class="bar bar-aprob" style="width: 95%;">95% Ap.</div>
+              <div class="bar bar-reprob" style="width: 3%;">3% Rep.</div>
+              <div class="bar bar-abandon" style="width: 2%;">2% Ab.</div>
             </div>
           </div>
         </div>
@@ -411,7 +415,7 @@
               <span>Geografia & Estudo do Campo</span>
             </div>
             <h4>Profª. Mariana Costa</h4>
-            <p class="staff-role">Professora Titular • Ensino Fundamental e Médio</p>
+            <p class="staff-role">Professor Titular • Ensino Fundamental e Médio</p>
           </div>
 
           <div class="staff-card">
@@ -569,9 +573,8 @@
 
           <button type="submit" class="btn-primary btn-email">✉️ Enviar Matrícula Direto para o E-mail da Escola</button>
 
-          <!-- Opção Discreta em WhatsApp -->
           <p style="margin-top: 14px; text-align: center; font-size: 0.82rem; color: var(--sub-text);">
-            Ou se preferir, <a href="#" onclick="processMatriculaWhatsApp(event)" style="color:var(--ceias-blue); font-weight:bold;">clique aqui para tentar enviar por WhatsApp</a>.
+            Ou se preferir, <a href="#" onclick="processMatriculaWhatsApp(event)" style="color:var(--ceias-blue); font-weight:bold;">clique aqui para enviar por WhatsApp</a>.
           </p>
         </form>
 

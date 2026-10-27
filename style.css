@@ -21,32 +21,32 @@
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* MODO ALTO CONTRASTE PERFEITO (PRETO ABSOLUTO + BRANCO + AMARELO) */
+/* MODO ALTO CONTRASTE PERFEITO (FUNDO PRETO ABSOLUTO + TEXTO BRANCO E AZUL CIANO VIBRANTE) */
 body.high-contrast {
   --bg-page: #000000;
-  --bg-card: #000000;
-  --ceias-blue: #ffff00;       /* Amarelo vibrante para títulos */
-  --ceias-dark-blue: #ffff00;
-  --ceias-light-blue: #111111;
-  --dark-text: #ffffff;        /* Branco puro para texto */
-  --sub-text: #ffffff;
-  --border-subtle: #ffffff;    /* Bordas brancas nítidas */
+  --bg-card: #0a0a0a;
+  --ceias-blue: #38bdf8;       /* Azul ciano vibrante de altíssima legibilidade */
+  --ceias-dark-blue: #0284c7;
+  --ceias-light-blue: #0f172a;
+  --dark-text: #ffffff;        /* Branco puro para leitura perfeita */
+  --sub-text: #e2e8f0;
+  --border-subtle: #38bdf8;    /* Bordas azuis nítidas */
   --shadow-soft: none;
   --shadow-hover: none;
 }
 
 body.high-contrast .navbar {
   background: #000000 !important;
-  border-bottom: 3px solid #ffff00 !important;
+  border-bottom: 3px solid #38bdf8 !important;
 }
 
 body.high-contrast .nav-link {
   color: #ffffff !important;
-  border: 1px solid #ffffff;
+  border: 1px solid #38bdf8;
 }
 
 body.high-contrast .nav-link.active {
-  background: #ffff00 !important;
+  background: #38bdf8 !important;
   color: #000000 !important;
   font-weight: 800;
 }
@@ -56,7 +56,7 @@ body.high-contrast .info-card,
 body.high-contrast .staff-card,
 body.high-contrast .form-box,
 body.high-contrast .contact-card {
-  border: 2px solid #ffffff !important;
+  border: 2px solid #38bdf8 !important;
   background: #000000 !important;
 }
 
@@ -64,12 +64,12 @@ body.high-contrast input,
 body.high-contrast select {
   background: #000000 !important;
   color: #ffffff !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid #38bdf8 !important;
 }
 
 body.high-contrast .btn-primary,
 body.high-contrast .btn-email-redirect {
-  background: #ffff00 !important;
+  background: #38bdf8 !important;
   color: #000000 !important;
   font-weight: 900 !important;
 }
@@ -140,12 +140,6 @@ body {
   color: var(--ceias-blue);
   line-height: 1.1;
   letter-spacing: -0.02em;
-}
-
-.logo-subtitle {
-  font-size: 0.78rem;
-  color: var(--dark-text);
-  font-weight: 700;
 }
 
 .logo-slogan {
@@ -338,7 +332,7 @@ body {
   font-weight: 800;
 }
 
-/* HISTÓRIA DA PATRONA */
+/* HISTÓRIA DA PATRONA E SIMBOLISMO DAS ESTRELAS */
 .history-wrapper {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -392,6 +386,34 @@ body {
   margin-bottom: 14px;
 }
 
+.stars-symbolism-box {
+  background: linear-gradient(135deg, var(--ceias-light-blue), #ffffff);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  margin-top: 18px;
+  border-left: 5px solid var(--ceias-blue);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.stars-symbolism-box h4 {
+  color: var(--ceias-blue);
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.stars-symbolism-box ul {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+.stars-symbolism-box li {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+}
+
 .certificates-box {
   background: var(--ceias-light-blue);
   padding: 20px;
@@ -409,12 +431,12 @@ body {
 }
 
 /* ==========================================================================
-   NOTÍCIAS INTERATIVAS
+   NOTÍCIAS LADO A LADO (GRID)
    ========================================================================== */
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .info-card {
@@ -423,6 +445,9 @@ body {
   padding: 24px;
   border-radius: var(--radius-md);
   transition: var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .interactive-card {
@@ -469,8 +494,9 @@ body {
   color: var(--ceias-blue);
   font-weight: 800;
   background-color: var(--ceias-light-blue);
-  padding: 4px 12px;
+  padding: 6px 12px;
   border-radius: 20px;
+  text-align: center;
 }
 
 /* ==========================================================================
@@ -562,7 +588,7 @@ body {
 }
 
 /* ==========================================================================
-   ENSINO (DISCIPLINAS E DEPOIMENTOS LADO A LADO)
+   ENSINO & DEPOIMENTOS LADO A LADO
    ========================================================================== */
 .grid-cards {
   display: grid;
@@ -590,7 +616,7 @@ body {
 }
 
 /* ==========================================================================
-   GRÁFICOS VERTICAIS (DE PÉ)
+   GRÁFICOS HORIZONTAIS (DEITADOS)
    ========================================================================== */
 .chart-card {
   background: var(--bg-card);
@@ -601,59 +627,46 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.vertical-chart-wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: 240px;
-  margin-top: 24px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--border-subtle);
+.chart-header {
+  margin-bottom: 16px;
 }
 
-.v-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  justify-content: flex-end;
-  width: 20%;
+.chart-header h4 {
+  font-size: 1.1rem;
+  color: var(--ceias-blue);
 }
 
-.v-bars-flex {
-  display: flex;
-  align-items: flex-end;
-  gap: 6px;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
+.chart-subtitle {
+  font-size: 0.8rem;
+  color: var(--sub-text);
+  font-weight: 600;
 }
 
-.v-bar {
-  flex: 1;
-  max-width: 28px;
-  border-radius: 4px 4px 0 0;
+.year-stat { margin-bottom: 14px; }
+
+.year-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--dark-text);
+}
+
+.bar-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: 6px;
+  font-size: 0.75rem;
   color: #ffffff;
-  font-size: 0.7rem;
   font-weight: 800;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-  min-height: 18px;
+  text-align: center;
+  line-height: 26px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
 }
 
 .bar-aprob { background: #059669; }
 .bar-reprob { background: #d97706; }
 .bar-abandon { background: #dc2626; }
-
-.v-label {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  font-weight: 800;
-  color: var(--dark-text);
-}
 
 .legend {
   display: flex;
