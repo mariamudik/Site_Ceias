@@ -1,6 +1,7 @@
 /**
  * C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich
- * Script de Interatividade, Expansão do Álbum de Fotos do Evento e Atendimento Virtual
+ * Script com Janela Modal Pop-up para Notícias (com dezenas de fotos),
+ * Envio de Matrícula diretamente por E-mail e Alto Contraste legível.
  */
 
 let chatHistory = [];
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. MENU HAMBÚRGUER RESPONSIVO
+   1. MENU HAMBÚRGUER
    ========================================================================== */
 function initHamburgerMenu() {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
@@ -56,21 +57,100 @@ window.switchTab = function(event, tabId) {
 };
 
 /* ==========================================================================
-   3. REVELA O ÁLBUM DE FOTOS COMPLETO DO EVENTO AO CLICAR NA NOTÍCIA
+   3. JANELA MODAL POP-UP COM TODAS AS FOTOS DO EVENTO (DEZENAS DE FOTOS)
    ========================================================================== */
-window.toggleNewsPhoto = function(cardElement) {
-  if (!cardElement) return;
-  
-  cardElement.classList.toggle('active');
-
-  const hint = cardElement.querySelector('.click-hint');
-  if (hint) {
-    if (cardElement.classList.contains('active')) {
-      hint.innerText = 'Fechar Álbum ❌';
-    } else {
-      hint.innerText = 'Ver Fotos do Evento 📸';
-    }
+const newsDatabase = {
+  'festa-junina': {
+    title: '🎉 Grande Festa Junina Tradicional do C.E.I.A.S (20 de Junho)',
+    text: 'No dia 20 de junho realizamos a nossa inesquecível Festa Junina! O evento foi um sucesso maravilhoso, acolhendo centenas de pessoas, alunos, familiares e vizinhos de toda a Colônia Marcelino. Tivemos dança de quadrilha de todas as turmas, barracas de comidas típicas, brincadeiras tradicionais e um clima de união comunitária espetacular!',
+    photoCount: 18,
+    captions: [
+      'Dança de Quadrilha do 3º Ano Médio',
+      'Apresentação do 6º e 7º Ano Fundamental',
+      'Barraca de Comidas Típicas e Milho Verde',
+      'Pescaria e Brincadeiras das Crianças',
+      'Decoração de Bandeirinhas do Pátio',
+      'Mesa de Doces Típicos do Campo',
+      'Quadrilha do Corpo Docente e Funcionários',
+      'Premiação da Melhor Traje Junino',
+      'Reunião das Famílias no Pátio Central',
+      'Apresentação Musical dos Alunos',
+      'Equipe da Cozinha preparando a Canjica',
+      'Roda de Dança Comunitária ao Fim do Evento'
+    ]
+  },
+  'feira-sustentavel': {
+    title: '🌱 Feira do Conhecimento Sustentável do Campo (15 de Maio)',
+    text: 'Apresentação dos trabalhos de agroecologia e ciências desenvolvidos pelos alunos do Ensino Fundamental II e Médio. Os estudantes apresentaram maquetes de irrigação sustentável, compostagem orgânica e amostragem do cultivo da horta do colégio.',
+    photoCount: 12,
+    captions: [
+      'Estande de Irrigação Automatizada',
+      'Exposição de Hortaliças Orgânicas da Escola',
+      'Demonstração do Sistema de Compostagem',
+      'Apresentação dos Alunos do Ensino Médio',
+      'Avaliação dos Trabalhos pela Equipe Pedagógica',
+      'Visita das Famílias à Feira de Ciências'
+    ]
+  },
+  'reuniao-pais': {
+    title: '📋 Reunião Geral de Pais e Entrega de Boletins (10 de Abril)',
+    text: 'Encontro comunitário entre a equipe gestora, professores e os responsáveis pelos estudantes. Foram apresentadas as metas pedagógicas para o ano letivo, alinhamento sobre transporte escolar rural e entrega presencial dos boletins.',
+    photoCount: 8,
+    captions: [
+      'Auditório do Colégio com Pais e Responsáveis',
+      'Abertura com a Diretora Helena Maria',
+      'Atendimento Individualizado com Professores',
+      'Entrega e Assinatura dos Boletins Escolares'
+    ]
+  },
+  'interclasses': {
+    title: '⚽ Torneio Interclasses na Quadra Coberta (28 de Março)',
+    text: 'Competição esportiva integrando turmas do 6º ano ao 3º ano do Ensino Médio. Modalidades de futsal, voleibol e atletismo promovendo respeito, saúde e trabalho em equipe.',
+    photoCount: 10,
+    captions: [
+      'Partida de Futsal Masculino na Quadra Coberta',
+      'Jogo de Voleibol Feminino do Ensino Médio',
+      'Torcida das Turmas Animando os Jogos',
+      'Entrega de Medalhas aos Campeões'
+    ]
   }
+};
+
+window.openNewsModal = function(newsKey) {
+  const data = newsDatabase[newsKey];
+  if (!data) return;
+
+  const modalOverlay = document.getElementById('newsModalOverlay');
+  const modalBody = document.getElementById('modalNewsBody');
+
+  let photosHTML = '';
+  // Gera dezenas de quadros de foto para o evento
+  for (let i = 0; i < data.photoCount; i++) {
+    const captionText = data.captions[i] || `Registro Fotográfico ${i + 1} do Evento`;
+    photosHTML += `
+      <div class="modal-photo-card">
+        🖼️ [Foto ${i + 1}]: ${captionText}
+      </div>
+    `;
+  }
+
+  modalBody.innerHTML = `
+    <h3 class="modal-news-title">${data.title}</h3>
+    <p class="modal-news-text">${data.text}</p>
+    <hr style="margin: 20px 0; border:0; border-top:1px solid var(--border-subtle);">
+    <h4 style="color:var(--ceias-blue); margin-bottom:12px;">📸 Álbum Completo do Dia (${data.photoCount} Fotos do Evento):</h4>
+    <div class="modal-album-grid">
+      ${photosHTML}
+    </div>
+  `;
+
+  modalOverlay.classList.add('open');
+};
+
+window.closeNewsModal = function(event) {
+  if (event && event.target !== document.getElementById('newsModalOverlay')) return;
+  const modalOverlay = document.getElementById('newsModalOverlay');
+  modalOverlay.classList.remove('open');
 };
 
 /* ==========================================================================
@@ -90,7 +170,7 @@ window.adjustFont = function(direction) {
 };
 
 /* ==========================================================================
-   5. ENVIO DE MATRÍCULA VIA WHATSAPP / E-MAIL DA ESCOLA
+   5. ENVIO DE MATRÍCULA DIRETO PARA O E-MAIL DA ESCOLA
    ========================================================================== */
 function initFormListeners() {
   const matInput = document.getElementById('matChatInput');
@@ -108,28 +188,35 @@ function initFormListeners() {
   }
 }
 
-window.processMatricula = function(event) {
+window.processMatriculaEmail = function(event) {
   if (event) event.preventDefault();
 
   const studentName = document.getElementById('studentName')?.value.trim();
   const grade = document.getElementById('gradeSelect')?.value;
   const parentName = document.getElementById('parentName')?.value.trim();
   const phone = document.getElementById('phoneNum')?.value.trim();
+  const parentEmail = document.getElementById('parentEmail')?.value.trim();
 
-  if (!studentName || !grade || !parentName || !phone) return;
+  if (!studentName || !grade || !parentName || !phone || !parentEmail) return;
 
-  const schoolPhone = "5500999998888"; // Substituir pelo WhatsApp real da secretaria
-  const textMessage = `Olá! Gostaria de enviar a solicitação de pré-matrícula pública no *C.E.I.A.S* ("Educando para a Comunidade"):%0A%0A` +
-                      `👤 *Aluno(a):* ${encodeURIComponent(studentName)}%0A` +
-                      `📚 *Série Pretendida:* ${encodeURIComponent(grade)}%0A` +
-                      `👨‍👩‍👧 *Responsável:* ${encodeURIComponent(parentName)}%0A` +
-                      `📞 *Telefone para Contato:* ${encodeURIComponent(phone)}`;
+  const schoolEmail = "ceias.colegio.campo@gmail.com";
+  const subject = encodeURIComponent(`[PRÉ-MATRÍCULA C.E.I.A.S] Aluno: ${studentName}`);
+  const bodyText = encodeURIComponent(
+    `Solicitação de Pré-Matrícula Escolar - C.E.I.A.S:\n\n` +
+    `👤 Nome do Aluno(a): ${studentName}\n` +
+    `📚 Série Pretendida: ${grade}\n` +
+    `👨‍👩‍👧 Responsável Legal: ${parentName}\n` +
+    `📞 Telefone de Contato: ${phone}\n` +
+    `✉️ E-mail do Responsável: ${parentEmail}\n\n` +
+    `Enviado através do Portal Oficial do C.E.I.A.S.`
+  );
 
-  window.open(`https://wa.me/${schoolPhone}?text=${textMessage}`, '_blank');
+  // Redireciona diretamente abrindo o programa de e-mail com a mensagem montada para a escola
+  window.location.href = `mailto:${schoolEmail}?subject=${subject}&body=${bodyText}`;
 };
 
 /* ==========================================================================
-   6. INTELIGÊNCIA ARTIFICIAL E CHAT
+   6. INTELIGÊNCIA ARTIFICIAL E ATENDIMENTO POR E-MAIL
    ========================================================================== */
 window.askMatriculaIA = function() {
   const input = document.getElementById('matChatInput');
@@ -142,12 +229,12 @@ window.askMatriculaIA = function() {
 
   setTimeout(() => {
     const qLower = question.toLowerCase();
-    let reply = "Para fazer a matrícula pública no C.E.I.A.S, preencha o formulário ao lado que nossa secretaria entrará em contato!";
+    let reply = "Para fazer a matrícula pública no C.E.I.A.S, preencha o formulário ao lado que os dados serão enviados direto para o e-mail oficial da nossa secretaria!";
 
     if (qLower.includes('doc') || qLower.includes('documento') || qLower.includes('trazer')) {
-      reply = "📄 Documentos Necessários: RG/Certidão do aluno, CPF dos responsáveis, Comprovante de Residência rural e Histórico Escolar.";
+      reply = "📄 Documentos Necessários: RG/Certidão de Nascimento do aluno, CPF dos responsáveis, Comprovante de Residência rural e Histórico Escolar.";
     } else if (qLower.includes('paga') || qLower.includes('valor') || qLower.includes('custo')) {
-      reply = "🆓 O C.E.I.A.S é uma escola 100% pública e gratuita!";
+      reply = "🆓 O C.E.I.A.S é uma escola 100% pública e gratuita da Rede Estadual!";
     }
 
     appendMessage(chatLogs, 'bot', reply);
@@ -166,12 +253,14 @@ window.sendMainChatMessage = function() {
 
   setTimeout(() => {
     const text = messageText.toLowerCase();
-    let botReply = "Entendido! Se quiser falar diretamente com a equipe da escola, clique no botão verde abaixo para enviar esta conversa para o WhatsApp.";
+    let botReply = "Anotado! Se quiser encaminhar estas dúvidas diretamente para o e-mail da secretaria escolar, clique no botão abaixo.";
 
     if (text.includes('horario') || text.includes('turnos')) {
-      botReply = "⏰ Aulas no Matutino (07h30 às 11h50) e Vespertino (13h00 às 17h20).";
-    } else if (text.includes('irma ambrosia') || text.includes('historia')) {
-      botReply = "⛪ Nossa escola possui origem em valores católicos em homenagem à Irmã Ambrósia Sabatovich e com o lema 'Educando para a Comunidade'.";
+      botReply = "⏰ Aulas no turno Matutino (07h30 às 11h50) e Vespertino (13h00 às 17h20).";
+    } else if (text.includes('transporte') || text.includes('onibus') || text.includes('linha')) {
+      botReply = "🚌 O C.E.I.A.S oferece linhas de transporte escolar rural gratuito cobrindo 100% das comunidades rurais da região.";
+    } else if (text.includes('email') || text.includes('e-mail') || text.includes('contato')) {
+      botReply = "✉️ O e-mail oficial da escola é: ceias.colegio.campo@gmail.com";
     }
 
     appendMessage(chatLogs, 'bot', botReply);
@@ -179,14 +268,15 @@ window.sendMainChatMessage = function() {
   }, 500);
 };
 
-window.exportChatToWhatsApp = function() {
-  if (chatHistory.length === 0) return;
+window.exportChatToEmail = function() {
+  const schoolEmail = "ceias.colegio.campo@gmail.com";
+  const subject = encodeURIComponent("Dúvida / Atendimento via Site C.E.I.A.S");
+  const bodyText = encodeURIComponent(
+    `Histórico de Atendimento pelo Site C.E.I.A.S:\n\n` +
+    (chatHistory.length > 0 ? chatHistory.join("\n") : "Gostaria de solicitar informações gerais da escola.")
+  );
 
-  const schoolPhone = "5500999998888";
-  const formattedLogs = chatHistory.join("%0A");
-  const fullText = `Olá! Estava no site do C.E.I.A.S e gostaria de continuar o atendimento:%0A%0A` + formattedLogs;
-
-  window.open(`https://wa.me/${schoolPhone}?text=${fullText}`, '_blank');
+  window.location.href = `mailto:${schoolEmail}?subject=${subject}&body=${bodyText}`;
 };
 
 function appendMessage(container, sender, text) {
