@@ -21,14 +21,14 @@
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* MODO ALTO CONTRASTE PERFEITO (FUNDO PRETO ABSOLUTO + TEXTO BRANCO E AZUL CIANO VIBRANTE) */
+/* MODO ALTO CONTRASTE (FUNDO PRETO ABSOLUTO + TEXTO BRANCO E CIANO) */
 body.high-contrast {
   --bg-page: #000000;
   --bg-card: #0a0a0a;
-  --ceias-blue: #38bdf8;       /* Azul ciano vibrante */
+  --ceias-blue: #38bdf8;
   --ceias-dark-blue: #0284c7;
   --ceias-light-blue: #0f172a;
-  --dark-text: #ffffff;        /* Branco puro */
+  --dark-text: #ffffff;
   --sub-text: #e2e8f0;
   --border-subtle: #38bdf8;
   --shadow-soft: none;
@@ -56,8 +56,7 @@ body.high-contrast .info-card,
 body.high-contrast .staff-card,
 body.high-contrast .form-box,
 body.high-contrast .contact-card,
-body.high-contrast .photo-card,
-body.high-contrast .modal-photo-card {
+body.high-contrast .photo-card {
   border: 2px solid #38bdf8 !important;
   background: #000000 !important;
 }
@@ -119,7 +118,6 @@ body {
   height: 52px;
   width: auto;
   object-fit: contain;
-  border-radius: 6px;
 }
 
 .logo-text {
@@ -305,12 +303,6 @@ body {
   flex-wrap: wrap;
 }
 
-.hero-logo-img {
-  height: 70px;
-  width: auto;
-  object-fit: contain;
-}
-
 .hero-badge {
   display: inline-block;
   font-size: 0.72rem;
@@ -388,9 +380,8 @@ body {
   border-radius: var(--radius-md);
   margin-top: 18px;
   border-left: 5px solid var(--ceias-blue);
-  border-top: 1px solid var(--border-subtle);
-  border-right: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  border-left-width: 5px;
 }
 
 .stars-symbolism-box h4 {
@@ -427,7 +418,7 @@ body {
 }
 
 /* ==========================================================================
-   NOTÍCIAS LADO A LADO (GRID) COM CAPA FOTOGRÁFICA
+   NOTÍCIAS LADO A LADO
    ========================================================================== */
 .news-grid {
   display: grid;
@@ -435,24 +426,12 @@ body {
   gap: 20px;
 }
 
-.card-thumb-box {
+.card-media-img {
   width: 100%;
   height: 160px;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  margin-bottom: 12px;
-  background: var(--ceias-light-blue);
-}
-
-.card-thumb-box img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.interactive-card:hover .card-thumb-box img {
-  transform: scale(1.06);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
 }
 
 .info-card {
@@ -511,11 +490,10 @@ body {
   padding: 8px 12px;
   border-radius: 20px;
   text-align: center;
-  margin-top: 14px;
 }
 
 /* ==========================================================================
-   JANELA MODAL POP-UP PARA ÁLBUM DE FOTOS DENTRO DAS NOTÍCIAS
+   JANELA MODAL POP-UP PARA ÁLBUM DE FOTOS
    ========================================================================== */
 .modal-overlay {
   display: none;
@@ -585,35 +563,23 @@ body {
 }
 
 .modal-photo-card {
-  position: relative;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  aspect-ratio: 4 / 3;
   background: var(--ceias-light-blue);
   border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
+  padding: 8px;
+  text-align: center;
 }
 
 .modal-photo-card img {
   width: 100%;
-  height: 100%;
+  height: 140px;
   object-fit: cover;
-  display: block;
-}
-
-.modal-photo-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(0, 0, 0, 0.75);
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 6px 8px;
-  text-align: center;
+  border-radius: 4px;
 }
 
 /* ==========================================================================
-   GALERIA DE INFRAESTRUTURA (EXTERNA E INTERNA)
+   GALERIA DE INFRAESTRUTURA
    ========================================================================== */
 .gallery-category-container h3 {
   font-size: 1.15rem;
@@ -623,47 +589,35 @@ body {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
 }
 
 .photo-card {
-  position: relative;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  background: var(--ceias-light-blue);
-  aspect-ratio: 16 / 10;
-  transition: var(--transition-fast);
-}
-
-.photo-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
-}
-
-.photo-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.photo-card:hover img {
-  transform: scale(1.05);
-}
-
-.photo-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
-  color: #ffffff;
-  padding: 24px 12px 10px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
   text-align: center;
+}
+
+.photo-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+}
+
+.photo-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ceias-blue);
 }
 
 /* ==========================================================================

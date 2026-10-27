@@ -7,7 +7,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,8 +17,8 @@
   <header class="navbar">
     <div class="logo-box">
       <div class="logo-img-container">
-        <!-- COLOQUE SUA LOGO AQUI em src="..." -->
-        <img src="logo-colegio.png" alt="Logo C.E.I.A.S" class="header-logo-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=150&q=80';">
+        <!-- COLOQUE SUA LOGO EM src="logo-colegio.png" -->
+        <img src="logo-colegio.png" alt="Logo C.E.I.A.S" class="header-logo-img" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'logo-foto-placeholder\'>📷 FOTO DA LOGO</div>';">
       </div>
       <div class="logo-text">
         <span class="logo-title">C.E.I.A.S</span>
@@ -47,7 +47,7 @@
 
     <!-- BARRA DE ACESSIBILIDADE FIXA -->
     <div class="accessibility-banner">
-      <span>♿ <strong>Acessibilidade</strong></span>
+      <span> <strong>Acessibilidade</strong></span>
       <div class="acc-controls">
         <button onclick="toggleContrast()" id="btnContrast">🌗 Alto Contraste</button>
         <button onclick="adjustFont(1)">A+</button>
@@ -60,8 +60,7 @@
       <div class="hero-card">
         <div class="hero-header-brand">
           <div class="hero-logo-space">
-            <!-- COLOQUE SUA LOGO AQUI -->
-            <img src="logo-colegio.png" alt="Logo C.E.I.A.S" class="hero-logo-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=150&q=80';">
+            <img src="logo-colegio.png" alt="Logo C.E.I.A.S" class="hero-logo-img" onerror="this.style.display='none'">
           </div>
           <div>
             <span class="hero-badge">Escola Pública Estadual</span>
@@ -76,7 +75,7 @@
           <div class="photo-frame">
             <div class="photo-placeholder">
               <!-- COLOQUE A FOTO DA IRMÃ AMBRÓSIA AQUI -->
-              <img src="irma-ambrosia.jpg" alt="Retrato da Irmã Ambrósia Sabatovich" class="profile-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80';">
+              <img src="irma-ambrosia.jpg" alt="Retrato da Irmã Ambrósia Sabatovich" class="profile-img" onerror="this.parentElement.innerHTML='<span>📷 Retrato da Irmã Ambrósia Sabatovich</span>';">
             </div>
           </div>
           <h3 style="margin-top:14px; color:var(--ceias-blue);">Irmã Ambrósia Sabatovich</h3>
@@ -121,59 +120,52 @@
 
       <div class="news-grid">
         <article class="info-card interactive-card" onclick="openNewsModal('festa-junina')">
-          <div class="card-thumb-box">
-            <!-- COLOQUE A FOTO DE CAPA DA FESTA JUNINA EM src="..." -->
-            <img src="festa-junina-capa.jpg" alt="Festa Junina" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80';">
-          </div>
+          <!-- ESPAÇO DA IMAGEM DA NOTÍCIA (NÃO DEFORMA O CARD SE NÃO HOUVER FOTO) -->
+          <img src="festa-junina.jpg" alt="Festa Junina" class="card-media-img" onerror="this.style.display='none';">
+          
           <div class="card-header-row">
             <span class="card-tag tag-festivo">Evento Comunitário</span>
             <span class="news-date">20 de Junho</span>
           </div>
           <h3>Grande Festa Junina Tradicional do C.E.I.A.S</h3>
           <p>No dia 20 de junho ocorreu a nossa inesquecível Festa Junina! O evento foi maravilhoso, acolheu diversas pessoas da comunidade da Colônia Marcelino...</p>
-          <span class="click-hint">Abrir Fotos e Detalhes 📸</span>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
 
         <article class="info-card interactive-card" onclick="openNewsModal('feira-sustentavel')">
-          <div class="card-thumb-box">
-            <!-- COLOQUE A FOTO DE CAPA DA FEIRA EM src="..." -->
-            <img src="feira-sustentavel-capa.jpg" alt="Feira Sustentável" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80';">
-          </div>
+          <img src="feira-sustentavel.jpg" alt="Feira Sustentável" class="card-media-img" onerror="this.style.display='none';">
+
           <div class="card-header-row">
             <span class="card-tag">Projeto Pedagógico</span>
             <span class="news-date">15 de Maio</span>
           </div>
           <h3>Feira do Conhecimento Sustentável do Campo</h3>
           <p>Exposição de projetos científicos e agroecológicos desenvolvidos pelos estudantes nas áreas de Irrigação, Compostagem e Horta Escolar...</p>
-          <span class="click-hint">Abrir Fotos e Detalhes 📸</span>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
 
         <article class="info-card interactive-card" onclick="openNewsModal('reuniao-pais')">
-          <div class="card-thumb-box">
-            <!-- COLOQUE A FOTO DE CAPA DA REUNIÃO EM src="..." -->
-            <img src="reuniao-pais-capa.jpg" alt="Reunião de Pais" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=600&q=80';">
-          </div>
+          <img src="reuniao-pais.jpg" alt="Reunião de Pais" class="card-media-img" onerror="this.style.display='none';">
+
           <div class="card-header-row">
             <span class="card-tag">Aviso Escolar</span>
             <span class="news-date">10 de Abril</span>
           </div>
           <h3>Reunião Geral de Pais e Entrega de Boletins</h3>
           <p>Encontro presencial no auditório para apresentação das metas pedagógicas, diálogo entre professores e entrega de boletins...</p>
-          <span class="click-hint">Abrir Fotos e Detalhes 📸</span>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
 
         <article class="info-card interactive-card" onclick="openNewsModal('interclasses')">
-          <div class="card-thumb-box">
-            <!-- COLOQUE A FOTO DE CAPA DO INTERCLASSES EM src="..." -->
-            <img src="interclasses-capa.jpg" alt="Torneio Interclasses" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80';">
-          </div>
+          <img src="interclasses.jpg" alt="Interclasses" class="card-media-img" onerror="this.style.display='none';">
+
           <div class="card-header-row">
             <span class="card-tag">Esporte & Saúde</span>
             <span class="news-date">28 de Março</span>
           </div>
           <h3>Torneio Interclasses na Quadra Coberta</h3>
           <p>Competições esportivas de futsal e voleibol entre turmas do Fundamental II e Ensino Médio, promovendo trabalho em equipe...</p>
-          <span class="click-hint">Abrir Fotos e Detalhes 📸</span>
+          <span class="click-hint" style="margin-top: 12px; display: inline-block;">Abrir Fotos e Detalhes 📸</span>
         </article>
       </div>
     </section>
@@ -317,7 +309,7 @@
       </div>
     </section>
 
-    <!-- ABA 4: INFRAESTRUTURA & GALERIA DE FOTOS EXTERNAS E INTERNAS -->
+    <!-- ABA 4: INFRAESTRUTURA & GALERIA DE FOTOS (SEM EMOJIS NOS ITENS COMO VOCÊ PEDIU) -->
     <section id="infraestrutura" class="tab-pane">
       <div class="section-header">
         <h2>Infraestrutura Completa & Galeria de Fotos</h2>
@@ -333,91 +325,83 @@
         </div>
       </div>
 
+      <!-- LISTA SEM EMOJIS COMO VOCÊ DEIXOU NO SEU CÓDIGO -->
       <div class="infra-grid">
-        <div class="infra-item"><span class="icon">♿</span> Escola Totalmente Acessível</div>
-        <div class="infra-item"><span class="icon">🛗</span> Dependências com Acessibilidade</div>
-        <div class="infra-item"><span class="icon">𚾔</span> Sanitários Adaptados com Acessibilidade</div>
-        <div class="infra-item"><span class="icon">🍎</span> Alimentação Escolar Fornecida (Merenda)</div>
-        <div class="infra-item"><span class="icon">💧</span> Bebedouros com Água Filtrada em Todos os Blocos</div>
-        <div class="infra-item"><span class="icon">🚽</span> Sanitários Internos Higienizados</div>
-        <div class="infra-item"><span class="icon">📚</span> Biblioteca com Acervo Completo</div>
-        <div class="infra-item"><span class="icon">🍳</span> Cozinha Industrial e Refeitório</div>
-        <div class="infra-item"><span class="icon">💻</span> Laboratório de Informática Conectado</div>
-        <div class="infra-item"><span class="icon">🔬</span> Laboratório de Ciências e Biologia</div>
-        <div class="infra-item"><span class="icon">⚽</span> Quadra de Esportes Coberta</div>
-        <div class="infra-item"><span class="icon">🏢</span> Sala da Diretoria, Pedagogia e Secretaria</div>
+        <div class="infra-item"><span class="icon"></span> Escola Totalmente Acessível</div>
+        <div class="infra-item"><span class="icon"></span> Dependências com Acessibilidade</div>
+        <div class="infra-item"><span class="icon"></span> Sanitários Adaptados com Acessibilidade</div>
+        <div class="infra-item"><span class="icon"></span> Alimentação Escolar Fornecida (Merenda)</div>
+        <div class="infra-item"><span class="icon"></span> Bebedouros com Água Filtrada em Todos os Blocos</div>
+        <div class="infra-item"><span class="icon"></span> Sanitários Internos Higienizados</div>
+        <div class="infra-item"><span class="icon"></span> Biblioteca com Acervo Completo</div>
+        <div class="infra-item"><span class="icon"></span> Cozinha Industrial e Refeitório</div>
+        <div class="infra-item"><span class="icon"></span> Laboratório de Informática Conectado</div>
+        <div class="infra-item"><span class="icon"></span> Laboratório de Ciências e Biologia</div>
+        <div class="infra-item"><span class="icon"></span> Quadra de Esportes Coberta</div>
+        <div class="infra-item"><span class="icon"></span> Sala da Diretoria, Pedagogia e Secretaria</div>
       </div>
 
+      <!-- ESPAÇO DAS FOTOS EXTERNAS E INTERNAS PRONTO PARA VOCÊ ENCAIXAR SUAS FOTOS -->
       <div class="gallery-category-container">
-        <h3>🏛️ Fotos da Estrutura Externa do Colégio</h3>
+        <h3>Fotos da Estrutura Externa</h3>
         <div class="gallery-grid">
-          <!-- FOTO 1 EXTERNA -->
           <div class="photo-card">
-            <img src="externa-fachada.jpg" alt="Fachada Principal" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Fachada Principal & Portaria</div>
+            <img src="fachada.jpg" alt="Fachada" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Fachada Principal & Portaria de Acesso</span>
           </div>
 
-          <!-- FOTO 2 EXTERNA -->
           <div class="photo-card">
-            <img src="externa-patio.jpg" alt="Pátio Central" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Pátio Central Arborizado</div>
+            <img src="patio.jpg" alt="Pátio" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Pátio Central Arborizado & Convivência</span>
           </div>
 
-          <!-- FOTO 3 EXTERNA -->
           <div class="photo-card">
-            <img src="externa-quadra.jpg" alt="Quadra Coberta" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Quadra Poliesportiva Coberta</div>
+            <img src="quadra.jpg" alt="Quadra" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Quadra Poliesportiva Coberta</span>
           </div>
 
-          <!-- FOTO 4 EXTERNA -->
           <div class="photo-card">
-            <img src="externa-horta.jpg" alt="Horta Escolar" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Horta Escolar Agroecológica</div>
+            <img src="horta.jpg" alt="Horta" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Horta Escolar Agroecológica</span>
           </div>
         </div>
 
-        <h3>🏢 Fotos das Dependências Internas do Colégio</h3>
+        <h3>🏢 Fotos das Dependências Internas</h3>
         <div class="gallery-grid">
-          <!-- FOTO 1 INTERNA -->
           <div class="photo-card">
-            <img src="interna-informatica.jpg" alt="Laboratório de Informática" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Laboratório de Informática</div>
+            <img src="informatica.jpg" alt="Informática" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Laboratório de Informática</span>
           </div>
 
-          <!-- FOTO 2 INTERNA -->
           <div class="photo-card">
-            <img src="interna-ciencias.jpg" alt="Laboratório de Ciências" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Laboratório de Ciências e Biologia</div>
+            <img src="ciencias.jpg" alt="Ciências" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Laboratório de Ciências e Biologia</span>
           </div>
 
-          <!-- FOTO 3 INTERNA -->
           <div class="photo-card">
-            <img src="interna-biblioteca.jpg" alt="Biblioteca Escolar" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Biblioteca & Cantinho da Leitura</div>
+            <img src="biblioteca.jpg" alt="Biblioteca" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Biblioteca & Cantinho da Leitura</span>
           </div>
 
-          <!-- FOTO 4 INTERNA -->
           <div class="photo-card">
-            <img src="interna-refeitorio.jpg" alt="Refeitório Escolar" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1567521464027-f127ff144326?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Refeitório & Cozinha Industrial</div>
+            <img src="refeitorio.jpg" alt="Refeitório" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Refeitório & Cozinha Industrial</span>
           </div>
 
-          <!-- FOTO 5 INTERNA -->
           <div class="photo-card">
-            <img src="interna-sala.jpg" alt="Salas de Aula" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Salas de Aula Climatizadas</div>
+            <img src="salas.jpg" alt="Salas de Aula" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Salas de Aula Climatizadas</span>
           </div>
 
-          <!-- FOTO 6 INTERNA -->
           <div class="photo-card">
-            <img src="interna-sanitarios.jpg" alt="Sanitários Adaptados" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80';">
-            <div class="photo-caption">📷 Sanitários Adaptados</div>
+            <img src="sanitarios.jpg" alt="Sanitários" class="photo-img" onerror="this.style.display='none';">
+            <span class="photo-title">📷 Sanitários Adaptados com Acessibilidade</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABA 5: QUADRO DE FUNCIONÁRIOS -->
+    <!-- ABA 5: QUADRO DE FUNCIONÁRIOS (MANTIDO 100% COMO VOCÊ DIGITOU) -->
     <section id="equipe" class="tab-pane">
       <div class="section-header">
         <h2>Quadro Completo de Funcionários</h2>
@@ -426,15 +410,15 @@
       </div>
 
       <div class="staff-section">
-        <h3>👨‍🏫 Corpo Docente e Disciplinas Ofertadas</h3>
+        <h3>Corpo Docente e Disciplinas Ofertadas</h3>
         <div class="staff-grid">
           <div class="staff-card">
-            <div class="subject-badge bg-matematica">
+            <div class="subject-badge bg-portugues">
               <span class="subject-icon">📐</span>
               <span>Matemática</span>
             </div>
-            <h4>Prof. Henrique Pereira De Avelar</h4>
-            <p class="staff-role">Professor Titular • Ensino Fundamental e Médio</p>
+            <h4>Profª. Henrique Pereira De Avelar</h4>
+            <p class="staff-role">Professora Titular • Ensino Fundamental e Médio</p>
           </div>
 
           <div class="staff-card">
@@ -458,15 +442,15 @@
           <div class="staff-card">
             <div class="subject-badge bg-fisica">
               <span class="subject-icon">⚡</span>
-              <span>Física, Tecnologias & Ed. Financeira</span>
+              <span>Física, Tecnologias & Educação Financeira</span>
             </div>
             <h4>Prof. Christian Maslinkiewiecz Cimador</h4>
             <p class="staff-role">Professor Titular • Ensino Médio</p>
           </div>
 
           <div class="staff-card">
-            <div class="subject-badge bg-ciencias">
-              <span class="subject-icon">🧪</span>
+            <div class="subject-badge bg-geografia">
+              <span class="subject-icon">⚡</span>
               <span>Química</span>
             </div>
             <h4>Prof. Marcos Vinícius Silva Dos Anjos</h4>
@@ -474,8 +458,8 @@
           </div>
 
           <div class="staff-card">
-            <div class="subject-badge bg-portugues">
-              <span class="subject-icon">📚</span>
+            <div class="subject-badge bg-geografia">
+              <span class="subject-icon">🇬🇧</span>
               <span>Língua Portuguesa</span>
             </div>
             <h4>Prof. Alceu Martins De Souza Junior</h4>
@@ -483,12 +467,12 @@
           </div>
 
           <div class="staff-card">
-            <div class="subject-badge bg-portugues">
-              <span class="subject-icon">📚</span>
+            <div class="subject-badge bg-geografia">
+              <span class="subject-icon">🇬🇧</span>
               <span>Língua Inglesa & Língua Portuguesa</span>
             </div>
             <h4>Profª. Giovana Socek</h4>
-            <p class="staff-role">Professora Titular • Ensino Fundamental e Médio</p>
+            <p class="staff-role">Professor Titular • Ensino Fundamental e Médio</p>
           </div>
 
           <div class="staff-card">
@@ -519,7 +503,7 @@
           </div>
 
           <div class="staff-card">
-            <div class="subject-badge bg-educacaofisica">
+            <div class="subject-badge bg-filosofia">
               <span class="subject-icon">⚽</span>
               <span>Educação Física</span>
             </div>
@@ -546,8 +530,8 @@
           </div>
 
           <div class="staff-card">
-            <div class="subject-badge bg-filosofia">
-              <span class="subject-icon">🧠</span>
+            <div class="subject-badge bg-campo">
+              <span class="subject-icon">🕊️</span>
               <span>Sociologia</span>
             </div>
             <h4>Prof. Rafael Alves Dos Santos</h4>
@@ -597,7 +581,7 @@
         </div>
       </div>
 
-      <!-- DEPOIMENTOS LADO A LADO -->
+      <!-- DEPOIMENTOS DISPOSTOS LADO A LADO -->
       <div class="testimonials-container">
         <h3>💬 Depoimentos de Professores e Ex-Alunos</h3>
         <div class="grid-cards">
