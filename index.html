@@ -95,77 +95,112 @@
       </div>
     </section>
 
-    <!-- ABA 2: NOTÍCIAS E EVENTOS -->
+    <!-- ABA 2: NOTÍCIAS E EVENTOS COM ÁLBUM EXPANDÍVEL DE FOTOS -->
     <section id="noticias" class="tab-pane">
       <div class="section-header">
         <h2>Notícias, Comunicados e Eventos</h2>
-        <p class="section-sub">As fotos dos eventos estão ocultas por padrão. Clique em cima de qualquer card para visualizar a foto!</p>
+        <p class="section-sub">Clique em qualquer notícia para ler os detalhes e abrir o álbum com todas as fotos do evento!</p>
         <div class="divider"></div>
       </div>
 
-      <div class="grid-cards">
+      <div class="news-list">
         
+        <!-- CARD 1: FESTA JUNINA DO COLÉGIO -->
         <article class="info-card interactive-card" onclick="toggleNewsPhoto(this)">
           <div class="card-header-row">
-            <span class="card-tag">Evento Cultural</span>
-            <span class="click-hint">Clique para ver a foto 📸</span>
+            <span class="card-tag tag-festivo">🎉 Evento Comunitário</span>
+            <span class="news-date">📅 20 de Junho</span>
+            <span class="click-hint">Ver Fotos do Evento 📸</span>
           </div>
-          <h3>Feira do Conhecimento Sustentável do Campo 2026</h3>
-          <p>Apresentação de projetos sustentáveis e agroecológicos desenvolvidos pelos alunos do Ensino Médio. Aberto a toda a comunidade rural.</p>
+          <h3>Grande Festa Junina Tradicional do C.E.I.A.S</h3>
+          <p>No dia 20 de junho realizamos a nossa inesquecível Festa Junina! O evento foi um sucesso maravilhoso, acolhendo alunos, familiares e toda a comunidade da Colônia Marcelino. Tivemos dança de quadrilha, brincadeiras tradicionais, barracas com comidas típicas do campo e muita alegria!</p>
           
+          <!-- ÁLBUM COMPLETO DO EVENTO (ABRE AO CLICAR) -->
           <div class="news-photo-box">
-            <div class="news-photo-placeholder">
-              <span>🖼️ [Foto do Evento]: Alunos expondo maquetes de irrigação sustentável e hortas orgânicas</span>
+            <div class="album-header">
+              <h4>📸 Álbum do Evento: Festa Junina 2026</h4>
+              <span>Clique nas fotos para ver em destaque</span>
             </div>
-            <span class="photo-caption">Estande da Feira Cultural e Científica do C.E.I.A.S.</span>
+            <div class="event-photo-grid">
+              <div class="photo-thumb">🖼️ Dança da Quadrilha do Ensino Médio</div>
+              <div class="photo-thumb">🖼️ Apresentação do 6º e 7º Ano</div>
+              <div class="photo-thumb">🖼️ Barraca de Comidas Típicas e Milho Verde</div>
+              <div class="photo-thumb">🖼️ Brincadeiras e Pescaria dos Alunos</div>
+              <div class="photo-thumb">🖼️ Decoração de Bandeirinhas da Escola</div>
+              <div class="photo-thumb">🖼️ Foto Coletiva de Professores e Comunidade</div>
+            </div>
+            <span class="photo-caption">Álbum com registros fotográficos da Festa Junina do C.E.I.A.S.</span>
           </div>
         </article>
 
+        <!-- CARD 2: FEIRA DO CONHECIMENTO SUSTENTÁVEL -->
         <article class="info-card interactive-card" onclick="toggleNewsPhoto(this)">
           <div class="card-header-row">
-            <span class="card-tag">Aviso Escolar</span>
-            <span class="click-hint">Clique para ver a foto 📸</span>
+            <span class="card-tag">🌱 Projeto Pedagógico</span>
+            <span class="news-date">📅 15 de Maio</span>
+            <span class="click-hint">Ver Fotos do Evento 📸</span>
+          </div>
+          <h3>Feira do Conhecimento Sustentável e Agroecologia 2026</h3>
+          <p>Apresentação dos projetos de sustentabilidade desenvolvidos pelos estudantes na Horta Escolar e nos Laboratórios. Os alunos expuseram maquetes de irrigação, sistemas de compostagem e cultivo de hortaliças orgânicas.</p>
+
+          <div class="news-photo-box">
+            <div class="album-header">
+              <h4>📸 Álbum do Evento: Feira Sustentável</h4>
+            </div>
+            <div class="event-photo-grid">
+              <div class="photo-thumb">🖼️ Estande de Irrigação Automatizada</div>
+              <div class="photo-thumb">🖼️ Exposição de Hortaliças Orgânicas</div>
+              <div class="photo-thumb">🖼️ Apresentação do Projeto de Compostagem</div>
+              <div class="photo-thumb">🖼️ Visitantes e Pais Avaliando os Trabalhos</div>
+            </div>
+            <span class="photo-caption">Registros dos trabalhos científicos dos alunos do C.E.I.A.S.</span>
+          </div>
+        </article>
+
+        <!-- CARD 3: REUNIÃO GERAL DE PAIS E MESTRES -->
+        <article class="info-card interactive-card" onclick="toggleNewsPhoto(this)">
+          <div class="card-header-row">
+            <span class="card-tag">📋 Aviso Escolar</span>
+            <span class="news-date">📅 10 de Abril</span>
+            <span class="click-hint">Ver Fotos do Evento 📸</span>
           </div>
           <h3>Reunião Geral de Pais e Entrega de Boletins</h3>
-          <p>Convocação presencial para alinhamento de metas acadêmicas e acompanhamento pedagógico individualizado de cada estudante.</p>
+          <p>Encontro presencial no auditório para apresentação das metas pedagógicas, alinhamento de projetos inclusivos e entrega individual de boletins aos responsáveis.</p>
 
           <div class="news-photo-box">
-            <div class="news-photo-placeholder">
-              <span>🖼️ [Foto do Evento]: Auditório do colégio lotado com pais e professores</span>
+            <div class="album-header">
+              <h4>📸 Álbum do Evento: Encontro com as Famílias</h4>
             </div>
-            <span class="photo-caption">Encontro comunitário entre a equipe pedagógica e os responsáveis.</span>
+            <div class="event-photo-grid">
+              <div class="photo-thumb">🖼️ Auditório Lotado com Pais e Responsáveis</div>
+              <div class="photo-thumb">🖼️ Apresentação da Diretora Helena Maria</div>
+              <div class="photo-thumb">🖼️ Atendimento Pedagógico nas Salas</div>
+            </div>
+            <span class="photo-caption">Acompanhamento comunitário e integração família-escola.</span>
           </div>
         </article>
 
+        <!-- CARD 4: TORNEIO INTERCLASSES -->
         <article class="info-card interactive-card" onclick="toggleNewsPhoto(this)">
           <div class="card-header-row">
-            <span class="card-tag">Esporte & Saúde</span>
-            <span class="click-hint">Clique para ver a foto 📸</span>
+            <span class="card-tag">⚽ Esporte & Integração</span>
+            <span class="news-date">📅 28 de Março</span>
+            <span class="click-hint">Ver Fotos do Evento 📸</span>
           </div>
-          <h3>Torneio Interclasses na Quadra Coberta</h3>
-          <p>Competições esportivas de futsal e voleibol entre turmas do Fundamental II e Ensino Médio, promovendo a cooperação e o esporte.</p>
+          <h3>Jogos Interclasses na Quadra Coberta</h3>
+          <p>Competições esportivas de futsal, vôlei e atletismo entre as turmas do Fundamental II e Ensino Médio, promovendo o respeito, a saúde e o trabalho em equipe.</p>
 
           <div class="news-photo-box">
-            <div class="news-photo-placeholder">
-              <span>🖼️ [Foto do Evento]: Turmas reunidas na quadra coberta com medalhas</span>
+            <div class="album-header">
+              <h4>📸 Álbum do Evento: Torneio Esportivo</h4>
             </div>
-            <span class="photo-caption">Cerimônia de premiação dos jogos interclasses do C.E.I.A.S.</span>
-          </div>
-        </article>
-
-        <article class="info-card interactive-card" onclick="toggleNewsPhoto(this)">
-          <div class="card-header-row">
-            <span class="card-tag">Projeto Pedagógico</span>
-            <span class="click-hint">Clique para ver a foto 📸</span>
-          </div>
-          <h3>Oficina de Informática e Inovação Digital</h3>
-          <p>Capacitação no Laboratório de Informática para criação de projetos digitais e uso responsável de ferramentas tecnológicas.</p>
-
-          <div class="news-photo-box">
-            <div class="news-photo-placeholder">
-              <span>🖼️ [Foto do Evento]: Computadores do laboratório com alunos praticando</span>
+            <div class="event-photo-grid">
+              <div class="photo-thumb">🖼️ Partida Final de Futsal Masculino</div>
+              <div class="photo-thumb">🖼️ Jogo de Voleibol Feminino</div>
+              <div class="photo-thumb">🖼️ Torcida Organizadamente Animada</div>
+              <div class="photo-thumb">🖼️ Entrega de Medalhas e Troféus</div>
             </div>
-            <span class="photo-caption">Aula prática no Laboratório de Informática Acessível.</span>
+            <span class="photo-caption">Cerimônia de encerramento e premiação esportiva do colégio.</span>
           </div>
         </article>
 

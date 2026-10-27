@@ -384,11 +384,11 @@ body {
 }
 
 /* ==========================================================================
-   CARDS DE NOTÍCIAS INTERATIVAS
+   CARDS DE NOTÍCIAS INTERATIVAS & ÁLBUM DE FOTOS EXPANDÍVEL
    ========================================================================== */
-.grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.news-list {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -407,7 +407,6 @@ body {
 
 .interactive-card:hover {
   border-color: var(--ceias-blue);
-  transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
 
@@ -429,12 +428,23 @@ body {
   font-weight: 800;
 }
 
+.tag-festivo {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.news-date {
+  font-size: 0.8rem;
+  color: var(--sub-text);
+  font-weight: 700;
+}
+
 .click-hint {
   font-size: 0.78rem;
   color: var(--ceias-blue);
   font-weight: 800;
   background-color: var(--ceias-light-blue);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
   transition: var(--transition-fast);
 }
@@ -444,25 +454,55 @@ body {
   color: #ffffff;
 }
 
+/* BOX DO ÁLBUM DE FOTOS QUE ABRE APÓS O CLIQUE */
 .news-photo-box {
   display: none;
-  margin-top: 18px;
-  animation: fadeIn 0.25s ease-out;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--border-subtle);
+  animation: fadeIn 0.3s ease-out;
 }
 
 .interactive-card.active .news-photo-box {
   display: block;
 }
 
-.news-photo-placeholder {
+.album-header {
+  margin-bottom: 14px;
+}
+
+.album-header h4 {
+  font-size: 1rem;
+  color: var(--ceias-blue);
+}
+
+/* GRID COM MOSAICO DE VÁRIAS FOTOS DO EVENTO */
+.event-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.photo-thumb {
   background: linear-gradient(135deg, var(--ceias-light-blue), #ffffff);
-  border: 2px dashed var(--ceias-blue);
+  border: 1px dashed var(--ceias-blue);
   border-radius: var(--radius-sm);
-  padding: 30px 16px;
+  padding: 24px 12px;
   text-align: center;
   color: var(--ceias-blue);
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.photo-thumb:hover {
+  background: var(--ceias-light-blue);
+  transform: scale(1.02);
 }
 
 .photo-caption {
@@ -470,8 +510,7 @@ body {
   font-size: 0.8rem;
   color: var(--sub-text);
   font-style: italic;
-  margin-top: 8px;
-  text-align: center;
+  margin-top: 6px;
 }
 
 /* ==========================================================================

@@ -1,6 +1,6 @@
 /**
  * C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich
- * Script de Interatividade, Expansão de Fotos e Atendimento Virtual
+ * Script de Interatividade, Expansão do Álbum de Fotos do Evento e Atendimento Virtual
  */
 
 let chatHistory = [];
@@ -56,18 +56,19 @@ window.switchTab = function(event, tabId) {
 };
 
 /* ==========================================================================
-   3. REVELA A FOTO DO EVENTO SOMENTE AO CLICAR EM CIMA DA NOTÍCIA
+   3. REVELA O ÁLBUM DE FOTOS COMPLETO DO EVENTO AO CLICAR NA NOTÍCIA
    ========================================================================== */
 window.toggleNewsPhoto = function(cardElement) {
   if (!cardElement) return;
+  
   cardElement.classList.toggle('active');
 
   const hint = cardElement.querySelector('.click-hint');
   if (hint) {
     if (cardElement.classList.contains('active')) {
-      hint.innerText = 'Ocultar Foto ❌';
+      hint.innerText = 'Fechar Álbum ❌';
     } else {
-      hint.innerText = 'Clique para ver a foto 📸';
+      hint.innerText = 'Ver Fotos do Evento 📸';
     }
   }
 };
@@ -89,7 +90,7 @@ window.adjustFont = function(direction) {
 };
 
 /* ==========================================================================
-   5. ENVIO DE MATRÍCULA VIA WHATSAPP
+   5. ENVIO DE MATRÍCULA VIA WHATSAPP / E-MAIL DA ESCOLA
    ========================================================================== */
 function initFormListeners() {
   const matInput = document.getElementById('matChatInput');
@@ -117,7 +118,7 @@ window.processMatricula = function(event) {
 
   if (!studentName || !grade || !parentName || !phone) return;
 
-  const schoolPhone = "5500999998888";
+  const schoolPhone = "5500999998888"; // Substituir pelo WhatsApp real da secretaria
   const textMessage = `Olá! Gostaria de enviar a solicitação de pré-matrícula pública no *C.E.I.A.S* ("Educando para a Comunidade"):%0A%0A` +
                       `👤 *Aluno(a):* ${encodeURIComponent(studentName)}%0A` +
                       `📚 *Série Pretendida:* ${encodeURIComponent(grade)}%0A` +
