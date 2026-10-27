@@ -361,7 +361,7 @@ body {
 }
 
 .photo-placeholder {
-  height: 260px;
+  height: 290px;
   background: var(--ceias-light-blue);
   border-radius: var(--radius-sm);
   display: flex;
