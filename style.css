@@ -130,7 +130,6 @@ body {
   max-height: 30px;
 }
 
-/* LOGO EM TIRINHA DISCRETA (~2 CM) */
 .header-logo-img {
   height: 24px;
   width: auto;
@@ -315,7 +314,6 @@ body {
   max-height: 35px;
 }
 
-/* LOGO HERO EM TIRINHA PEQUENA (~2 CM) */
 .hero-logo-img {
   height: 28px;
   width: auto;
@@ -344,7 +342,7 @@ body {
   font-weight: 800;
 }
 
-/* HISTÓRIA DA PATRONA */
+/* HISTÓRIA DA PATRONA (ENQUADRAMENTO DO ROSTO) */
 .history-wrapper {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -361,7 +359,7 @@ body {
 }
 
 .photo-placeholder {
-  height: 320px;
+  height: 280px;
   background: var(--ceias-light-blue);
   border-radius: var(--radius-sm);
   display: flex;
@@ -375,6 +373,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
 }
 
 .profile-subtitle {
@@ -958,7 +957,6 @@ input:focus, select:focus {
 .contact-list { list-style: none; margin-top: 12px; }
 .contact-list li { margin-bottom: 10px; font-size: 0.88rem; color: var(--dark-text); }
 
-
 /* ==========================================================================
    AJUSTES EXCLUSIVOS PARA DISPOSITIVOS MÓVEIS (CELULARES)
    ========================================================================== */
@@ -1054,8 +1052,13 @@ input:focus, select:focus {
     padding: 16px;
   }
 
+  /* FOTO DA PATRONA NO CELULAR (SEM CORTAR ROSTO/CABEÇA) */
   .photo-placeholder {
-    height: 220px;
+    height: 320px;
+  }
+
+  .profile-img {
+    object-position: top center;
   }
 
   .news-grid,
@@ -1147,6 +1150,10 @@ input:focus, select:focus {
 
   .header-logo-img {
     height: 18px;
+  }
+
+  .photo-placeholder {
+    height: 280px;
   }
 
   .modal-album-grid {
