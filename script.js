@@ -1,175 +1,200 @@
-/* ===================================================
-   SISTEMA DE TROCA DE ABAS (TABS)
-=================================================== */
-function switchTab(tabId, element) {
-  // Esconde todas as abas
-  const allTabs = document.querySelectorAll('.tab-pane');
-  allTabs.forEach(tab => tab.classList.remove('active'));
+/**
+ * C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich
+ * Script de Interatividade, Expansão de Fotos e Atendimento Virtual
+ */
 
-  // Remove a classe ativa de todos os botões
-  const allButtons = document.querySelectorAll('.tab-btn');
-  allButtons.forEach(btn => btn.classList.remove('active'));
+let chatHistory = [];
 
-  // Ativa a aba e o botão correspondente
-  const selectedTab = document.getElementById(tabId);
-  if (selectedTab) {
-    selectedTab.classList.add('active');
-  }
-
-  if (element) {
-    element.classList.add('active');
-  }
-
-  // Se o menu mobile estiver aberto, fecha
-  const navMenu = document.getElementById('navMenu');
-  if (navMenu.classList.contains('open')) {
-    navMenu.classList.remove('open');
-  }
-
-  // Rola suavemente para o início do conteúdo
-  window.scrollTo({ top: 100, behavior: 'smooth' });
-}
-
-/* ===================================================
-   MENU HAMBÚRGUER MOBILE
-=================================================== */
 document.addEventListener('DOMContentLoaded', () => {
+  initHamburgerMenu();
+  initFormListeners();
+});
+
+/* ==========================================================================
+   1. MENU HAMBÚRGUER RESPONSIVO
+   ========================================================================== */
+function initHamburgerMenu() {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const navMenu = document.getElementById('navMenu');
 
-  hamburgerBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-  });
+  if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
 
-  // Renderiza Gráficos do Chart.js
-  renderSchoolCharts();
-});
-
-/* ===================================================
-   ACESSIBILIDADE: TAMANHO DE FONTE & CONTRASTE
-=================================================== */
-let baseFontSize = 16;
-
-function changeFontSize(step) {
-  baseFontSize += step;
-  if (baseFontSize < 13) baseFontSize = 13;
-  if (baseFontSize > 22) baseFontSize = 22;
-  document.documentElement.style.fontSize = baseFontSize + 'px';
-}
-
-function toggleContrast() {
-  document.body.classList.toggle('high-contrast');
-}
-
-/* ===================================================
-   GRÁFICOS ESTATÍSTICOS COM CHART.JS
-=================================================== */
-function renderSchoolCharts() {
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'bottom' }
-    },
-    scales: {
-      y: { beginAtZero: true, max: 100 }
-    }
-  };
-
-  // Ensino Fundamental
-  const ctxFund = document.getElementById('chartFundCanvas').getContext('2d');
-  new Chart(ctxFund, {
-    type: 'bar',
-    data: {
-      labels: ['6º Ano', '7º Ano', '8º Ano', '9º Ano'],
-      datasets: [
-        { label: 'Aprovação (%)', data: [92, 94, 91, 96], backgroundColor: '#0284c7' },
-        { label: 'Reprovação (%)', data: [5, 4, 6, 3], backgroundColor: '#d97706' },
-        { label: 'Abandono (%)', data: [3, 2, 3, 1], backgroundColor: '#dc2626' }
-      ]
-    },
-    options: chartOptions
-  });
-
-  // Ensino Médio
-  const ctxMedio = document.getElementById('chartMedioCanvas').getContext('2d');
-  new Chart(ctxMedio, {
-    type: 'bar',
-    data: {
-      labels: ['1º Ano', '2º Ano', '3º Ano'],
-      datasets: [
-        { label: 'Aprovação (%)', data: [89, 93, 98], backgroundColor: '#0284c7' },
-        { label: 'Reprovação (%)', data: [7, 5, 1], backgroundColor: '#d97706' },
-        { label: 'Abandono (%)', data: [4, 2, 1], backgroundColor: '#dc2626' }
-      ]
-    },
-    options: chartOptions
-  });
-}
-
-/* ===================================================
-   ASSISTENTE VIRTUAL DE IA DE MATRÍCULA
-=================================================== */
-let chatLog = [];
-
-function handleAiSend() {
-  const input = document.getElementById('aiUserInput');
-  const userText = input.value.trim();
-  if (!userText) return;
-
-  // Adiciona mensagem do usuário
-  appendBubble(userText, 'user');
-  chatLog.push(`Usuário: ${userText}`);
-  input.value = '';
-
-  // Resposta simulada inteligente da IA
-  setTimeout(() => {
-    const aiResponse = generateAiResponse(userText);
-    appendBubble(aiResponse, 'ai');
-    chatLog.push(`IA C.E.I.A.S: ${aiResponse}`);
-  }, 500);
-}
-
-function sendQuickQuestion(questionText) {
-  document.getElementById('aiUserInput').value = questionText;
-  handleAiSend();
-}
-
-function appendBubble(text, sender) {
-  const chatBox = document.getElementById('aiChatBox');
-  const bubble = document.createElement('div');
-  bubble.className = `chat-bubble ${sender}`;
-  bubble.innerHTML = text;
-  chatBox.appendChild(bubble);
-  chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function generateAiResponse(text) {
-  const lower = text.toLowerCase();
-  
-  if (lower.includes('documento') || lower.includes('documentos') || lower.includes('preciso')) {
-    return 'Os documentos necessários para matrícula são: Certidão de Nascimento, RG e CPF do aluno e responsável, Comprovante de Residência recente (luz) e Histórico Escolar.';
-  } else if (lower.includes('transporte') || lower.includes('ônibus') || lower.includes('bus')) {
-    return 'O C.E.I.A.S conta com transporte escolar gratuito da Rede Estadual para atender todas as comunidades e localidades da zona rural entorno.';
-  } else if (lower.includes('série') || lower.includes('vagas') || lower.includes('turmas')) {
-    return 'Oferecemos Ensino Fundamental II (6º ao 9º ano) e Ensino Médio completo (1º ao 3º ano) no período diurno.';
-  } else {
-    return `Anotei sua dúvida: "${text}". Clique no botão abaixo para encaminhar esta conversa para a Secretaria pelo WhatsApp!`;
+    document.addEventListener('click', (event) => {
+      if (!navMenu.contains(event.target) && !hamburgerBtn.contains(event.target)) {
+        navMenu.classList.remove('open');
+      }
+    });
   }
 }
 
-// Exportar atendimento para o WhatsApp da Escola
-function exportChatToWhatsApp() {
-  const phone = '5541999998888'; // Número de exemplo da escola
-  let message = 'Olá, Secretaria do C.E.I.A.S! Gostaria de prosseguir com meu atendimento via site:%0A%0A';
+/* ==========================================================================
+   2. SISTEMA DE NAVEGAÇÃO ENTRE ABAS
+   ========================================================================== */
+window.switchTab = function(event, tabId) {
+  const allPanes = document.querySelectorAll('.tab-pane');
+  const allNavLinks = document.querySelectorAll('.nav-link');
+  const targetPane = document.getElementById(tabId);
 
-  if (chatLog.length === 0) {
-    message += 'Desejo tirar dúvidas sobre novas matrículas e vagas.';
-  } else {
-    chatLog.forEach(line => {
-      message += encodeURIComponent(line) + '%0A';
+  if (!targetPane) return;
+
+  allPanes.forEach(pane => pane.classList.remove('active'));
+  allNavLinks.forEach(link => link.classList.remove('active'));
+
+  targetPane.classList.add('active');
+
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  }
+
+  const navMenu = document.getElementById('navMenu');
+  if (navMenu) navMenu.classList.remove('open');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+/* ==========================================================================
+   3. REVELA A FOTO DO EVENTO SOMENTE AO CLICAR EM CIMA DA NOTÍCIA
+   ========================================================================== */
+window.toggleNewsPhoto = function(cardElement) {
+  if (!cardElement) return;
+  cardElement.classList.toggle('active');
+
+  const hint = cardElement.querySelector('.click-hint');
+  if (hint) {
+    if (cardElement.classList.contains('active')) {
+      hint.innerText = 'Ocultar Foto ❌';
+    } else {
+      hint.innerText = 'Clique para ver a foto 📸';
+    }
+  }
+};
+
+/* ==========================================================================
+   4. ACESSIBILIDADE
+   ========================================================================== */
+window.toggleContrast = function() {
+  document.body.classList.toggle('high-contrast');
+};
+
+let fontScale = 100;
+window.adjustFont = function(direction) {
+  fontScale += direction * 5;
+  if (fontScale < 85) fontScale = 85;
+  if (fontScale > 125) fontScale = 125;
+
+  document.body.style.fontSize = `${fontScale}%`;
+};
+
+/* ==========================================================================
+   5. ENVIO DE MATRÍCULA VIA WHATSAPP
+   ========================================================================== */
+function initFormListeners() {
+  const matInput = document.getElementById('matChatInput');
+  if (matInput) {
+    matInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') window.askMatriculaIA();
     });
   }
 
-  window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+  const mainInput = document.getElementById('mainChatInput');
+  if (mainInput) {
+    mainInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') window.sendMainChatMessage();
+    });
+  }
+}
+
+window.processMatricula = function(event) {
+  if (event) event.preventDefault();
+
+  const studentName = document.getElementById('studentName')?.value.trim();
+  const grade = document.getElementById('gradeSelect')?.value;
+  const parentName = document.getElementById('parentName')?.value.trim();
+  const phone = document.getElementById('phoneNum')?.value.trim();
+
+  if (!studentName || !grade || !parentName || !phone) return;
+
+  const schoolPhone = "5500999998888";
+  const textMessage = `Olá! Gostaria de enviar a solicitação de pré-matrícula pública no *C.E.I.A.S* ("Educando para a Comunidade"):%0A%0A` +
+                      `👤 *Aluno(a):* ${encodeURIComponent(studentName)}%0A` +
+                      `📚 *Série Pretendida:* ${encodeURIComponent(grade)}%0A` +
+                      `👨‍👩‍👧 *Responsável:* ${encodeURIComponent(parentName)}%0A` +
+                      `📞 *Telefone para Contato:* ${encodeURIComponent(phone)}`;
+
+  window.open(`https://wa.me/${schoolPhone}?text=${textMessage}`, '_blank');
+};
+
+/* ==========================================================================
+   6. INTELIGÊNCIA ARTIFICIAL E CHAT
+   ========================================================================== */
+window.askMatriculaIA = function() {
+  const input = document.getElementById('matChatInput');
+  const question = input?.value.trim();
+  if (!question) return;
+
+  const chatLogs = document.getElementById('matChatLogs');
+  appendMessage(chatLogs, 'user', question);
+  input.value = '';
+
+  setTimeout(() => {
+    const qLower = question.toLowerCase();
+    let reply = "Para fazer a matrícula pública no C.E.I.A.S, preencha o formulário ao lado que nossa secretaria entrará em contato!";
+
+    if (qLower.includes('doc') || qLower.includes('documento') || qLower.includes('trazer')) {
+      reply = "📄 Documentos Necessários: RG/Certidão do aluno, CPF dos responsáveis, Comprovante de Residência rural e Histórico Escolar.";
+    } else if (qLower.includes('paga') || qLower.includes('valor') || qLower.includes('custo')) {
+      reply = "🆓 O C.E.I.A.S é uma escola 100% pública e gratuita!";
+    }
+
+    appendMessage(chatLogs, 'bot', reply);
+  }, 500);
+};
+
+window.sendMainChatMessage = function() {
+  const input = document.getElementById('mainChatInput');
+  const messageText = input?.value.trim();
+  if (!messageText) return;
+
+  const chatLogs = document.getElementById('mainChatLogs');
+  appendMessage(chatLogs, 'user', messageText);
+  chatHistory.push(`Usuário: ${messageText}`);
+  input.value = '';
+
+  setTimeout(() => {
+    const text = messageText.toLowerCase();
+    let botReply = "Entendido! Se quiser falar diretamente com a equipe da escola, clique no botão verde abaixo para enviar esta conversa para o WhatsApp.";
+
+    if (text.includes('horario') || text.includes('turnos')) {
+      botReply = "⏰ Aulas no Matutino (07h30 às 11h50) e Vespertino (13h00 às 17h20).";
+    } else if (text.includes('irma ambrosia') || text.includes('historia')) {
+      botReply = "⛪ Nossa escola possui origem em valores católicos em homenagem à Irmã Ambrósia Sabatovich e com o lema 'Educando para a Comunidade'.";
+    }
+
+    appendMessage(chatLogs, 'bot', botReply);
+    chatHistory.push(`IA C.E.I.A.S: ${botReply}`);
+  }, 500);
+};
+
+window.exportChatToWhatsApp = function() {
+  if (chatHistory.length === 0) return;
+
+  const schoolPhone = "5500999998888";
+  const formattedLogs = chatHistory.join("%0A");
+  const fullText = `Olá! Estava no site do C.E.I.A.S e gostaria de continuar o atendimento:%0A%0A` + formattedLogs;
+
+  window.open(`https://wa.me/${schoolPhone}?text=${fullText}`, '_blank');
+};
+
+function appendMessage(container, sender, text) {
+  if (!container) return;
+
+  const msgDiv = document.createElement('div');
+  msgDiv.className = `msg ${sender}`;
+  msgDiv.innerText = text;
+
+  container.appendChild(msgDiv);
+  container.scrollTop = container.scrollHeight;
 }
