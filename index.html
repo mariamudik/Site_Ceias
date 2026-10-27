@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich</title>
   
-  <!-- Fonte Limpa e Elegante sem deformação de letras -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -17,9 +16,8 @@
   <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
   <header class="navbar">
     <div class="logo-box">
-      <!-- Espaço reservado para a logo da escola em foto -->
       <div class="logo-img-container">
-        <img src="logo-colegio.png" alt="Logo C.E.I.A.S" class="header-logo-img" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'logo-foto-placeholder\'>📷 SUA LOGO AQUI</div>';">
+        <img src="logo-colegio.png" alt="Logo C.E.I.A.S" class="header-logo-img" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'logo-foto-placeholder\'>📷 FOTO DA LOGO</div>';">
       </div>
       <div class="logo-text">
         <span class="logo-title">C.E.I.A.S</span>
@@ -106,13 +104,11 @@
     <section id="noticias" class="tab-pane">
       <div class="section-header">
         <h2>Notícias, Comunicados e Eventos</h2>
-        <p class="section-sub">Clique em qualquer evento para abrir a página de detalhes com a galeria completa de fotos do dia!</p>
+        <p class="section-sub">Clique em qualquer evento para abrir a janela com o texto completo e a galeria de fotos!</p>
         <div class="divider"></div>
       </div>
 
       <div class="news-list">
-        
-        <!-- NOTÍCIA 1: FESTA JUNINA -->
         <article class="info-card interactive-card" onclick="openNewsModal('festa-junina')">
           <div class="card-header-row">
             <span class="card-tag tag-festivo">🎉 Evento Comunitário</span>
@@ -123,7 +119,6 @@
           <p>No dia 20 de junho ocorreu a nossa inesquecível Festa Junina! O evento foi maravilhoso, acolheu diversas pessoas da comunidade da Colônia Marcelino, com danças, comidas típicas e brincadeiras...</p>
         </article>
 
-        <!-- NOTÍCIA 2: FEIRA DO CONHECIMENTO -->
         <article class="info-card interactive-card" onclick="openNewsModal('feira-sustentavel')">
           <div class="card-header-row">
             <span class="card-tag">🌱 Projeto Pedagógico</span>
@@ -134,7 +129,6 @@
           <p>Exposição de projetos científicos e agroecológicos desenvolvidos pelos estudantes nas áreas de Irrigação, Compostagem e Cultivo Orgânico na horta escolar...</p>
         </article>
 
-        <!-- NOTÍCIA 3: REUNIÃO DE PAIS -->
         <article class="info-card interactive-card" onclick="openNewsModal('reuniao-pais')">
           <div class="card-header-row">
             <span class="card-tag">📋 Aviso Escolar</span>
@@ -145,7 +139,6 @@
           <p>Encontro presencial no auditório para apresentação das metas pedagógicas, diálogo entre professores e famílias e acompanhamento de cada estudante...</p>
         </article>
 
-        <!-- NOTÍCIA 4: TORNEIO INTERCLASSES -->
         <article class="info-card interactive-card" onclick="openNewsModal('interclasses')">
           <div class="card-header-row">
             <span class="card-tag">⚽ Esporte & Saúde</span>
@@ -155,11 +148,10 @@
           <h3>Torneio Interclasses na Quadra Coberta</h3>
           <p>Competições esportivas de futsal e voleibol entre turmas do Fundamental II e Ensino Médio, promovendo trabalho em equipe e vida saudável...</p>
         </article>
-
       </div>
     </section>
 
-    <!-- ABA 3: ENSINO E ESTATÍSTICAS -->
+    <!-- ABA 3: ENSINO E ESTATÍSTICAS (DISCIPLINAS LADO A LADO) -->
     <section id="ensino" class="tab-pane">
       <div class="section-header">
         <h2>Matriz Curricular & Indicadores de Desempenho</h2>
@@ -167,8 +159,9 @@
         <div class="divider"></div>
       </div>
 
+      <!-- DISCIPLINAS DISPOSTAS LADO A LADO (2 COLUNAS) -->
       <div class="grid-cards">
-        <!-- FUNDAMENTAL -->
+        <!-- COLUNA 1: FUNDAMENTAL II -->
         <div class="info-card">
           <h3>📘 Ensino Fundamental II (6º ao 9º Ano)</h3>
           <p class="area-title">Disciplinas Ofertadas:</p>
@@ -185,11 +178,11 @@
           </ul>
         </div>
 
-        <!-- MÉDIO SEPARADO EM HUMANAS E EXATAS -->
+        <!-- COLUNA 2: ENSINO MÉDIO (EXATAS E HUMANAS) -->
         <div class="info-card">
           <h3>🎓 Ensino Médio (1º ao 3º Ano)</h3>
           
-          <p class="area-title">📐 Área de Matemática e Ciências da Natureza (Exatas e Biológicas):</p>
+          <p class="area-title">📐 Matemática e Ciências da Natureza (Exatas e Biológicas):</p>
           <ul class="topic-list">
             <li>Matemática e Raciocínio Lógico</li>
             <li>Física</li>
@@ -197,7 +190,7 @@
             <li>Biologia e Agroecologia</li>
           </ul>
 
-          <p class="area-title" style="margin-top: 14px;">📜 Área de Linguagens, Ciências Humanas e Sociais Aplicadas (Humanas):</p>
+          <p class="area-title" style="margin-top: 14px;">📜 Linguagens, Ciências Humanas e Sociais (Humanas):</p>
           <ul class="topic-list">
             <li>Língua Portuguesa e Literatura</li>
             <li>Língua Inglesa</li>
@@ -211,12 +204,10 @@
         </div>
       </div>
 
-      <!-- ESTATÍSTICAS COM GRÁFICOS VERTICAIS DE PÉ -->
+      <!-- ESTATÍSTICAS -->
       <div class="stats-section" style="margin-top: 36px;">
         <h3>📊 Detalhamento de Rendimento Escolar (Aprovação, Reprovação e Abandono)</h3>
-        <p class="section-sub">Acompanhamento das taxas percentuais organizadas em colunas verticais por ano escolar.</p>
 
-        <!-- GRÁFICO VERTICAL: FUNDAMENTAL II -->
         <div class="chart-card">
           <div class="chart-header">
             <h4>Ensino Fundamental II — Gráfico de Colunas Verticais</h4>
@@ -224,7 +215,6 @@
           </div>
 
           <div class="vertical-chart-wrapper">
-            <!-- 6º ano -->
             <div class="v-group">
               <div class="v-bars-flex">
                 <div class="v-bar bar-aprob" style="height: 88%;" title="Aprovação: 88%">88%</div>
@@ -234,7 +224,6 @@
               <span class="v-label">6º Ano</span>
             </div>
 
-            <!-- 7º ano -->
             <div class="v-group">
               <div class="v-bars-flex">
                 <div class="v-bar bar-aprob" style="height: 90%;" title="Aprovação: 90%">90%</div>
@@ -244,7 +233,6 @@
               <span class="v-label">7º Ano</span>
             </div>
 
-            <!-- 8º ano -->
             <div class="v-group">
               <div class="v-bars-flex">
                 <div class="v-bar bar-aprob" style="height: 91%;" title="Aprovação: 91%">91%</div>
@@ -254,7 +242,6 @@
               <span class="v-label">8º Ano</span>
             </div>
 
-            <!-- 9º ano -->
             <div class="v-group">
               <div class="v-bars-flex">
                 <div class="v-bar bar-aprob" style="height: 94%;" title="Aprovação: 94%">94%</div>
@@ -266,7 +253,6 @@
           </div>
         </div>
 
-        <!-- GRÁFICO VERTICAL: ENSINO MÉDIO -->
         <div class="chart-card">
           <div class="chart-header">
             <h4>Ensino Médio — Gráfico de Colunas Verticais</h4>
@@ -274,7 +260,6 @@
           </div>
 
           <div class="vertical-chart-wrapper">
-            <!-- 1º ano -->
             <div class="v-group">
               <div class="v-bars-flex">
                 <div class="v-bar bar-aprob" style="height: 85%;" title="Aprovação: 85%">85%</div>
@@ -284,7 +269,6 @@
               <span class="v-label">1º Ano Médio</span>
             </div>
 
-            <!-- 2º ano -->
             <div class="v-group">
               <div class="v-bars-flex">
                 <div class="v-bar bar-aprob" style="height: 89%;" title="Aprovação: 89%">89%</div>
@@ -294,7 +278,6 @@
               <span class="v-label">2º Ano Médio</span>
             </div>
 
-            <!-- 3º ano -->
             <div class="v-group">
               <div class="v-bars-flex">
                 <div class="v-bar bar-aprob" style="height: 95%;" title="Aprovação: 95%">95%</div>
@@ -318,20 +301,18 @@
     <section id="infraestrutura" class="tab-pane">
       <div class="section-header">
         <h2>Infraestrutura Completa & Galeria de Fotos</h2>
-        <p class="section-sub">Espaços físicos totalmente adaptados e cobertura com Transporte Escolar Gratuito em toda a área rural.</p>
+        <p class="section-sub">Instalações físicas adaptadas e Transporte Escolar Gratuito garantido nas estradas rurais.</p>
         <div class="divider"></div>
       </div>
 
-      <!-- ALERTA DE TRANSPORTE ESCOLAR RURAL -->
       <div class="transport-alert-box">
         <span class="transport-icon">🚌</span>
         <div>
           <h4>Transporte Escolar Gratuito Garantido</h4>
-          <p>O C.E.I.A.S oferece linhas de transporte escolar rural gratuito cobrindo 100% das estradas e comunidades rurais da região da Colônia Marcelino e arredores.</p>
+          <p>O C.E.I.A.S conta com frota de transporte escolar rural gratuito atendendo 100% das estradas e comunidades da Colônia Marcelino e região.</p>
         </div>
       </div>
 
-      <!-- LISTA DE INFRAESTRUTURA -->
       <div class="infra-grid">
         <div class="infra-item"><span class="icon">♿</span> Escola Totalmente Acessível</div>
         <div class="infra-item"><span class="icon">🛗</span> Dependências com Acessibilidade</div>
@@ -347,7 +328,6 @@
         <div class="infra-item"><span class="icon">🏢</span> Sala da Diretoria, Pedagogia e Secretaria</div>
       </div>
 
-      <!-- GALERIA COMPLETA DE FOTOS DE ESTRUTURA -->
       <div class="gallery-category-container">
         <h3>🏛️ Fotos da Estrutura Externa</h3>
         <div class="gallery-grid">
@@ -369,7 +349,7 @@
       </div>
     </section>
 
-    <!-- ABA 5: QUADRO DE FUNCIONÁRIOS -->
+    <!-- ABA 5: QUADRO DE FUNCIONÁRIOS E DEPOIMENTOS LADO A LADO -->
     <section id="equipe" class="tab-pane">
       <div class="section-header">
         <h2>Quadro Completo de Funcionários</h2>
@@ -377,11 +357,9 @@
         <div class="divider"></div>
       </div>
 
-      <!-- PROFESSORES COM BADGES COLORIDOS -->
       <div class="staff-section">
         <h3>👨‍🏫 Corpo Docente e Disciplinas Ofertadas</h3>
         <div class="staff-grid">
-          
           <div class="staff-card">
             <div class="subject-badge bg-portugues">
               <span class="subject-icon">📚</span>
@@ -489,15 +467,12 @@
             <h4>Profª. Tereza Sabatovich</h4>
             <p class="staff-role">Professora Titular • Ensino Fundamental</p>
           </div>
-
         </div>
       </div>
 
-      <!-- EQUIPE GESTORA -->
       <div class="management-section">
-        <h3>👩‍💼 Equipe Gestora, Pedagogia e Apoio</h3>
+        <h3>👩‍💼 Equipe Gestora e Apoio</h3>
         <div class="staff-grid">
-          
           <div class="staff-card border-blue">
             <div class="subject-badge bg-gestao">
               <span class="subject-icon">🏛️</span>
@@ -524,11 +499,10 @@
             <h4>Marcos Vinícius & Juliana Rosa</h4>
             <p class="staff-role">Secretários Administrativos</p>
           </div>
-
         </div>
       </div>
 
-      <!-- DEPOIMENTOS -->
+      <!-- DEPOIMENTOS DISPOSTOS LADO A LADO -->
       <div class="testimonials-container">
         <h3>💬 Depoimentos de Professores e Ex-Alunos</h3>
         <div class="grid-cards">
@@ -545,11 +519,11 @@
       </div>
     </section>
 
-    <!-- ABA 6: MATRÍCULA DIRETO VIA E-MAIL -->
+    <!-- ABA 6: MATRÍCULA -->
     <section id="matricula" class="tab-pane">
       <div class="section-header">
         <h2>Solicitação de Pré-Matrícula Escolar via E-mail</h2>
-        <p class="section-sub">Preencha o formulário abaixo. A solicitação será enviada diretamente para o e-mail oficial da secretaria da escola.</p>
+        <p class="section-sub">A solicitação será encaminhada diretamente para o e-mail oficial da secretaria da escola.</p>
         <div class="divider"></div>
       </div>
 
@@ -594,6 +568,11 @@
           </div>
 
           <button type="submit" class="btn-primary btn-email">✉️ Enviar Matrícula Direto para o E-mail da Escola</button>
+
+          <!-- Opção Discreta em WhatsApp -->
+          <p style="margin-top: 14px; text-align: center; font-size: 0.82rem; color: var(--sub-text);">
+            Ou se preferir, <a href="#" onclick="processMatriculaWhatsApp(event)" style="color:var(--ceias-blue); font-weight:bold;">clique aqui para tentar enviar por WhatsApp</a>.
+          </p>
         </form>
 
         <div class="ia-helper-box">
@@ -629,7 +608,6 @@
             <li><strong>Endereço:</strong> Colônia Marcelino, Zona Rural, São José dos Pinhais - PR</li>
             <li><strong>E-mail Oficial (Principal):</strong> <a href="mailto:ceias.colegio.campo@gmail.com" style="color:var(--ceias-blue); font-weight:bold;">ceias.colegio.campo@gmail.com</a></li>
             <li><strong>Telefone / Secretaria:</strong> (41) 3333-0000</li>
-            <li><strong>Transporte Escolar:</strong> Cobertura gratuita em 100% das estradas rurais da região</li>
             <li><strong>Horário de Atendimento:</strong> Segunda a Sexta, das 07h30 às 17h00</li>
           </ul>
         </div>
@@ -657,13 +635,13 @@
 
   </main>
 
-  <!-- JANELA MODAL POP-UP PARA NOTÍCIAS E ÁLBUM DE FOTOS -->
+  <!-- JANELA MODAL POP-UP PARA NOTÍCIAS COM BOTÃO "X" -->
   <div class="modal-overlay" id="newsModalOverlay" onclick="closeNewsModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="closeNewsModal()" title="Fechar janela">✕</button>
       
       <div class="modal-body" id="modalNewsBody">
-        <!-- Preenchido dinamicamente via JS com o texto e as dezenas de fotos -->
+        <!-- Preenchido dinamicamente via JS -->
       </div>
     </div>
   </div>

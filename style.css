@@ -21,14 +21,14 @@
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* MODO ALTO CONTRASTE PERFEITO E LEGÍVEL (PRETO ABSOLUTO COM TEXTO BRANCO E AMARELO) */
+/* MODO ALTO CONTRASTE PERFEITO (PRETO ABSOLUTO + BRANCO + AMARELO) */
 body.high-contrast {
   --bg-page: #000000;
   --bg-card: #000000;
-  --ceias-blue: #ffff00;       /* Amarelo vibrante para títulos e links */
+  --ceias-blue: #ffff00;       /* Amarelo vibrante para títulos */
   --ceias-dark-blue: #ffff00;
   --ceias-light-blue: #111111;
-  --dark-text: #ffffff;        /* Branco puro para o texto principal */
+  --dark-text: #ffffff;        /* Branco puro para texto */
   --sub-text: #ffffff;
   --border-subtle: #ffffff;    /* Bordas brancas nítidas */
   --shadow-soft: none;
@@ -111,11 +111,6 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-}
-
-.logo-img-container {
-  display: flex;
-  align-items: center;
 }
 
 .header-logo-img {
@@ -567,11 +562,11 @@ body {
 }
 
 /* ==========================================================================
-   ENSINO & TÓPICOS
+   ENSINO (DISCIPLINAS E DEPOIMENTOS LADO A LADO)
    ========================================================================== */
 .grid-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 

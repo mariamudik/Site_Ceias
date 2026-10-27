@@ -1,7 +1,7 @@
 /**
  * C.E.I.A.S - Colégio do Campo Irmã Ambrósia Sabatovich
  * Script com Janela Modal Pop-up para Notícias (com dezenas de fotos),
- * Envio de Matrícula diretamente por E-mail e Alto Contraste legível.
+ * Envio de Matrícula por E-mail (com opção secundária de WhatsApp) e Alto Contraste legível.
  */
 
 let chatHistory = [];
@@ -57,7 +57,7 @@ window.switchTab = function(event, tabId) {
 };
 
 /* ==========================================================================
-   3. JANELA MODAL POP-UP COM TODAS AS FOTOS DO EVENTO (DEZENAS DE FOTOS)
+   3. JANELA MODAL POP-UP COM FOTOS DO EVENTO
    ========================================================================== */
 const newsDatabase = {
   'festa-junina': {
@@ -124,7 +124,6 @@ window.openNewsModal = function(newsKey) {
   const modalBody = document.getElementById('modalNewsBody');
 
   let photosHTML = '';
-  // Gera dezenas de quadros de foto para o evento
   for (let i = 0; i < data.photoCount; i++) {
     const captionText = data.captions[i] || `Registro Fotográfico ${i + 1} do Evento`;
     photosHTML += `
@@ -170,7 +169,7 @@ window.adjustFont = function(direction) {
 };
 
 /* ==========================================================================
-   5. ENVIO DE MATRÍCULA DIRETO PARA O E-MAIL DA ESCOLA
+   5. ENVIO DE MATRÍCULA VIA E-MAIL (E OPÇÃO WHATSAPP)
    ========================================================================== */
 function initFormListeners() {
   const matInput = document.getElementById('matChatInput');
@@ -211,8 +210,30 @@ window.processMatriculaEmail = function(event) {
     `Enviado através do Portal Oficial do C.E.I.A.S.`
   );
 
-  // Redireciona diretamente abrindo o programa de e-mail com a mensagem montada para a escola
   window.location.href = `mailto:${schoolEmail}?subject=${subject}&body=${bodyText}`;
+};
+
+window.processMatriculaWhatsApp = function(event) {
+  if (event) event.preventDefault();
+
+  const studentName = document.getElementById('studentName')?.value.trim();
+  const grade = document.getElementById('gradeSelect')?.value;
+  const parentName = document.getElementById('parentName')?.value.trim();
+  const phone = document.getElementById('phoneNum')?.value.trim();
+
+  if (!studentName || !grade || !parentName || !phone) {
+    alert("Por favor, preencha os campos do formulário primeiro.");
+    return;
+  }
+
+  const schoolPhone = "554133330000";
+  const textMessage = `Olá! Gostaria de enviar a solicitação de pré-matrícula pública no *C.E.I.A.S*:\n\n` +
+                      `👤 *Aluno(a):* ${studentName}\n` +
+                      `📚 *Série Pretendida:* ${grade}\n` +
+                      `👨‍👩‍👧 *Responsável:* ${parentName}\n` +
+                      `📞 *Contato:* ${phone}`;
+
+  window.open(`https://wa.me/${schoolPhone}?text=${encodeURIComponent(textMessage)}`, '_blank');
 };
 
 /* ==========================================================================
