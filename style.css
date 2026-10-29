@@ -706,7 +706,7 @@ body {
 }
 
 .bar-aprob { background: #059669; }
-.bar-reprob { background: #d97706; }
+.bar-reprob { background: #8aebeb; }
 .bar-abandon { background: #dc2626; }
 
 .legend {
@@ -719,7 +719,7 @@ body {
   flex-wrap: wrap;
 }
 .leg-aprob { color: #059669; }
-.leg-reprob { color: #d97706; }
+.leg-reprob { color: #73dfdf; }
 .leg-abandon { color: #dc2626; }
 
 /* ==========================================================================
@@ -802,7 +802,7 @@ body {
 }
 
 .bg-portugues { background-color: #2563eb; }
-.bg-matematica { background-color: #d97706; }
+.bg-matematica { background-color: #88d8d4; }
 .bg-ciencias { background-color: #059669; }
 .bg-fisica { background-color: #7c3aed; }
 .bg-historia { background-color: #b91c1c; }
