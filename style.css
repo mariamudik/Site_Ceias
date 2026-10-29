@@ -1,18 +1,14 @@
-/* ==========================================================================
-   PALETA DE CORES & VARIÁVEIS (C.E.I.A.S) - APENAS TONS DE AZUL
-   ========================================================================== */
 :root {
   --ceias-blue: #003b8e;
   --ceias-dark-blue: #001f54;
   --ceias-light-blue: #cce0ff;
   --ceias-accent-blue: #1d4ed8;
   --ceias-red: #d92027;
-  --ceias-yellow: #2563eb;
-  --bg-page: #dbeafe;       /* Azul pastel (fundo da página) */
-  --bg-card: #eff6ff;       /* Azul gelo suave (fundo dos cards) */
-  --dark-text: #091e42;     /* Azul marinho escuro para os textos */
-  --sub-text: #1e3a8a;      /* Azul médio para subtítulos */
-  --border-subtle: #93c5fd;  /* Borda em tom azul */
+  --bg-page: #dbeafe;
+  --bg-card: #eff6ff;
+  --dark-text: #091e42;
+  --sub-text: #1e3a8a;
+  --border-subtle: #93c5fd;
   --shadow-soft: 0 4px 20px -2px rgba(0, 59, 142, 0.15), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 12px 28px -4px rgba(0, 59, 142, 0.25), 0 4px 12px -2px rgba(0, 0, 0, 0.12);
   --radius-lg: 20px;
@@ -21,7 +17,6 @@
   --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* MODO ALTO CONTRASTE */
 body.high-contrast {
   --bg-page: #000000;
   --bg-card: #0a0a0a;
@@ -51,7 +46,7 @@ body.high-contrast .nav-link.active {
   font-weight: 800;
 }
 
-body.high-contrast .interactive-card, 
+body.high-contrast .interactive-card,
 body.high-contrast .info-card,
 body.high-contrast .staff-card,
 body.high-contrast .form-box,
@@ -61,8 +56,9 @@ body.high-contrast .photo-card {
   background: #000000 !important;
 }
 
-body.high-contrast input, 
-body.high-contrast select {
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
   background: #000000 !important;
   color: #ffffff !important;
   border: 2px solid #38bdf8 !important;
@@ -75,9 +71,6 @@ body.high-contrast .btn-email-redirect {
   font-weight: 900 !important;
 }
 
-/* ==========================================================================
-   RESET & ESTILOS BASE
-   ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -100,13 +93,9 @@ body {
   overflow-x: hidden;
 }
 
-/* ==========================================================================
-   NAVBAR & CABEÇALHO (LOGO EM TIRINHA PEQUENA)
-   ========================================================================== */
 .navbar {
   background: #bfdbfe;
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 3px solid var(--ceias-blue);
   padding: 10px 24px;
   display: flex;
@@ -148,7 +137,6 @@ body {
   font-size: 1.2rem;
   color: var(--ceias-blue);
   line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 
 .logo-slogan {
@@ -161,6 +149,7 @@ body {
 .nav-menu {
   display: flex;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
 .nav-link {
@@ -172,7 +161,6 @@ body {
   font-weight: 700;
   color: var(--sub-text);
   cursor: pointer;
-  min-height: 40px;
   transition: var(--transition-fast);
 }
 
@@ -201,7 +189,6 @@ body {
   cursor: pointer;
   min-height: 40px;
   min-width: 40px;
-  transition: var(--transition-fast);
 }
 
 .hamburger span {
@@ -211,9 +198,6 @@ body {
   border-radius: 2px;
 }
 
-/* ==========================================================================
-   CONTAINER & ACESSIBILIDADE
-   ========================================================================== */
 .main-container {
   max-width: 1140px;
   margin: 20px auto;
@@ -248,15 +232,8 @@ body {
   cursor: pointer;
   font-weight: 700;
   color: var(--ceias-blue);
-  min-height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-/* ==========================================================================
-   CARDS & SEÇÕES
-   ========================================================================== */
 .tab-pane {
   display: none;
   background: var(--bg-card);
@@ -266,13 +243,14 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.tab-pane.active { display: block; }
+.tab-pane.active {
+  display: block;
+}
 
 .section-header h2 {
   font-size: 1.6rem;
   color: var(--ceias-blue);
   font-weight: 800;
-  letter-spacing: -0.01em;
 }
 
 .section-sub {
@@ -290,16 +268,13 @@ body {
   margin: 12px 0 20px;
 }
 
-/* HERO */
 .hero-card {
   background: linear-gradient(135deg, #cce0ff 0%, #eff6ff 100%);
   border-left: 6px solid var(--ceias-blue);
   padding: 24px;
   border-radius: var(--radius-md);
   margin-bottom: 24px;
-  border-top: 1px solid var(--border-subtle);
-  border-right: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle);
 }
 
 .hero-header-brand {
@@ -309,25 +284,17 @@ body {
   flex-wrap: wrap;
 }
 
-.hero-logo-space {
-  display: flex;
-  align-items: center;
-  max-height: 35px;
-}
-
 .hero-logo-img {
   height: 28px;
   width: auto;
   max-width: 130px;
   object-fit: contain;
-  display: block;
 }
 
 .hero-badge {
   display: inline-block;
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--ceias-red);
   font-weight: 800;
   background: rgba(217, 32, 39, 0.12);
@@ -343,7 +310,6 @@ body {
   font-weight: 800;
 }
 
-/* HISTÓRIA DA PATRONA (ENQUADRAMENTO DO ROSTO) */
 .history-wrapper {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -391,40 +357,30 @@ body {
   margin-bottom: 14px;
 }
 
-.stars-symbolism-box {
+.stars-symbolism-box,
+.certificates-box {
   background: #e0f2fe;
   padding: 18px;
   border-radius: var(--radius-md);
   margin-top: 16px;
-  border-left: 5px solid var(--ceias-blue);
-  border-top: 1px solid var(--border-subtle);
-  border-right: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle);
 }
 
-.stars-symbolism-box h4 {
+.stars-symbolism-box {
+  border-left: 5px solid var(--ceias-blue);
+}
+
+.stars-symbolism-box h4,
+.certificates-box h4 {
   color: var(--ceias-blue);
   margin-bottom: 8px;
   font-size: 0.98rem;
 }
 
-.stars-symbolism-box ul {
+.stars-symbolism-box ul,
+.certificates-box ul {
   margin-top: 8px;
   padding-left: 18px;
-}
-
-.stars-symbolism-box li {
-  margin-bottom: 6px;
-  font-size: 0.88rem;
-  color: var(--dark-text);
-}
-
-.certificates-box {
-  background: #e0f2fe;
-  padding: 18px;
-  border-radius: var(--radius-md);
-  margin-top: 20px;
-  border: 1px solid rgba(0, 59, 142, 0.2);
 }
 
 .certificates-box li {
@@ -435,13 +391,17 @@ body {
   font-weight: 700;
 }
 
-/* ==========================================================================
-   NOTÍCIAS LADO A LADO
-   ========================================================================== */
-.news-grid {
+.news-grid,
+.grid-cards,
+.infra-grid,
+.gallery-grid,
+.staff-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
+}
+
+.news-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .card-media-img {
@@ -464,7 +424,9 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.interactive-card { cursor: pointer; }
+.interactive-card {
+  cursor: pointer;
+}
 
 .interactive-card:hover {
   border-color: var(--ceias-blue);
@@ -511,23 +473,24 @@ body {
   text-align: center;
 }
 
-/* ==========================================================================
-   JANELA MODAL POP-UP
-   ========================================================================== */
 .modal-overlay {
   display: none;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(9, 30, 66, 0.75);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   z-index: 2000;
   justify-content: center;
   align-items: center;
   padding: 16px;
 }
 
-.modal-overlay.open { display: flex; }
+.modal-overlay.open {
+  display: flex;
+}
 
 .modal-content {
   background: var(--bg-card);
@@ -538,28 +501,27 @@ body {
   overflow-y: auto;
   padding: 24px;
   position: relative;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   border: 3px solid var(--ceias-blue);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .modal-close-btn {
   position: absolute;
-  top: 16px; right: 16px;
+  top: 16px;
+  right: 16px;
   background: var(--ceias-red);
   color: #ffffff;
   border: none;
   font-size: 1.1rem;
   font-weight: 800;
-  width: 36px; height: 36px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-fast);
 }
-
-.modal-close-btn:hover { transform: scale(1.08); }
 
 .modal-news-title {
   font-size: 1.35rem;
@@ -598,19 +560,8 @@ body {
   border-radius: 6px;
 }
 
-/* ==========================================================================
-   GALERIA DE INFRAESTRUTURA
-   ========================================================================== */
-.gallery-category-container h3 {
-  font-size: 1.1rem;
-  color: var(--ceias-blue);
-  margin: 24px 0 12px;
-}
-
 .gallery-grid {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
 }
 
 .photo-card {
@@ -622,8 +573,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-soft);
   text-align: center;
+  box-shadow: var(--shadow-soft);
 }
 
 .photo-img {
@@ -640,13 +591,8 @@ body {
   color: var(--ceias-blue);
 }
 
-/* ==========================================================================
-   ENSINO & GRÁFICOS HORIZONTAIS
-   ========================================================================== */
 .grid-cards {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
 }
 
 .area-title {
@@ -677,12 +623,25 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.chart-header { margin-bottom: 14px; }
-.chart-header h4 { font-size: 1.05rem; color: var(--ceias-blue); }
-.chart-subtitle { font-size: 0.78rem; color: var(--sub-text); font-weight: 600; }
+.chart-header h4 {
+  font-size: 1.05rem;
+  color: var(--ceias-blue);
+}
 
-.year-stat { margin-bottom: 12px; }
-.year-label { font-size: 0.85rem; font-weight: 700; color: var(--dark-text); }
+.chart-subtitle {
+  font-size: 0.78rem;
+  color: var(--sub-text);
+  font-weight: 600;
+}
+
+.year-stat {
+  margin-bottom: 12px;
+}
+
+.year-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+}
 
 .bar-container {
   display: flex;
@@ -697,9 +656,17 @@ body {
   line-height: 26px;
 }
 
-.bar-aprob { background: #2563eb; }
-.bar-reprob { background: #0284c7; }
-.bar-abandon { background: #0369a1; }
+.bar-aprob {
+  background: #2563eb;
+}
+
+.bar-reprob {
+  background: #0284c7;
+}
+
+.bar-abandon {
+  background: #0369a1;
+}
 
 .legend {
   display: flex;
@@ -710,13 +677,19 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-.leg-aprob { color: #2563eb; }
-.leg-reprob { color: #0284c7; }
-.leg-abandon { color: #0369a1; }
 
-/* ==========================================================================
-   TRANSPORTE ESCOLAR RURAL & INFRAESTRUTURA
-   ========================================================================== */
+.leg-aprob {
+  color: #2563eb;
+}
+
+.leg-reprob {
+  color: #0284c7;
+}
+
+.leg-abandon {
+  color: #0369a1;
+}
+
 .transport-alert-box {
   background: #e0f2fe;
   border-left: 6px solid var(--ceias-blue);
@@ -728,12 +701,12 @@ body {
   margin-bottom: 20px;
 }
 
-.transport-icon { font-size: 2rem; }
+.transport-icon {
+  font-size: 2rem;
+}
 
 .infra-grid {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
   margin-bottom: 28px;
 }
 
@@ -750,23 +723,22 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-/* ==========================================================================
-   QUADRO DE FUNCIONÁRIOS
-   ========================================================================== */
-.staff-section, .management-section, .testimonials-container {
+.staff-section,
+.management-section,
+.testimonials-container {
   margin-bottom: 30px;
 }
 
-.staff-section h3, .management-section h3, .testimonials-container h3 {
+.staff-section h3,
+.management-section h3,
+.testimonials-container h3 {
   font-size: 1.15rem;
   color: var(--ceias-blue);
   margin-bottom: 16px;
 }
 
 .staff-grid {
-  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
 }
 
 .staff-card {
@@ -780,7 +752,9 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.staff-card.border-blue { border-left: 5px solid var(--ceias-blue); }
+.staff-card.border-blue {
+  border-left: 5px solid var(--ceias-blue);
+}
 
 .subject-badge {
   display: flex;
@@ -803,12 +777,20 @@ body {
 .bg-educacaofisica { background-color: #0284c7; }
 .bg-arte { background-color: #0891b2; }
 .bg-filosofia { background-color: #3b82f6; }
-.bg-campo { background-color: #0284c7; }
 .bg-religioso { background-color: #0891b2; }
 .bg-gestao { background-color: var(--ceias-blue); }
 
-.staff-card h4 { font-size: 0.95rem; color: var(--dark-text); margin-top: 2px; }
-.staff-role { font-size: 0.8rem; color: var(--sub-text); font-weight: 600; }
+.staff-card h4 {
+  font-size: 0.95rem;
+  color: var(--dark-text);
+  margin-top: 2px;
+}
+
+.staff-role {
+  font-size: 0.8rem;
+  color: var(--sub-text);
+  font-weight: 600;
+}
 
 .testimonial-card {
   background: #dbeafe;
@@ -827,16 +809,17 @@ body {
   color: var(--ceias-blue);
 }
 
-/* ==========================================================================
-   FORMULÁRIO DE MATRÍCULA E CHAT
-   ========================================================================== */
-.matricula-grid, .contact-grid {
+.matricula-grid,
+.contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
 
-.form-box, .ia-helper-box, .chat-main-box, .contact-card {
+.form-box,
+.ia-helper-box,
+.chat-main-box,
+.contact-card {
   background: #eff6ff;
   border: 2px solid var(--border-subtle);
   padding: 20px;
@@ -851,21 +834,28 @@ body {
   gap: 6px;
 }
 
-label { font-size: 0.85rem; font-weight: 700; color: var(--sub-text); }
+label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--sub-text);
+}
 
-input, select, textarea {
+input,
+select,
+textarea {
   padding: 12px 14px;
   border: 2px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  background: var(--bg-input);
+  background: #ffffff;
   color: var(--dark-text);
   outline: none;
   font-size: 0.92rem;
   width: 100%;
 }
 
-input:focus, select:focus, textarea:focus {
-  background: #ffffff;
+input:focus,
+select:focus,
+textarea:focus {
   border-color: var(--ceias-blue);
   box-shadow: 0 0 0 3px rgba(0, 59, 142, 0.15);
 }
@@ -880,15 +870,12 @@ input:focus, select:focus, textarea:focus {
   font-weight: 800;
   font-size: 0.92rem;
   cursor: pointer;
-  min-height: 48px;
   transition: var(--transition-fast);
 }
 
 .btn-primary:hover {
   background: var(--ceias-dark-blue);
 }
-
-.btn-email { background: #0284c7; }
 
 .ia-header {
   display: flex;
@@ -903,7 +890,8 @@ input:focus, select:focus, textarea:focus {
   font-weight: 800;
 }
 
-.mini-chat-logs, .chat-logs {
+.mini-chat-logs,
+.chat-logs {
   background: var(--bg-page);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
@@ -935,8 +923,14 @@ input:focus, select:focus, textarea:focus {
   align-self: flex-end;
 }
 
-.chat-input-row { display: flex; gap: 8px; }
-.chat-input-row input { flex: 1; }
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input-row input {
+  flex: 1;
+}
 
 .chat-input-row button {
   background: var(--ceias-blue);
@@ -946,7 +940,6 @@ input:focus, select:focus, textarea:focus {
   border-radius: var(--radius-sm);
   font-weight: 800;
   cursor: pointer;
-  min-height: 44px;
 }
 
 .btn-email-redirect {
@@ -959,13 +952,19 @@ input:focus, select:focus, textarea:focus {
   font-weight: 800;
   cursor: pointer;
   margin-top: 12px;
-  min-height: 48px;
 }
 
-.contact-list { list-style: none; margin-top: 12px; }
-.contact-list li { margin-bottom: 10px; font-size: 0.88rem; color: var(--dark-text); }
+.contact-list {
+  list-style: none;
+  margin-top: 12px;
+}
 
-/* RODAPÉ */
+.contact-list li {
+  margin-bottom: 10px;
+  font-size: 0.88rem;
+  color: var(--dark-text);
+}
+
 .footer {
   background: #bfdbfe;
   border-top: 3px solid var(--ceias-blue);
@@ -976,38 +975,24 @@ input:focus, select:focus, textarea:focus {
   color: var(--dark-text);
 }
 
-.footer p { margin-bottom: 4px; }
-.copyright { font-size: 0.78rem; color: var(--sub-text); font-weight: 600; }
+.copyright {
+  font-size: 0.78rem;
+  color: var(--sub-text);
+  font-weight: 600;
+}
 
-/* ==========================================================================
-   AJUSTES EXCLUSIVOS PARA DISPOSITIVOS MÓVEIS (CELULARES)
-   ========================================================================== */
 @media (max-width: 900px) {
-  .matricula-grid, .contact-grid {
+  .matricula-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
     gap: 18px;
   }
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 10px 16px;
-  }
-
-  .header-logo-img {
-    height: 20px;
-    max-width: 100px;
-  }
-
-  .hero-logo-img {
-    height: 22px;
-    max-width: 110px;
-  }
-
   .hamburger {
     display: flex;
   }
-
   .nav-menu {
     display: none;
     position: absolute;
@@ -1021,169 +1006,14 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     gap: 6px;
   }
-
   .nav-menu.open {
     display: flex;
   }
-
   .nav-link {
     width: 100%;
     text-align: left;
-    padding: 12px 14px;
-    font-size: 0.92rem;
-    background: #dbeafe;
   }
-
-  .nav-link.active {
-    background: var(--ceias-blue);
-    color: #ffffff;
-  }
-
-  .main-container {
-    padding: 0 12px;
-    margin: 12px auto;
-  }
-
-  .tab-pane {
-    padding: 20px 16px;
-    border-radius: var(--radius-md);
-  }
-
-  .section-header h2 {
-    font-size: 1.35rem;
-  }
-
-  .section-sub {
-    font-size: 0.85rem;
-  }
-
-  .hero-card {
-    padding: 18px 16px;
-  }
-
-  .hero-card h1 {
-    font-size: 1.3rem;
-  }
-
   .history-wrapper {
     grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .profile-card {
-    padding: 16px;
-  }
-
-  .photo-placeholder {
-    height: 320px;
-  }
-
-  .profile-img {
-    object-position: top center;
-  }
-
-  .news-grid,
-  .grid-cards,
-  .infra-grid,
-  .gallery-grid,
-  .staff-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .info-card {
-    padding: 16px;
-  }
-
-  .card-media-img {
-    height: 150px;
-  }
-
-  .photo-img {
-    height: 160px;
-  }
-
-  .accessibility-banner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-    text-align: center;
-    padding: 12px;
-  }
-
-  .acc-controls {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .acc-controls button {
-    flex: 1;
-    font-size: 0.82rem;
-  }
-
-  .modal-overlay {
-    padding: 12px;
-  }
-
-  .modal-content {
-    padding: 18px 16px;
-    max-height: 90vh;
-  }
-
-  .modal-news-title {
-    font-size: 1.15rem;
-    line-height: 1.3;
-  }
-
-  .modal-close-btn {
-    top: 12px;
-    right: 12px;
-    width: 32px;
-    height: 32px;
-    font-size: 0.95rem;
-  }
-
-  .modal-album-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .bar-container {
-    height: 24px;
-    font-size: 0.68rem;
-    line-height: 24px;
-  }
-
-  input, select, textarea, .btn-primary, .btn-email-redirect {
-    font-size: 0.95rem;
-    border-radius: var(--radius-sm);
-  }
-}
-
-@media (max-width: 480px) {
-  .logo-title {
-    font-size: 1.1rem;
-  }
-
-  .logo-slogan {
-    font-size: 0.68rem;
-  }
-
-  .header-logo-img {
-    height: 18px;
-  }
-
-  .photo-placeholder {
-    height: 280px;
-  }
-
-  .modal-album-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .legend {
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
   }
 }
