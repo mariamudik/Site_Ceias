@@ -37,7 +37,7 @@
       <button class="nav-link" onclick="switchTab(event, 'ensino')">Ensino & Estatísticas</button>
       <button class="nav-link" onclick="switchTab(event, 'infraestrutura')">Infraestrutura & Fotos</button>
       <button class="nav-link" onclick="switchTab(event, 'equipe')">Quadro de Funcionários</button>
-      <button class="nav-link" onclick="switchTab(event, 'depoimentos')">Depoimentos</button>
+      <button class="nav-link" onclick="switchTab(event, 'depoimentos')">Mural de Depoimentos</button>
       <button class="nav-link" onclick="switchTab(event, 'matricula')">Matrícula por E-mail</button>
       <button class="nav-link" onclick="switchTab(event, 'contato')">Atendimento & Chat</button>
     </nav>
@@ -539,45 +539,32 @@
       </div>
     </section>
 
-    <!-- ABA 6: DEPOIMENTOS (EXCLUSIVA) -->
+    <!-- ABA 6: MURAL DE DEPOIMENTOS (ESPAÇO DEDICADO À COMUNIDADE) -->
     <section id="depoimentos" class="tab-pane">
       <div class="section-header">
-        <h2>Espaço de Depoimentos</h2>
-        <p class="section-sub">Veja o que alunos, ex-alunos, professores e membros da comunidade dizem sobre o C.E.I.A.S — e deixe a sua história!</p>
+        <h2>Espaço de Depoimentos da Comunidade</h2>
+        <p class="section-sub">Espaço reservado para que estudantes, ex-alunos, professores e membros da comunidade contem como foi sua experiência no C.E.I.A.S.</p>
         <div class="divider"></div>
       </div>
 
       <div class="testimonials-container">
-        <h3>💬 Depoimentos Recentes</h3>
-        
-        <div class="grid-cards" id="testimonialsList">
-          <blockquote class="testimonial-card">
-            <p>"Lecionar no C.E.I.A.S é ver diariamente o lema 'Educando para a Comunidade' ganhar vida nas salas de aula e no campo."</p>
-            <cite>— Prof. Roberto Andrade (Professor de Matemática)</cite>
-          </blockquote>
-
-          <blockquote class="testimonial-card">
-            <p>"A formação que recebi no Colégio Irmã Ambrósia abriu as portas para a universidade pública. Tenho um orgulho enorme da nossa escola!"</p>
-            <cite>— Ana Beatriz Santos (Ex-aluna, Turma 2024)</cite>
-          </blockquote>
-        </div>
-
-        <div class="form-box" style="margin-top: 32px;">
-          <h3 style="color: var(--ceias-blue); margin-bottom: 8px;">✨ Compartilhe a sua História no C.E.I.A.S</h3>
+        <!-- FORMULÁRIO PARA DEIXAR UM DEPOIMENTO -->
+        <div class="form-box" style="margin-bottom: 32px;">
+          <h3 style="color: var(--ceias-blue); margin-bottom: 8px;">✨ Deixe o seu Depoimento</h3>
           <p style="font-size: 0.9rem; margin-bottom: 16px; color: var(--sub-text);">
-            Como foi ou está sendo sua experiência de estudar ou trabalhar em nossa escola? Escreva seu depoimento abaixo para que ele apareça em nosso portal!
+            Você estuda, já estudou ou trabalha no C.E.I.A.S? Escreva sua mensagem abaixo para registrar sua história no nosso mural oficial!
           </p>
 
           <form onsubmit="addNewTestimonial(event)">
             <div class="form-group">
               <label for="testimonialName">Seu Nome Completo:</label>
-              <input type="text" id="testimonialName" placeholder="Ex: João da Silva" required>
+              <input type="text" id="testimonialName" placeholder="Ex: Maria da Silva" required>
             </div>
 
             <div class="form-group">
               <label for="testimonialRole">Sua Relação com a Escola:</label>
               <select id="testimonialRole" required>
-                <option value="">Selecione...</option>
+                <option value="">Selecione sua relação com o colégio...</option>
                 <option value="Aluno(a) Atual">Aluno(a) Atual</option>
                 <option value="Ex-aluno(a)">Ex-aluno(a)</option>
                 <option value="Professor(a)">Professor(a)</option>
@@ -588,11 +575,21 @@
 
             <div class="form-group">
               <label for="testimonialText">Seu Depoimento:</label>
-              <textarea id="testimonialText" rows="5" placeholder="Conte detalhadamente sobre suas memórias, aprendizados e experiências no C.E.I.A.S..." required style="padding: 12px; border: 2px solid var(--border-subtle); border-radius: var(--radius-sm); width: 100%; font-family: inherit; font-size: 0.92rem; outline: none;"></textarea>
+              <textarea id="testimonialText" rows="5" placeholder="Escreva aqui como foi ou está sendo sua experiência no C.E.I.A.S..." required style="padding: 12px; border: 2px solid var(--border-subtle); border-radius: var(--radius-sm); width: 100%; font-family: inherit; font-size: 0.92rem; outline: none;"></textarea>
             </div>
 
             <button type="submit" class="btn-primary">Publicar Meu Depoimento 📝</button>
           </form>
+        </div>
+
+        <h3 style="color: var(--ceias-blue); margin-bottom: 16px;">💬 Mural de Depoimentos Publicados</h3>
+        
+        <!-- MURAL ONDE APARECERÃO OS DEPOIMENTOS DAS PESSOAS -->
+        <div class="grid-cards" id="testimonialsList">
+          <div class="no-testimonials-msg" id="emptyTestimonialsNotice" style="background: #e0f2fe; padding: 20px; border-radius: var(--radius-md); text-align: center; border: 1px dashed var(--border-subtle);">
+            <p style="font-weight: 600; color: var(--ceias-blue);">Ainda não há depoimentos publicados no momento.</p>
+            <p style="font-size: 0.88rem; color: var(--sub-text); margin-top: 4px;">Seja o primeiro a compartilhar sua história no formulário acima!</p>
+          </div>
         </div>
       </div>
     </section>

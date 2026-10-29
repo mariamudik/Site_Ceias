@@ -189,7 +189,13 @@ window.addNewTestimonial = function(event) {
   if (!name || !role || !text) return;
 
   const testimonialsList = document.getElementById('testimonialsList');
+  const emptyNotice = document.getElementById('emptyTestimonialsNotice');
+
   if (!testimonialsList) return;
+
+  if (emptyNotice) {
+    emptyNotice.style.display = 'none';
+  }
 
   const newCard = document.createElement('blockquote');
   newCard.className = 'testimonial-card';
@@ -200,7 +206,7 @@ window.addNewTestimonial = function(event) {
 
   testimonialsList.prepend(newCard);
   event.target.reset();
-  alert('Obrigado por publicar seu depoimento no portal do C.E.I.A.S!');
+  alert('Obrigado por publicar seu depoimento no mural do C.E.I.A.S!');
 };
 
 window.askMatriculaIA = function() {
