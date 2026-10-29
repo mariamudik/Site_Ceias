@@ -3,7 +3,6 @@ let chatHistory = [];
 document.addEventListener('DOMContentLoaded', () => {
   initHamburgerMenu();
   initFormListeners();
-  loadSavedTestimonials(); // Carrega os depoimentos salvos permanentemente no navegador
 });
 
 function initHamburgerMenu() {
@@ -132,36 +131,7 @@ function initFormListeners() {
   }
 }
 
-/* === LÓGICA DE SALVAMENTO PERMANENTE DOS DEPOIMENTOS NO LOCALSTORAGE === */
-
-function loadSavedTestimonials() {
-  const testimonialsList = document.getElementById('testimonialsList');
-  const emptyNotice = document.getElementById('emptyTestimonialsNotice');
-  
-  if (!testimonialsList) return;
-
-  const savedData = localStorage.getItem('ceias_testimonials');
-  
-  if (savedData) {
-    const testimonials = JSON.parse(savedData);
-    
-    if (testimonials.length > 0) {
-      if (emptyNotice) emptyNotice.style.display = 'none';
-      
-      testimonialsList.innerHTML = '';
-      
-      testimonials.forEach(item => {
-        const card = document.createElement('blockquote');
-        card.className = 'testimonial-card';
-        card.innerHTML = `
-          <p>"${item.text}"</p>
-          <cite>— ${item.name} (${item.role})</cite>
-        `;
-        testimonialsList.appendChild(card);
-      });
-    }
-  }
-}
+/* === LÓGICA DE ENVIO DE NOVOS DEPOIMENTOS === */
 
 window.addNewTestimonial = function(event) {
   if (event) event.preventDefault();
@@ -172,18 +142,21 @@ window.addNewTestimonial = function(event) {
 
   if (!name || !role || !text) return;
 
-  const savedData = localStorage.getItem('ceias_testimonials');
-  let testimonials = savedData ? JSON.parse(savedData) : [];
+  const testimonialsList = document.getElementById('testimonialsList');
+  if (!testimonialsList) return;
 
-  const newEntry = { name, role, text };
-  testimonials.unshift(newEntry);
+  const newCard = document.createElement('blockquote');
+  newCard.className = 'testimonial-card';
+  newCard.innerHTML = `
+    <p>"${text}"</p>
+    <cite>— ${name} (${role})</cite>
+  `;
 
-  localStorage.setItem('ceias_testimonials', JSON.stringify(testimonials));
-
-  loadSavedTestimonials();
+  // Adiciona o novo depoimento no topo do mural
+  testimonialsList.prepend(newCard);
 
   event.target.reset();
-  alert('Obrigado por publicar seu depoimento! Ele foi salvo no mural do C.E.I.A.S.');
+  alert('Obrigado por enviar seu depoimento!');
 };
 
 /* === OUTRAS FUNÇÕES DO SITE === */

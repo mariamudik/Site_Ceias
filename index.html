@@ -539,26 +539,26 @@
       </div>
     </section>
 
-    <!-- ABA 6: MURAL DE DEPOIMENTOS (ESPAÇO DEDICADO À COMUNIDADE) -->
+    <!-- ABA 6: MURAL DE DEPOIMENTOS REAL -->
     <section id="depoimentos" class="tab-pane">
       <div class="section-header">
         <h2>Espaço de Depoimentos da Comunidade</h2>
-        <p class="section-sub">Espaço reservado para que estudantes, ex-alunos, professores e membros da comunidade contem como foi sua experiência no C.E.I.A.S.</p>
+        <p class="section-sub">Depoimentos e relatos marcantes de quem faz e fez parte da história do C.E.I.A.S.</p>
         <div class="divider"></div>
       </div>
 
       <div class="testimonials-container">
-        <!-- FORMULÁRIO PARA DEIXAR UM DEPOIMENTO -->
+        <!-- FORMULÁRIO PARA NOVO DEPOIMENTO -->
         <div class="form-box" style="margin-bottom: 32px;">
           <h3 style="color: var(--ceias-blue); margin-bottom: 8px;">✨ Deixe o seu Depoimento</h3>
           <p style="font-size: 0.9rem; margin-bottom: 16px; color: var(--sub-text);">
-            Você estuda, já estudou ou trabalha no C.E.I.A.S? Escreva sua mensagem abaixo para registrar sua história no nosso mural oficial!
+            Você estuda, já estudou ou trabalha no C.E.I.A.S? Compartilhe sua história conosco para adicionarmos ao mural!
           </p>
 
           <form onsubmit="addNewTestimonial(event)">
             <div class="form-group">
               <label for="testimonialName">Seu Nome Completo:</label>
-              <input type="text" id="testimonialName" placeholder="Ex: Maria da Silva" required>
+              <input type="text" id="testimonialName" placeholder="Ex: Nome Sobrenome" required>
             </div>
 
             <div class="form-group">
@@ -584,12 +584,22 @@
 
         <h3 style="color: var(--ceias-blue); margin-bottom: 16px;">💬 Mural de Depoimentos Publicados</h3>
         
-        <!-- MURAL ONDE APARECERÃO OS DEPOIMENTOS DAS PESSOAS -->
+        <!-- MURAL COM OS DEPOIMENTOS REAIS FIXOS -->
         <div class="grid-cards" id="testimonialsList">
-          <div class="no-testimonials-msg" id="emptyTestimonialsNotice" style="background: #e0f2fe; padding: 20px; border-radius: var(--radius-md); text-align: center; border: 1px dashed var(--border-subtle);">
-            <p style="font-weight: 600; color: var(--ceias-blue);">Ainda não há depoimentos publicados no momento.</p>
-            <p style="font-size: 0.88rem; color: var(--sub-text); margin-top: 4px;">Seja o primeiro a compartilhar sua história no formulário acima!</p>
-          </div>
+
+          <!-- DEPOIMENTO REAL 1: ISABELLA VITÓRIA -->
+          <blockquote class="testimonial-card">
+            <p>"Minha experiência nessa escola foi uma etapa cheia de aprendizados, momentos especiais e experiências que me ajudaram a crescer tanto academicamente quanto pessoalmente. Levo comigo o carinho dos professores, que sempre estiveram dispostos a nos ajudar e a incentivar o melhor de cada um, além das lembranças das pessoas e dos momentos que tornaram essa fase única. Acredito que uma escola não nos ensina apenas matérias, mas também valores, emoções e lições que levamos conosco muito além da sala de aula.<br><br>
+            Estudar nessa escola foi uma experiência muito especial para mim. Os professores são muito queridos, estão sempre dispostos a ajudar e nos incentivam a aprender, crescer e dar o nosso melhor. Além dos conhecimentos que levamos para a vida, também ficam as lembranças, os momentos compartilhados e as pessoas que tornam tudo mais especial. Sou muito grata por ter feito parte dessa história e por tudo o que vivi nessa escola."</p>
+            <cite>— Isabella Vitória (Ex-aluna)</cite>
+          </blockquote>
+
+          <!-- DEPOIMENTO REAL 2: LUIZ AUGUSTO -->
+          <blockquote class="testimonial-card">
+            <p>"Na época que estudei a escola era muito boa, professores atenciosos que queriam fazer a diferença, a diretora sempre muito atenciosa sempre ajudava os alunos e a mesa de ping pong era símbolo do rei que eu fui nesse nobre esporte."</p>
+            <cite>— Luiz Augusto (Ex-aluno)</cite>
+          </blockquote>
+
         </div>
       </div>
     </section>
