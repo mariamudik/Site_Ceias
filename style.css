@@ -7,12 +7,12 @@
   --ceias-light-blue: #cce0ff;
   --ceias-accent-blue: #1d4ed8;
   --ceias-red: #d92027;
-  --ceias-yellow: #d97706;
-  --ceias-gold: #f59e0b;
+  --ceias-yellow: #06d9ce;
+  --ceias-gold: #7fc6e2;
 
   /* Fundos Coloridos Vivos (Substituído branco #ffffff e cinza #f8fafc) */
   --bg-page: #dbeafe;       /* Azul pastel suave e acolhedor para a página */
-  --bg-card: #fff3d6;       /* Creme dourado aquecido para os cards e seções */
+  --bg-card: #1dfff4;       /* Creme dourado aquecido para os cards e seções */
   --bg-input: #eff6ff;      /* Azul claro vibrante para caixas de entrada */
 
   /* Textos de Alto Contraste */
@@ -359,7 +359,7 @@ body {
 }
 
 .profile-card {
-  background: #fef3c7;
+  background: #a0d7ec;
   border: 2px solid var(--border-subtle);
   padding: 20px;
   border-radius: var(--radius-md);
@@ -461,7 +461,7 @@ body {
 }
 
 .info-card {
-  background: #fff8e7;
+  background: #a3d4e2;
   border: 2px solid var(--border-subtle);
   padding: 20px;
   border-radius: var(--radius-md);
@@ -499,7 +499,7 @@ body {
 }
 
 .tag-festivo {
-  background: #fde68a;
+  background: #9fdbee;
   color: #92400e;
 }
 
@@ -513,7 +513,7 @@ body {
   font-size: 0.78rem;
   color: var(--ceias-blue);
   font-weight: 800;
-  background-color: #dbeafe;
+  background-color: #c6dcf8;
   padding: 8px 12px;
   border-radius: 20px;
   text-align: center;
@@ -554,7 +554,7 @@ body {
   position: absolute;
   top: 16px; right: 16px;
   background: var(--ceias-red);
-  color: #ffffff;
+  color: #b1e7ee;
   border: none;
   font-size: 1.1rem;
   font-weight: 800;
@@ -593,7 +593,7 @@ body {
 .modal-photo-card {
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: #dbeafe;
+  background: #d4e6fd;
   border: 1px solid var(--border-subtle);
   padding: 8px;
   text-align: center;
@@ -622,7 +622,7 @@ body {
 }
 
 .photo-card {
-  background: #fff8e7;
+  background: #81b1b4;
   border: 2px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 10px;
@@ -677,7 +677,7 @@ body {
 }
 
 .chart-card {
-  background: #fff8e7;
+  background: #9cd5da;
   border: 2px solid var(--border-subtle);
   padding: 20px;
   border-radius: var(--radius-md);
@@ -699,7 +699,7 @@ body {
   overflow: hidden;
   margin-top: 4px;
   font-size: 0.72rem;
-  color: #ffffff;
+  color: #b4eff1;
   font-weight: 800;
   text-align: center;
   line-height: 26px;
@@ -726,7 +726,7 @@ body {
    TRANSPORTE ESCOLAR RURAL & INFRAESTRUTURA
    ========================================================================== */
 .transport-alert-box {
-  background: #e0edff;
+  background: #d2e3fa;
   border-left: 6px solid var(--ceias-blue);
   padding: 16px;
   border-radius: var(--radius-md);
@@ -746,7 +746,7 @@ body {
 }
 
 .infra-item {
-  background: #fff8e7;
+  background: #8ce4dc;
   border: 2px solid var(--border-subtle);
   padding: 14px;
   border-radius: var(--radius-md);
@@ -778,7 +778,7 @@ body {
 }
 
 .staff-card {
-  background: #fff8e7;
+  background: #a5e2e2;
   border: 2px solid var(--border-subtle);
   padding: 16px;
   border-radius: var(--radius-md);
@@ -819,7 +819,7 @@ body {
 .staff-role { font-size: 0.8rem; color: var(--sub-text); font-weight: 600; }
 
 .testimonial-card {
-  background: #fef3c7;
+  background: #a7dfd7;
   border-left: 5px solid var(--ceias-gold);
   padding: 18px;
   border-radius: var(--radius-md);
